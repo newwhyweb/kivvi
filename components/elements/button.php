@@ -1,0 +1,1 @@
+<a href="<?php echo $href ?>"><button class="button--<?php echo $variant ?>"><?php echo $text ?></button></a>
