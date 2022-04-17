@@ -27,3 +27,62 @@ Tested upto: 5.9
     justify-content: space-between;
 }
 
+
+
+:root {
+    --kh-color-green: #43d2b5;
+    --kh-color-blue: #2ea3f2;
+    --kh-global-background: white;
+    --kh-global-font-color: #666;
+  }
+  
+  html {
+    background: var(--kh-global-background);
+    color: var(--kh-global-font-color);
+  }
+  
+  :root {
+    --kh-button-background: var(--kh-color-green);
+    --kh-button-color: white;
+    --kh-button-padding: .5rem 1rem;
+    --kh-button-radius: 10px;
+    --kh-button-border: 1px solid var(--kh-color-green);
+    --kh-button-hover-color: var(--kh-color-green);
+    --kh-button-hover-background: white;
+    --kh-button-transition: 0.3s all ease-in-out;
+    --kh-button-alternate-color: var(--kh-color-green);
+    --kh-button-alternate-background: transparent;
+    --kh-button-alternate-hover-color: white;
+  }
+  
+  button {
+    background-color: var(--kh-button-background);
+    color: var(--kh-button-color);
+    padding: var(--kh-button-padding);
+    border-radius: var(--kh-button-radius);
+    border: var(--kh-button-border);
+    transition: var(--kh-button-transition);
+  }
+  button a {
+    color: var(--kh-button-color);
+    text-decoration: none;
+    transition: var(--kh-button-transition);
+  }
+  button:hover, button a:hover, button:hover a {
+    color: var(--kh-button-hover-color);
+    background: var(--kh-button-hover-background);
+  }
+  button.button--alternate, button.button--alternate a {
+    background: var(--kh-button-alternate-background);
+    color: var(--kh-button-alternate-color);
+    transition: var(--kh-button-transition);
+  }
+  button.button--alternate:hover, button.button--alternate a:hover, button.button--alternate:hover a, button.button--alternate a:hover, button.button--alternate a a:hover, button.button--alternate a:hover a {
+    color: var(--kh-button-alternate-hover-color);
+    background: var(--kh-button-alternate-color);
+  }
+  
+  .kh-buttons {
+    display: flex;
+    gap: 1rem;
+  }
