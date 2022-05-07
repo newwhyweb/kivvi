@@ -9,8 +9,8 @@ $kivvi_acf_includes = array(
   'lib/acf/components/components/buttonset.php',
 
 
-  'lib/acf/templates/pages/simple.php',
-  // 'lib/acf/templates/pages/buttons.php',
+
+  'lib/acf/templates/pages/buttons.php',
 
 
 );
