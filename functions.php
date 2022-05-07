@@ -8,13 +8,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
  */
 
 $kivvi_includes = array(
+  'lib/setup.php',
   'lib/utils.php',
   'lib/acf/acf.php',
   // 'lib/admin.php',
   // 'lib/config.php',
   'lib/scripts.php',
   'lib/media.php',
-  // 'lib/widgets.php',
+  'lib/widgets.php',
   // 'lib/shortcodes.php',
   // 'lib/template-tags.php',
   // 'lib/users.php',

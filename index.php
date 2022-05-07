@@ -6,6 +6,7 @@
  * @package kivvi
  */
 
+
 get_header(); ?>
 
 <?php
@@ -15,20 +16,29 @@ for ($i = 1; $i < 999; $i++) {
     if (!$thisRow) {
         break;
     }
+
     foreach ($thisRow as $component => $thisComponentData) {
         // TODO: TURN INTO CLASS
+        // TOP HTML
+?>
+        <div class="kivvi_row">
+            <?php
+            switch ($component) {
 
-        switch ($component) {
-                // ELEMENTS
-            case  'button':
-                break;
+                    // ELEMENTS
+                case  'kivvi_button':
+                    include 'components/elements/button.php';
+                    break;
 
-                // COMPONENTS
-            case 'Button Set':
+                    // COMPONENTS
+                case 'kivvi_buttonset':
 
-                include 'components/components/buttonset.php';
-                break;
-        }
+                    include 'components/components/buttonset.php';
+                    break;
+            }
+            ?>
+        </div>
+<?php
     }
 }
 
