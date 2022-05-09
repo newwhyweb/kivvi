@@ -40,12 +40,7 @@ unset($file, $filepath);
 
 
 
-add_filter('use_block_editor_for_post', 'yourtheme_hide_editor', 10, 2);
-function yourtheme_hide_editor($use_block_editor, $post_type)
-{
-  remove_post_type_support('page', 'editor'); // disable standard editor
-  return false; // and disable gutenberg   
-}
+
 
 $timber = new Timber\Timber();
 add_filter('timber/loader/loader', function ($loader) {

@@ -38,6 +38,12 @@ Tested upto: 5.9
 html {
   background: var(--kh-global-background);
   color: var(--kh-global-font-color);
+  margin-top: 0 !important;
+}
+
+body {margin: 0;}
+#header-section {
+  margin-top: 0;
 }
 
 .kivvi_row {

@@ -20,7 +20,9 @@
 <?php get_template_part('template-parts/footer/footer-widgets'); ?>
 
 </div><!-- #page -->
-
+<script>
+    document.getElementById("page-transition").classList.remove('active');
+</script>
 <?php wp_footer(); ?>
 
 </body>
