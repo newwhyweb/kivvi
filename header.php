@@ -43,7 +43,7 @@ if (is_single() && 'committee' == get_post_type()) {
 
 ?>
 
-<body <?php body_class($siteClass); ?> style="height: auto; position: relative;">
+<body <?php body_class($siteClass); ?> style="">
 	<style>
 
 	</style>
