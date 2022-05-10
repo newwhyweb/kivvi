@@ -1,0 +1,65 @@
+.modal.slidein {
+    transform: translateX(150%);
+    transition: transform 0.5s ease-in-out;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    color: black;
+    z-index: 500;
+    display: flex;
+    line-height: 1.5;
+    text-align: left;
+    .modal-text {
+        padding-top: 2rem;
+        width: 66%;
+        h2,
+        h3,
+        p {
+            width: 90%;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+    }
+    .modal-img {
+        width: 34%;
+        img {
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+            max-height: 100vh;
+        }
+    }
+    h2 {
+        color: var(--kh-color-dark-teal);
+        text-transform: uppercase;
+        font-size: 32px;
+    }
+    h3 {
+        color: var(--kh-color-orange);
+    }
+    .blurb {
+        color: var(--kh-color-dark-teal);
+    }
+    p {
+        font-size: 16px;
+    }
+    &.active {
+        transform: translateX(0);
+    }
+    .modal-close {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        font-size: 50px;
+        color: var(--kh-color-teal);
+        transition: transform 0.3s;
+        cursor: pointer;
+        &:hover {
+            transform: rotate(90deg);
+        }
+    }
+}

@@ -6,11 +6,9 @@
  * @package kivvi
  */
 
-
 get_header(); ?>
 
 <?php
-$context = Timber::context();
 for ($i = 1; $i < 999; $i++) {
     $thisRow = get_field("Row " . $i);
     if (!$thisRow) {
@@ -18,24 +16,14 @@ for ($i = 1; $i < 999; $i++) {
     }
 
     foreach ($thisRow as $component => $thisComponentData) {
-        // TODO: TURN INTO CLASS
         // TOP HTML
 ?>
         <div class="kivvi_row">
             <?php
-            switch ($component) {
-
-                    // ELEMENTS
-                case  'kivvi_button':
-                    include 'components/elements/button.php';
-                    break;
-
-                    // COMPONENTS
-                case 'kivvi_buttonset':
-
-                    include 'components/components/buttonset.php';
-                    break;
-            }
+            get_template_part('template-parts/components/' . $component, '', $thisComponentData);
+            // get_template_part('template-parts/components',  $component, array($thisComponentData));
+            // $renderComponent = new kivviComponent($component, $thisComponentData);
+            // $renderComponent->render();
             ?>
         </div>
 <?php

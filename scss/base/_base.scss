@@ -1,0 +1,11 @@
+html {
+    background: var(--kh-global-background);
+    color: var(--kh-global-font-color);
+}
+
+.kivvi_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}

@@ -1,0 +1,485 @@
+:root {
+  --kh-color-green: #43d2b5;
+  --kh-color-blue: #2ea3f2;
+  --kh-global-background: white;
+  --kh-global-font-color: #666;
+}
+
+html {
+  background: var(--kh-global-background);
+  color: var(--kh-global-font-color);
+}
+
+.kivvi_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.columns-two {
+  display: flex;
+}
+
+.kivvi_sidebar {
+  text-align: left;
+}
+.kivvi_sidebar h2 {
+  font-size: 38px;
+  margin-block-end: 0;
+}
+.kivvi_sidebar a {
+  text-decoration: none;
+}
+.kivvi_sidebar ul {
+  margin-block-start: 0.5rem;
+}
+
+.modal.slidein {
+  transform: translateX(150%);
+  transition: transform 0.5s ease-in-out;
+  background: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: black;
+  z-index: 500;
+  display: flex;
+  line-height: 1.5;
+  text-align: left;
+}
+.modal.slidein .modal-text {
+  padding-top: 2rem;
+  width: 66%;
+}
+.modal.slidein .modal-text h2,
+.modal.slidein .modal-text h3,
+.modal.slidein .modal-text p {
+  width: 90%;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+.modal.slidein .modal-img {
+  width: 34%;
+}
+.modal.slidein .modal-img img {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  max-height: 100vh;
+}
+.modal.slidein h2 {
+  color: var(--kh-color-dark-teal);
+  text-transform: uppercase;
+  font-size: 32px;
+}
+.modal.slidein h3 {
+  color: var(--kh-color-orange);
+}
+.modal.slidein .blurb {
+  color: var(--kh-color-dark-teal);
+}
+.modal.slidein p {
+  font-size: 16px;
+}
+.modal.slidein.active {
+  transform: translateX(0);
+}
+.modal.slidein .modal-close {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  font-size: 50px;
+  color: var(--kh-color-teal);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.modal.slidein .modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.slideuptext {
+  line-height: 1.2;
+  overflow: hidden;
+}
+.slideuptext .inner {
+  display: inline-block;
+  transform: translateY(200%);
+  transition: transform 0.5s;
+}
+.slideuptext.active .inner {
+  transform: translateY(0);
+}
+
+.active .slideup {
+  transform: translateY(0);
+  transition: all 2s;
+}
+.active .slideup.delay-1 {
+  transition-delay: 0.5s;
+}
+.active .slideup.delay-2 {
+  transition-delay: 1s;
+}
+.active .slideup.delay-3 {
+  transition-delay: 1.5s;
+}
+.active .slideup.delay-4 {
+  transition-delay: 2s;
+}
+.active .slideup.delay-5 {
+  transition-delay: 2.5s;
+}
+.active .slideup.delay-6 {
+  transition-delay: 3s;
+}
+.active .slideup.delay-7 {
+  transition-delay: 3.5s;
+}
+.active .slideup.delay-8 {
+  transition-delay: 4s;
+}
+.active .slideup.delay-9 {
+  transition-delay: 4.5s;
+}
+
+.slideup {
+  transform: translateY(200%);
+  transition: transform 0.5s;
+}
+.slideup.active {
+  transform: translateY(0);
+}
+
+#page-transition.enabled {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+  transition: all 2.5s;
+}
+#page-transition.enabled.active {
+  z-index: 9999;
+  background-color: #333;
+  opacity: 1;
+  transition: all 1s;
+}
+#page-transition.enabled #page-loader {
+  margin: 100px auto;
+  font-size: 25px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50vh - 0.5rem);
+  left: calc(50% - 0.5rem);
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+@keyframes load5 {
+  0%, 100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+:root {
+  --kh-button-background: var(--kh-color-green);
+  --kh-button-color: white;
+  --kh-button-padding: 0.5rem 1rem;
+  --kh-button-radius: 10px;
+  --kh-button-border: 1px solid var(--kh-color-green);
+  --kh-button-hover-color: var(--kh-color-green);
+  --kh-button-hover-background: white;
+  --kh-button-transition: 0.3s all ease-in-out;
+  --kh-button-alternate-color: var(--kh-color-green);
+  --kh-button-alternate-background: transparent;
+  --kh-button-alternate-hover-color: white;
+}
+
+button,
+.button {
+  background-color: var(--kh-button-background);
+  color: var(--kh-button-color);
+  padding: var(--kh-button-padding);
+  border-radius: var(--kh-button-radius);
+  border: var(--kh-button-border);
+  transition: var(--kh-button-transition);
+  text-decoration: none;
+}
+button a,
+.button a {
+  color: var(--kh-button-color);
+  text-decoration: none;
+  transition: var(--kh-button-transition);
+}
+button:hover,
+button a:hover, button:hover a,
+.button:hover,
+.button a:hover,
+.button:hover a {
+  color: var(--kh-button-hover-color);
+  background: var(--kh-button-hover-background);
+}
+button.button--alternate, button.button--alternate a,
+.button.button--alternate,
+.button.button--alternate a {
+  background: var(--kh-button-alternate-background);
+  color: var(--kh-button-alternate-color);
+  transition: var(--kh-button-transition);
+}
+button.button--alternate:hover,
+button.button--alternate a:hover, button.button--alternate:hover a, button.button--alternate a:hover,
+button.button--alternate a a:hover, button.button--alternate a:hover a,
+.button.button--alternate:hover,
+.button.button--alternate a:hover,
+.button.button--alternate:hover a,
+.button.button--alternate a:hover,
+.button.button--alternate a a:hover,
+.button.button--alternate a:hover a {
+  color: var(--kh-button-alternate-hover-color);
+  background: var(--kh-button-alternate-color);
+}
+
+.kh-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.page-about {
+  background: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/green.jpeg");
+}
+.page-about .imgwrapper {
+  display: inline-block;
+  max-height: 300px;
+  overflow: hidden;
+}
+.page-about img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.3s;
+  max-height: 300px;
+}
+.page-about img:not(.modalimg):hover {
+  transform: scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.team-cards,
+.newsroll {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+.team-cards .news-item,
+.team-cards .team-member,
+.newsroll .news-item,
+.newsroll .team-member {
+  justify-self: center;
+}
+.team-cards > *,
+.newsroll > * {
+  flex: 1;
+  max-width: 300px;
+}
+@media screen and (max-width: 1000px) {
+  .team-cards,
+.newsroll {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 500px) {
+  .team-cards,
+.newsroll {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-cards {
+  margin-top: 2rem;
+}
+
+.team-cards a {
+  text-decoration: none;
+}
+
+.team-title {
+  color: var(--kh-color-orange);
+}
+
+.newsroll {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.newsroll h3,
+.newsroll h2 {
+  font-size: 24px;
+}
+.newsroll p {
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+.newsroll a {
+  text-decoration: none;
+  color: var(--kh-color-orange);
+}
+.newsroll img {
+  height: 300px;
+  background: white;
+  object-fit: contain;
+  object-position: center;
+}
+.newsroll img.fill {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: auto;
+}
+
+.timeline li {
+  position: relative;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 10px 80px;
+}
+
+.timeline li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -8px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-image: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/circle.png");
+  background-repeat: no-repeat;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.timeline li:after {
+  background-image: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/borderline.png");
+  background-size: 1px calc(100% - 27px);
+  background-repeat: no-repeat;
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 27px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transition: all 2s;
+  max-height: 0;
+  opacity: 0;
+}
+
+.timeline li:last-of-type:after {
+  background: none;
+}
+
+.timeline.active li:before {
+  transition: all 1s;
+  opacity: 1;
+}
+.timeline.active li:nth-of-type(2):before {
+  transition-delay: 1s;
+}
+.timeline.active li:nth-of-type(3):before {
+  transition-delay: 2s;
+}
+.timeline.active li:nth-of-type(4):before {
+  transition-delay: 3s;
+}
+.timeline.active li:nth-of-type(5):before {
+  transition-delay: 4s;
+}
+.timeline.active li:nth-of-type(6):before {
+  transition-delay: 5s;
+}
+.timeline.active li:nth-of-type(7):before {
+  transition-delay: 6s;
+}
+.timeline.active li:nth-of-type(8):before {
+  transition-delay: 7s;
+}
+.timeline.active li:after {
+  transition: all 1s;
+  max-height: 1000px;
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+.timeline.active li:nth-of-type(2):after {
+  transition-delay: 1.5s;
+}
+.timeline.active li:nth-of-type(3):after {
+  transition-delay: 2.5s;
+}
+.timeline.active li:nth-of-type(4):after {
+  transition-delay: 3.5s;
+}
+.timeline.active li:nth-of-type(5):after {
+  transition-delay: 4.5s;
+}
+.timeline.active li:nth-of-type(6):after {
+  transition-delay: 5.5s;
+}
+.timeline.active li:nth-of-type(7):after {
+  transition-delay: 6.5s;
+}
+.timeline.active li:nth-of-type(8):after {
+  transition-delay: 7.5s;
+}
+
+.page-contact {
+  background: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/gold-combo.jpeg");
+}
+.page-contact h3 {
+  color: var(--kh-color-orange);
+}

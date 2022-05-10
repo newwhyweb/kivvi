@@ -1,0 +1,29 @@
+{
+  "name": "kivvi",
+  "version": "0.0.1",
+  "description": "Kivvi Parent Theme, Build for New Why",
+  "main": "gulpfile.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zethni/kivvi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zethni/kivvi/issues"
+  },
+  "homepage": "https://github.com/zethni/kivvi#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-glob": "^1.1.0"
+  }
+}

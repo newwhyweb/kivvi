@@ -1,5 +1,4 @@
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
 
 /**
  * kivvi functions and definitions
@@ -27,6 +26,7 @@ $kivvi_includes = array(
   // 'lib/facetwp.php',
   // 'lib/mail.php',
   // 'lib/search.php',
+  'components/components.php'
 );
 
 foreach ($kivvi_includes as $file) {
@@ -37,13 +37,3 @@ foreach ($kivvi_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
-
-
-
-
-
-$timber = new Timber\Timber();
-add_filter('timber/loader/loader', function ($loader) {
-  $loader->addPath(__DIR__ . "/components/elements", "elements");
-  return $loader;
-});
