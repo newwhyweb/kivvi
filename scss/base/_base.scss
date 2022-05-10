@@ -3,6 +3,9 @@ html {
     color: var(--kh-global-font-color);
 }
 
+body {
+    margin: 0;
+}
 .kivvi_row {
     display: flex;
     justify-content: center;

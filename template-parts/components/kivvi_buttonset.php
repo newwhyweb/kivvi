@@ -12,6 +12,7 @@ if ($args["variant"] == "three" || $args["variant"] == "three-alt") {
         $buttons[] = $args["ButtonThree"];
     }
 }
+echo 'hi';
 $buttonData = array();
 foreach ($buttons as $key => $button) {
     $thisButtonArray = array();
@@ -30,7 +31,7 @@ $html = '';
 $html .= '<div class="kh-buttons kh-buttons--' . $buttonsetVariant . '">';
 foreach ($buttons as $button) {
     $html .= '<div>';
-    get_template_part('template-parts/components/' . 'kivvi_button', '', $button);
+    $html .= get_template_part('template-parts/components/' . 'kivvi_button', '', $button);
     $html .= '</div>';
 }
 
