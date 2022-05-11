@@ -240,6 +240,14 @@ body {
   transform: rotate(35deg);
 }
 
+.dashicons,
+.dashicons-before:before {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
 :root {
   --kh-button-background: var(--kh-color-green);
   --kh-button-color: white;
