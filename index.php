@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php
 for ($i = 1; $i < 999; $i++) {
-    $thisRow = get_field("Row " . $i);
+    $thisRow = get_field("Section " . $i);
     if (!$thisRow) {
         break;
     }

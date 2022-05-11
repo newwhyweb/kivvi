@@ -296,6 +296,27 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   gap: 1rem;
 }
 
+:root {
+  --kivvi-card--max-width: 600px;
+  --kivvi-card--font-size: 28px;
+}
+
+.kivvi-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: var(--kivvi-card--max-width);
+  word-break: break-all;
+}
+.kivvi-card img {
+  max-width: 300px;
+}
+.kivvi-card h3 {
+  font-weight: bold;
+  font-size: var(--kivvi-card--font-size);
+}
+
 .page-about {
   background: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/green.jpeg");
 }

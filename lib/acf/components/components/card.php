@@ -10,7 +10,7 @@ $params = array(
         array(
             'key' => 'kivvi_card_image',
             'title' => 'Image',
-            'name' => 'image',
+            'name' => 'Image',
             'label' => 'Image',
             'type' => 'image',
 
