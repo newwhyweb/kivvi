@@ -22,11 +22,10 @@ $kivvi_includes = array(
   // 'lib/extras.php',
   // 'lib/woocommerce.php',
   // 'lib/jetpack.php',
-  // 'lib/toolbox.php',
   // 'lib/facetwp.php',
   // 'lib/mail.php',
   // 'lib/search.php',
-  'components/components.php'
+
 );
 
 foreach ($kivvi_includes as $file) {
