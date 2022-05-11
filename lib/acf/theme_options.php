@@ -17,6 +17,58 @@ if (function_exists('acf_add_local_field_group')) {
         'title' => 'Theme Options',
 
         'fields' => array(
+            // GENERAL
+            array(
+                'key' => 'kivvi_general_tab',
+                'label' => 'General',
+                'name' => 'General',
+                'type' => 'tab',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'placement' => 'top',
+                'endpoint' => 0,
+            ),
+            array(
+                'key' => 'kivvi_page_transition_animation',
+                'label' => 'Page Transition Animation',
+                'name' => 'kivvi_page_transition_animation',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'kivvi_component_animate',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'none' => 'None',
+                    'fadespinner' => 'Fade with Spinner'
+                ),
+                'default_value' => 'none',
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 1,
+                'ajax' => 0,
+                'return_format' => 'value',
+                'placeholder' => '',
+            ),
+
+            // HEADER
             array(
                 'key' => 'kivvi_header_tab',
                 'label' => 'Header',
@@ -71,6 +123,25 @@ if (function_exists('acf_add_local_field_group')) {
                 'message' => 'Enter the URL for the social media links you would like to display. These can be displayed anywhere with the [kivvi-socials] shortcode.',
                 'new_lines' => 'wpautop',
                 'esc_html' => 0,
+            ),
+            array(
+                'key' => 'kivvi_socials_show_premasthead',
+                'label' => 'Show in Pre Masthead',
+                'name' => 'kivvi_socials_show_premasthead',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'default_value' => 0,
+                'ui' => 1,
+                'ui_on_text' => '',
+                'ui_off_text' => '',
             ),
             array(
                 'key' => 'kivvi_twitter_url',

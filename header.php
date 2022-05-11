@@ -47,19 +47,24 @@ if (is_single() && 'committee' == get_post_type()) {
 	<style>
 
 	</style>
-	<div id="page-transition">
-		<div id="page-loader">Loading...</div>
-	</div>
-	<script>
-		document.getElementById("page-transition").classList.add('active');
-	</script>
+
+	<?php
+
+	if (get_field('kivvi_page_transition_animation', 'options') && get_field('kivvi_page_transition_animation', 'options') != 'none') : ?>
+		<div id="page-transition" class="<?php echo get_field('kivvi_page_transition_animation', 'options'); ?>">
+			<div id="page-loader">Loading...</div>
+		</div>
+		<script>
+			document.getElementById("page-transition").classList.add('active');
+		</script>
+	<?php endif; ?>
 
 	<div id="content" class="site-content">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 				<section class="section" id="header-section">
 					<div class="section-content">
-						<?php if (has_nav_menu('socials')) {
+						<?php if (get_field('kivvi_socials_show_premasthead', 'options')) {
 							echo '<div class="pre-masthead">';
 							echo do_shortcode('[kivvi-socials]');
 							echo '</div>';

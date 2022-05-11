@@ -3,8 +3,7 @@ add_theme_support('menus');
 function kivvi_menus()
 {
     register_nav_menus(array(
-        'primary' => __('Primary Menu'),
-        'socials' => __('Social Media Menu'),
+        'primary' => __('Primary Menu')
 
     ));
 }
