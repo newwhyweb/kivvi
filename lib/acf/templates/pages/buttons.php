@@ -18,7 +18,27 @@ $params = array(
     ),
 
 );
+
 $row = 1;
+$params['fields'][$row] = kivviACFUtils::getRowParams($row);
+$params['fields'][$row]['sub_fields'] = array(
+    array(
+        'key' => 'kivvi_card_1',
+        'type' => 'clone',
+        'name' => 'kivvi_card',
+        'label' => 'Card',
+        'clone' => array(
+            0 => 'kivvi_card',
+        ),
+        'prefix_name' => 1,
+        'display' => 'group'
+    ),
+
+);
+
+
+
+$row = 2;
 $params['fields'][$row] = kivviACFUtils::getRowParams($row);
 $params['fields'][$row]['sub_fields'] = array(
     array(
@@ -44,7 +64,7 @@ $params['fields'][$row]['sub_fields'] = array(
         'display' => 'group'
     ),
 );
-$row = 2;
+$row = 3;
 $params['fields'][$row] = kivviACFUtils::getRowParams($row);
 $params['fields'][$row]['sub_fields'] = array(
     array(

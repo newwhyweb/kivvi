@@ -6,9 +6,20 @@ html {
 body {
     margin: 0;
 }
-.kivvi_row {
+.kivvi_section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0;
+    background-size: cover;
+    text-align: center;
+    padding: 1rem 0;
+    margin: 2rem auto;
+}
+.kivv_section_content {
+    position: relative;
+    max-width: 1280px;
+    margin: auto;
+    @media screen and (max-width: 1279px) {
+        width: 90%;
+    }
 }

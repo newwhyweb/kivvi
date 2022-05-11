@@ -6,6 +6,7 @@ $kivvi_acf_includes = array(
   'lib/acf/kivviACFUtils.class.php',
   'lib/acf/theme_options.php',
   'lib/acf/components/elements/button.php',
+  'lib/acf/components/components/card.php',
   'lib/acf/components/components/buttonset.php',
 
 

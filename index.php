@@ -18,14 +18,16 @@ for ($i = 1; $i < 999; $i++) {
     foreach ($thisRow as $component => $thisComponentData) {
         // TOP HTML
 ?>
-        <div class="kivvi_row">
-            <?php
-            get_template_part('template-parts/components/' . $component, '', $thisComponentData);
-            // get_template_part('template-parts/components',  $component, array($thisComponentData));
-            // $renderComponent = new kivviComponent($component, $thisComponentData);
-            // $renderComponent->render();
-            ?>
-        </div>
+        <section class="kivvi_section">
+            <div class="kivvi_section_content">
+                <?php
+                get_template_part('template-parts/components/' . $component, '', $thisComponentData);
+                // get_template_part('template-parts/components',  $component, array($thisComponentData));
+                // $renderComponent = new kivviComponent($component, $thisComponentData);
+                // $renderComponent->render();
+                ?>
+            </div>
+        </section>
 <?php
     }
 }
