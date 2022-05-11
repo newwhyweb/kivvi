@@ -1,0 +1,6 @@
+.rotate {
+    transition: transform 2s;
+    &.active {
+        transform: rotate(35deg);
+    }
+}
