@@ -5,7 +5,7 @@ $classes = $args["Classes"];
 $html = '';
 $html .= '
 <div class="kivvi-card ' . $classes . '">
-    <img data-inviewport src="' . $args["Image"]["url"] . '" alt="' . $args["Image"]["url"] . '" class="rotate active">';
+    <img data-inviewport src="' . $args["Image"]["url"] . '" alt="' . $args["Image"]["url"] . '" class="rotate">';
 if (isset($args["Title"])) {
     $html .= '<h3>' . $args["Title"] . '</h3>';
 }
