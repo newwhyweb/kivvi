@@ -1,11 +1,24 @@
 <?php
-extract($args);
-
-$classes = $args["Classes"];
+$classes = $args["Admin"]["kivvi_component_classes"];
+if ($args["Admin"]["kivvi_component_animate"] && $args["Admin"]["kivvi_component_animation"]) {
+    $classes .= " " . $args["Admin"]["kivvi_component_animation"];
+}
 $html = '';
 $html .= '
-<div class="kivvi-card ' . $classes . '">
-    <img data-inviewport src="' . $args["Image"]["url"] . '" alt="' . $args["Image"]["url"] . '" class="rotate">';
+<div class="kivvi-card ' . $classes . '"';
+if ($args["Admin"]["kivvi_component_animate"] && $args["Admin"]["kivvi_component_animation"]) {
+    $html .= ' data-inviewport';
+}
+$html .= '>';
+$html .= '<img src="' . $args["Image"]["url"] . '" alt="' . $args["Image"]["url"] . '" class="';
+if ($args["Admin"]["kivvi_component_image_animate"] && $args["Admin"]["kivvi_component_image_animation"]) {
+    $html .= ' ' . $args["Admin"]["kivvi_component_image_animation"];
+}
+$html .= '"';
+if ($args["Admin"]["kivvi_component_image_animate"] && $args["Admin"]["kivvi_component_image_animation"]) {
+    $html .= ' data-inviewport';
+}
+$html .= '>';
 if (isset($args["Title"])) {
     $html .= '<h3>' . $args["Title"] . '</h3>';
 }

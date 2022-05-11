@@ -10,7 +10,7 @@ if ($args["ButtonURL"] && $args["ButtonURL"]["url"]) {
 }
 $html = '';
 if ($buttonHREF) {
-    $html .= '<a class="button button-' . $buttonVariant . '" href="' . $buttonHREF . '">' . $buttonText  . '</a>';
+    $html .= '<a class="button button-' . $buttonVariant . '" href="' . $buttonHREF . '"><span class="button-text">' . $buttonText  . '</span></a>';
 } else {
 
     $html .= '<button class="button button--' . $buttonVariant . '">' . $buttonText  . '</button>';
