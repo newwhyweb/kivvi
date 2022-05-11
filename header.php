@@ -61,7 +61,7 @@ if (is_single() && 'committee' == get_post_type()) {
 					<div class="section-content">
 						<?php if (has_nav_menu('socials')) {
 							echo '<div class="pre-masthead">';
-							wp_nav_menu(array('theme_location' => 'socials'));
+							echo do_shortcode('[kivvi-socials]');
 							echo '</div>';
 						} ?>
 						<header id="masthead" class="site-header" role="banner">

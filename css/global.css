@@ -240,6 +240,14 @@ body {
   transform: rotate(35deg);
 }
 
+ul.socials {
+  list-style-type: none;
+  padding: 0;
+}
+ul.socials li {
+  display: inline-block;
+}
+
 .dashicons,
 .dashicons-before:before {
   width: 16px;
