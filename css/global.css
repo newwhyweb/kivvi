@@ -248,7 +248,7 @@ body {
   --kh-button-border: 1px solid var(--kh-color-green);
   --kh-button-hover-color: var(--kh-color-green);
   --kh-button-hover-background: white;
-  --kh-button-transition: 0.3s all ease-in-out;
+  --kh-button-transition: 0.5s all ease-in-out;
   --kh-button-alternate-color: var(--kh-color-green);
   --kh-button-alternate-background: transparent;
   --kh-button-alternate-hover-color: white;
@@ -276,12 +276,12 @@ button a:hover, button:hover a,
 .button a:hover,
 .button:hover a {
   color: var(--kh-button-hover-color);
-  background: var(--kh-button-hover-background);
+  background-color: var(--kh-button-hover-background);
 }
 button.button--alternate, button.button--alternate a,
 .button.button--alternate,
 .button.button--alternate a {
-  background: var(--kh-button-alternate-background);
+  background-color: var(--kh-button-alternate-background);
   color: var(--kh-button-alternate-color);
   transition: var(--kh-button-transition);
 }
@@ -295,7 +295,7 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
 .button.button--alternate a a:hover,
 .button.button--alternate a:hover a {
   color: var(--kh-button-alternate-hover-color);
-  background: var(--kh-button-alternate-color);
+  background-color: var(--kh-button-alternate-color);
 }
 
 .kh-buttons {
