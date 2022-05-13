@@ -24,19 +24,30 @@ body {
   margin: 2rem auto;
 }
 
-.kivv_section_content {
+.kivvi_section_content {
   position: relative;
   max-width: 1280px;
   margin: auto;
 }
 @media screen and (max-width: 1279px) {
-  .kivv_section_content {
+  .kivvi_section_content {
     width: 90%;
   }
 }
 
 .columns-two {
   display: flex;
+}
+
+.kivvi-columns {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
+}
+.kivvi-columns.equal-width > * {
+  flex: 1;
+  flex-wrap: nowrap;
 }
 
 .kivvi_sidebar {
@@ -244,6 +255,17 @@ body {
 }
 .rotate.active {
   transform: rotate(35deg);
+}
+
+.fadein {
+  opacity: 0;
+  transition: opacity 4s, transform 1s;
+  transform: translateY(100px);
+}
+
+.fadein.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 ul.socials {
