@@ -20,10 +20,14 @@
 <?php get_template_part('template-parts/footer/footer-widgets'); ?>
 
 </div><!-- #page -->
+<?php wp_footer(); ?>
 <script>
     document.getElementById("page-transition").classList.remove('active');
+    pageTransitioning = false;
+    setTimeout(function() {
+        setPendingActives();
+    }, 1000)
 </script>
-<?php wp_footer(); ?>
 
 </body>
 

@@ -44,9 +44,9 @@ if (is_single() && 'committee' == get_post_type()) {
 ?>
 
 <body <?php body_class($siteClass); ?> style="">
-	<style>
-
-	</style>
+	<script>
+		let pageTransitioning = false;
+	</script>
 
 	<?php
 
@@ -55,6 +55,7 @@ if (is_single() && 'committee' == get_post_type()) {
 			<div id="page-loader">Loading...</div>
 		</div>
 		<script>
+			pageTransitioning = true;
 			document.getElementById("page-transition").classList.add('active');
 		</script>
 	<?php endif; ?>
@@ -78,7 +79,15 @@ if (is_single() && 'committee' == get_post_type()) {
 								<?php endif; ?>
 							</div>
 
-							<a id="mobile-toggle" class="menu-toggle" href="#"><span class="genericon genericon-menu"></span><span class="visuallyhidden">Mobile Menu Toggle</span></a>
+
+							<a id="mobile-toggle" class="menu-toggle" href="#"><span class="genericon genericon-menu">
+									<div id="nav-icon">
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</span><span class="visuallyhidden">Mobile Menu Toggle</span>
+							</a>
 
 							<nav id="site-navigation" class="main-navigation <?php if (!has_nav_menu('utility')) {
 																					echo 'no-utility';
