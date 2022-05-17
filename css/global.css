@@ -23,9 +23,6 @@ body {
   padding: 1rem 0;
   margin: 2rem auto;
 }
-.kivvi_section.extra-padding {
-  padding-top: 12rem;
-}
 
 .kivvi_section_content {
   position: relative;
@@ -36,6 +33,21 @@ body {
   .kivvi_section_content {
     width: 90%;
   }
+}
+
+.min-margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.section.min-margin-bottom {
+  margin-bottom: 1rem;
+}
+.section.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.extra-padding {
+  padding-top: 12rem;
 }
 
 .columns-two {
@@ -50,7 +62,8 @@ body {
 }
 .kivvi-columns.equal-width > * {
   flex: 1;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .kivvi_sidebar {
@@ -206,7 +219,7 @@ body {
 }
 #page-transition.fadespinner.active {
   z-index: 9999;
-  background-color: #333;
+  background-color: black;
   opacity: 1;
   transition: all 1s;
 }
@@ -216,17 +229,60 @@ body {
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  position: absolute;
-  top: calc(50vh - 0.5rem);
+  position: static;
   left: calc(50% - 0.5rem);
   text-indent: -9999em;
-  -webkit-animation: load5 1.1s infinite ease;
-  animation: load5 1.1s infinite ease;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
+  opacity: 0.5;
+}
+#page-transition.fadespinner #page-loader.entry {
+  display: none;
+}
+#page-transition.fadespinner #page-loader .circle {
+  position: absolute;
+  border: 3px solid transparent;
+  border-top-color: var(--kh-color-orange);
+  border-radius: 50%;
+  -webkit-animation: rotate linear infinite;
+  animation: rotate linear infinite;
+}
+#page-transition.fadespinner #page-loader .circle.one {
+  height: 50px;
+  width: 50px;
+  left: 50px;
+  top: 50px;
+  border-top-color: var(--kh-color-teal);
+  -webkit-animation-duration: 0.85s;
+  animation-duration: 0.85s;
+}
+#page-transition.fadespinner #page-loader .circle.two {
+  height: 75px;
+  width: 75px;
+  top: 38px;
+  left: 38px;
+  -webkit-animation-duration: 0.95s;
+  animation-duration: 0.95s;
+}
+#page-transition.fadespinner #page-loader .circle.three {
+  height: 100px;
+  width: 100px;
+  top: 25px;
+  left: 25px;
+  border-top-color: var(--kh-color-dark-teal);
+  -webkit-animation-duration: 1.05s;
+  animation-duration: 1.05s;
 }
 
+@keyframes rotate {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
 @keyframes load5 {
   0%, 100% {
     box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em var(--loaderColorStart), 2.5em 0em 0 0em var(--loaderColorStart), 1.75em 1.75em 0 0em var(--loaderColorStart), 0em 2.5em 0 0em var(--loaderColorStart), -1.8em 1.8em 0 0em var(--loaderColorStart), -2.6em 0em 0 0em var(--loaderColorMid), -1.8em -1.8em 0 0em var(--loaderColorEnd);
@@ -455,7 +511,7 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
 }
 .newsroll a {
   text-decoration: none;
-  color: var(--kh-color-orange);
+  color: inherit;
 }
 .newsroll img {
   height: 300px;
@@ -479,7 +535,7 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 0 10px 80px;
+  padding: 0 0 50px 80px;
 }
 
 .timeline li:before {

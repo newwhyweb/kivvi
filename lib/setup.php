@@ -15,3 +15,5 @@ function kivvi_theme_support()
     remove_theme_support('widgets-block-editor');
 }
 add_action('after_setup_theme', 'kivvi_theme_support');
+
+add_theme_support('post-thumbnails');

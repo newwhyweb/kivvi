@@ -24,10 +24,9 @@
 <script>
     document.getElementById("page-transition").classList.remove('active');
     pageTransitioning = false;
-    setTimeout(function() {
-        setPendingActives();
-    }, 1000)
+    setPendingActives();
 </script>
+
 
 </body>
 

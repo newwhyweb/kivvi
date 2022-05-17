@@ -16,9 +16,6 @@ body {
     text-align: center;
     padding: 1rem 0;
     margin: 2rem auto;
-    &.extra-padding {
-        padding-top: 12rem;
-    }
 }
 .kivvi_section_content {
     position: relative;
@@ -27,4 +24,18 @@ body {
     @media screen and (max-width: 1279px) {
         width: 90%;
     }
+}
+.min-margin-bottom {
+    margin-bottom: 1rem;
+}
+.section {
+    &.min-margin-bottom {
+        margin-bottom: 1rem;
+    }
+    &.no-margin-bottom {
+        margin-bottom: 0;
+    }
+}
+.extra-padding {
+    padding-top: 12rem;
 }

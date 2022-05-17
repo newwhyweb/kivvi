@@ -52,7 +52,11 @@ if (is_single() && 'committee' == get_post_type()) {
 
 	if (get_field('kivvi_page_transition_animation', 'options') && get_field('kivvi_page_transition_animation', 'options') != 'none') : ?>
 		<div id="page-transition" class="<?php echo get_field('kivvi_page_transition_animation', 'options'); ?>">
-			<div id="page-loader">Loading...</div>
+			<div id="page-loader" class="loader entry">
+				<div class="circle one"></div>
+				<div class="circle two"></div>
+				<div class="circle three"></div>
+			</div>
 		</div>
 		<script>
 			pageTransitioning = true;
