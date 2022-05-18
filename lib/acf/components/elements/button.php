@@ -4,6 +4,7 @@ $params = array(
     'key' => 'kivvi_button',
     'title' => 'Button',
     'name' => 'Button',
+    'show_admin' => 'false',
     'fields' => array(
         array(
             'key' => 'kivvi_button_text',

@@ -129,21 +129,7 @@ $params = array(
             'placeholder' => '',
         ),
     ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'post_type',
-                'operator' => '==',
-                'value' => 'post',
-            ),
-        ),
-    ),
-    'menu_order' => 0,
-    'position' => 'normal',
-    'style' => 'default',
-    'label_placement' => 'top',
-    'instruction_placement' => 'label',
-    'hide_on_screen' => '',
+    'show_admin' => false,
     'active' => true,
     'description' => '',
 );
