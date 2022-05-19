@@ -131,7 +131,7 @@ $params = array(
     ),
     'show_admin' => false,
     'active' => true,
-    'description' => '',
+
 );
 
 $admin = new kivviACFGroup($params);

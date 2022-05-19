@@ -22,6 +22,7 @@ class kivviACFGroup
         'label_placement' => 'top',
         'instruction_placement' => 'label',
         'hide_on_screen' => '',
+        'description' => '',
         'show_admin' => true
     );
 
@@ -58,10 +59,11 @@ class kivviACFGroup
             }
         }
         if ($params['show_admin']) {
+
             $this->addAdminFields();
         }
-        // if ($params["key"] == "kivvi_card") 
-
+        if ($params["key"] == "kivvi_button") {
+        }
     }
 
 
@@ -94,7 +96,7 @@ class kivviACFGroup
             array(
                 'key' => $this->params["key"] . '_tab',
                 'label' => $this->params["title"] . ' Details',
-                'name' => $this->params["title"] . ' Details',
+                'name' => $this->params["key"] . '_tab',
                 'type' => 'tab',
                 'instructions' => '',
                 'required' => 0,
@@ -118,9 +120,9 @@ class kivviACFGroup
     {
         $adminFields = array(
             array(
-                'key' => 'kivvi_admin_tab',
+                'key' => $this->params["key"] . '_admin_tab',
                 'label' => $this->params["title"] . ' Admin',
-                'name' => 'Admin',
+                'name' => $this->params["key"] . '_admin_tab',
                 'type' => 'tab',
                 'instructions' => '',
                 'required' => 0,
@@ -136,7 +138,7 @@ class kivviACFGroup
             array(
                 'key' => $this->params["key"] . '_admin',
                 'label' => 'Admin',
-                'name' => 'Admin',
+                'name' => $this->params["key"] . '_admin',
                 'type' => 'clone',
                 'clone' => array(
                     0 => 'kivvi_admin',

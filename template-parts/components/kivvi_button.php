@@ -1,10 +1,10 @@
 <?php
 extract($args);
 
-$buttonText = $args['ButtonText'];
-$buttonVariant = $args['ButtonVariant'];
-if ($args["ButtonURL"] && $args["ButtonURL"]["url"]) {
-    $buttonHREF = $args["ButtonURL"]["url"];
+$buttonText = $args['kivvi_button_text'];
+$buttonVariant = $args['kivvi_button_variant'];
+if ($args["kivvi_button_url"] && $args["kivvi_button_url"]["url"]) {
+    $buttonHREF = $args["kivvi_button_url"]["url"];
 } else {
     $buttonHREF = false;
 }

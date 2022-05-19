@@ -9,7 +9,7 @@ class kivviACFUtils
         $kivviRowParams = array(
             'key' => 'kivvi_section_' . $row,
             'title' => 'Section ' . $row,
-            'name' => 'Section ' . $row,
+            'name' => 'section_' . $row,
             'label' => 'Section ' . $row,
             'layout' => 'block',
             'type' => 'group',

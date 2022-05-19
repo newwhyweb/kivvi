@@ -10,6 +10,7 @@ $kivvi_acf_includes = array(
   'lib/acf/components/elements/button.php',
   'lib/acf/components/components/card.php',
   'lib/acf/components/components/buttonset.php',
+  'lib/acf/components/components/accordion.php',
 
 
 

@@ -4,25 +4,25 @@ $params = array(
     'key' => 'kivvi_button',
     'title' => 'Button',
     'name' => 'Button',
-    'show_admin' => 'false',
+    'show_admin' => false,
     'fields' => array(
         array(
             'key' => 'kivvi_button_text',
             'label' => 'Button Text',
-            'name' => 'ButtonText',
+            'name' => 'kivvi_button_text',
             'type' => 'text',
 
         ),
         array(
             'key' => 'kivvi_button_url',
             'label' => 'Button Link',
-            'name' => 'ButtonURL',
+            'name' => 'kivvi_button_url',
             'type' => 'link',
         ),
         array(
             'key' => 'kivvi_button_variant',
             'label' => 'Button Variant',
-            'name' => 'ButtonVariant',
+            'name' => 'kivvi_button_variant',
             'type' => 'select',
             'choices' => array(
                 "default" => "Default",

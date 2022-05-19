@@ -4,7 +4,6 @@ $params = array(
     'title' => 'Button Set',
     'label' => 'Button Set',
     'name' => 'Button Set',
-    'label_placement' => 'top',
     'layout' => 'block',
     'fields' => array(
         array(
@@ -73,15 +72,6 @@ $params = array(
 
         ),
 
-    ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'options_page',
-                'operator' => '==',
-                'value' => 'kivvi-components-hidden',
-            ),
-        ),
     ),
 
 );

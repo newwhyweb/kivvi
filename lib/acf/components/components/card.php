@@ -5,13 +5,14 @@ $params = array(
     'label' => 'Card',
     'name' => 'Card',
     'label_placement' => 'top',
+    'show_admin' => true,
     'layout' => 'block',
     'fields' => array(
 
         array(
             'key' => 'kivvi_card_image',
             'title' => 'Image',
-            'name' => 'Image',
+            'name' => 'kivvi_card_image',
             'label' => 'Image',
             'type' => 'image',
 
@@ -21,21 +22,21 @@ $params = array(
         array(
             'key' => 'kivvi_card_title',
             'label' => 'Title',
-            'name' => 'Title',
+            'name' => 'kivvi_card_title',
             'type' => 'text',
 
         ),
         array(
             'key' => 'kivvi_card_subtitle',
             'label' => 'Subtitle',
-            'name' => 'Subtitle',
+            'name' => 'kivvi_card_subtitle',
             'type' => 'text',
 
         ),
         array(
             'key' => 'kivvi_card_description',
             'label' => 'Description',
-            'name' => 'Description',
+            'name' => 'kivvi_card_description',
             'type' => 'textarea',
 
         ),
@@ -43,13 +44,14 @@ $params = array(
         array(
             'key' => 'kivvi_card_button',
             'label' => 'Button',
-            'name' => 'Button',
+            'name' => 'kivvi_card_button',
             'type' => 'clone',
             'clone' => array(
                 0 => 'kivvi_button',
             ),
             'display' => 'group',
             'prefix_name' => 1,
+
         ),
 
 

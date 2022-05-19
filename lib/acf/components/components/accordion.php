@@ -5,90 +5,56 @@ $params = array(
     'title' => 'Accordion',
     'label' => 'Accordion',
     'name' => 'Accordion',
-    'label_placement' => 'top',
     'layout' => 'block',
     'fields' => array(
         array(
-            'key' => 'kivvi_accordion_intro',
-            'label' => 'Accordion',
-            'name' => '',
-            'type' => 'message',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'message' => '',
-            'new_lines' => 'wpautop',
-            'esc_html' => 0,
-        ),
-        array(
-            'key' => 'kivvi_accordion_tab',
-            'label' => 'Accordion Details',
-            'name' => 'Accordion Details',
-            'type' => 'tab',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'placement' => 'top',
-            'endpoint' => 0,
-        ),
-        array(
-            'key' => 'kivvi_card_image',
-            'title' => 'Image',
-            'name' => 'Image',
-            'label' => 'Image',
-            'type' => 'image',
-
-        ),
-
-
-        array(
-            'key' => 'kivvi_card_title',
-            'label' => 'Title',
-            'name' => 'Title',
+            'key' => 'kivvi_accordion_header',
+            'title' => 'Header',
+            'name' => 'kivvi_accordion_header',
+            'label' => 'Header',
             'type' => 'text',
+        ),
+        array(
+            'key' => 'kivvi_header_tag',
+            'title' => 'Header Tag',
+            'name' => 'kivvi_header_tag',
+            'label' => 'Header Tag',
+            'type' => 'select',
+            'choices' => array(
+                'h2' => 'H2',
+                'h3' => 'H3',
+                'h4' => 'H4',
+                'h5' => 'H5',
+            )
+        ),
+        array(
+            'key' => 'kivvi_header_description',
+            'label' => 'Intro Description',
+            'name' => 'kivvi_header_description',
+            'type' => 'wysiwyg',
 
         ),
         array(
-            'key' => 'kivvi_card_subtitle',
-            'label' => 'Subtitle',
-            'name' => 'Subtitle',
-            'type' => 'text',
-
+            'key' => 'kivvi_accordion_open',
+            'title' => 'Open Options',
+            'name' => 'kivvi_accordion_open',
+            'label' => 'Open Options',
+            'type' => 'select',
+            'choices' => array(
+                'closed' => 'All Closed',
+                'open' => 'All Open',
+                'first' => 'First Open',
+                'last' => 'Last Open',
+            )
         ),
-        array(
-            'key' => 'kivvi_card_description',
-            'label' => 'Description',
-            'name' => 'Description',
-            'type' => 'textarea',
 
-        ),
+
 
         array(
-            'key' => 'kivvi_card_button',
-            'label' => 'Button',
-            'name' => 'Button',
-            'type' => 'clone',
-            'clone' => array(
-                0 => 'kivvi_button',
-            ),
-            'display' => 'group',
-            'prefix_name' => 1,
-        ),
-        array(
-            'key' => 'kivvi_admin_tab',
-            'label' => 'Card Admin',
-            'name' => 'Admin',
-            'type' => 'tab',
+            'key' => 'kivvi_accordion_items',
+            'label' => 'Accordion Items',
+            'name' => 'kivvi_accordion_items',
+            'type' => 'repeater',
             'instructions' => '',
             'required' => 0,
             'conditional_logic' => 0,
@@ -97,34 +63,57 @@ $params = array(
                 'class' => '',
                 'id' => '',
             ),
-            'placement' => 'top',
-            'endpoint' => 0,
-        ),
-        array(
-            'key' => 'kivvi_card_admin',
-            'label' => 'Admin',
-            'name' => 'Admin',
-            'type' => 'clone',
-            'clone' => array(
-                0 => 'kivvi_admin',
+            'collapsed' => '',
+            'min' => 0,
+            'max' => 0,
+            'layout' => 'table',
+            'button_label' => '',
+            'sub_fields' => array(
+                array(
+                    'key' => 'kivvi_accordion_item_title',
+                    'label' => 'Item Title',
+                    'name' => 'kivvi_accordion_item_title',
+                    'type' => 'text',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'maxlength' => '',
+                ),
+                array(
+                    'key' => 'kivvi_accordion_item_content',
+                    'label' => 'Item Content',
+                    'name' => 'kivvi_accordion_item_content',
+                    'type' => 'wysiwyg',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'tabs' => 'all',
+                    'toolbar' => 'full',
+                    'media_upload' => 1,
+                    'delay' => 0,
+                ),
             ),
-            'display' => 'group',
-            'prefix_name' => 1,
-
         ),
 
-    ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'options_page',
-                'operator' => '==',
-                'value' => 'kivvi-components-hidden',
-            ),
-        ),
+
     ),
 
 );
 
-$card = new kivviACFGroup($params);
-$card->registerFieldGroup();
+$accordion = new kivviACFGroup($params);
+$accordion->registerFieldGroup();
