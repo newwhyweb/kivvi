@@ -3,6 +3,7 @@
   --kh-color-blue: #2ea3f2;
   --kh-global-background: white;
   --kh-global-font-color: #666;
+  --kh-color-light: white;
 }
 
 html {
@@ -425,6 +426,34 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
 .kivvi-card h3 {
   font-weight: bold;
   font-size: var(--kivvi-card--font-size);
+}
+
+:root {
+  --kh-accordion-details-radius: 0;
+  --kh-accordion-details-margin: 10px auto;
+  --kh-accordion-summary-padding: 10px;
+}
+
+.kivvi-accordion {
+  width: 600px;
+}
+.kivvi-accordion details {
+  box-sizing: border-box;
+  margin: var(--kh-accordion-details-margin);
+}
+.kivvi-accordion details summary {
+  background: var(--kh-color-green);
+  color: var(--kh-color-light);
+  border-radius: var(--kh-accordion-details-radius);
+  padding: var(--kh-accordion-summary-padding);
+  border: 2px solid transparent;
+}
+.kivvi-accordion details summary:focus {
+  border-color: black;
+}
+.kivvi-accordion details .kivvi-accordion-content {
+  border: 1px solid var(--kh-color-green);
+  padding: 5px;
 }
 
 .page-about {

@@ -16,6 +16,7 @@ $kivvi_includes = array(
   'lib/media.php',
   'lib/widgets.php',
   'lib/shortcodes.php',
+  'lib/template-functions.php',
   // 'lib/template-tags.php',
   // 'lib/users.php',
   'lib/cpt/cpt.php',

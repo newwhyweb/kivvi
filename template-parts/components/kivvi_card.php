@@ -1,17 +1,8 @@
 <?php
-// kivvi_pre($args);
-
-$classes = $args["Admin"]["kivvi_component_classes"];
-if ($args["kivvi_card_admin"]["kivvi_component_animate"] && $args["Admin"]["kivvi_component_animation"]) {
-    $classes .= " " . $args["kivvi_card_admin"]["kivvi_component_animation"];
-}
 $html = '';
-$html .= '
-<div class="kivvi-card ' . $classes . '"';
-if ($args["kivvi_card_admin"]["kivvi_component_animate"] && $args["kivvi_card_admin"]["kivvi_component_animation"]) {
-    $html .= ' data-inviewport';
-}
-$html .= '>';
+$html .= kivvi_admin_opening_html('kivvi_card', $args);
+
+
 $html .= '<img src="' . $args["kivvi_card_image"]["url"] . '" alt="' . $args["kivvi_card_image"]["url"] . '" class="';
 if ($args["kivvi_card_admin"]["kivvi_component_image_animate"] && $args["kivvi_card_admin"]["kivvi_component_image_animation"]) {
     $html .= ' ' . $args["kivvi_card_admin"]["kivvi_component_image_animation"];
@@ -21,6 +12,8 @@ if ($args["kivvi_card_admin"]["kivvi_component_image_animate"] && $args["kivvi_c
     $html .= ' data-inviewport';
 }
 $html .= '>';
+
+
 if (isset($args["kivvi_card_title"])) {
     $html .= '<h3>' . $args["kivvi_card_title"] . '</h3>';
 }
@@ -36,5 +29,5 @@ if ($args["kivvi_card_button"]) {
     $button = $args["kivvi_card_button"];
     $html .= kivvi_get_template_part('template-parts/components/kivvi_button', $button);
 }
-$html .= '</div>';
+$html .= '</div>'; // opening tag
 echo $html;

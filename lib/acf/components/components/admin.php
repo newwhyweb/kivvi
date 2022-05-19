@@ -119,6 +119,7 @@ $params = array(
             'choices' => array(
                 'slideup' => 'Slide Up',
                 'rotate' => 'Rotate',
+                'fadein' => 'Fade In'
             ),
             'default_value' => false,
             'allow_null' => 1,

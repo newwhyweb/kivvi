@@ -22,9 +22,11 @@
 </div><!-- #page -->
 <?php wp_footer(); ?>
 <script>
-    document.getElementById("page-transition").classList.remove('active');
-    pageTransitioning = false;
-    setPendingActives();
+    if (document.getElementById("page-transition")) {
+        document.getElementById("page-transition").classList.remove('active');
+        pageTransitioning = false;
+        setPendingActives();
+    }
 </script>
 
 
