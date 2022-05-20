@@ -76,8 +76,13 @@ slideUps.forEach(function (slideUp) {
     let newText = "";
     for (var i = 0; i < slideUpText.length; i++) {
         let addText = slideUpText[i];
+        if (i == 0) {
+            newText += '<span class="slideupWord">';
+        }
         if (addText == " ") {
             addText = "&nbsp;";
+            newText += "</span>";
+            newText += '<span class="slideupWord">';
         }
         newText +=
             '<span class="inner inner-' +
@@ -88,6 +93,7 @@ slideUps.forEach(function (slideUp) {
             addText +
             "</span>";
     }
+    newText += "</span>";
     slideUp.innerHTML = newText;
 });
 

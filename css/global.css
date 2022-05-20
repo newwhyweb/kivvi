@@ -160,6 +160,10 @@ body {
   transform: translateY(0);
 }
 
+.slideupWord {
+  white-space: nowrap;
+}
+
 .active .slideup {
   transform: translateY(0);
   transition: all 2s;
