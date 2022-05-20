@@ -456,6 +456,40 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   padding: 5px;
 }
 
+.kivvi-modal-video .kivvi-modal-video-inner {
+  position: relative;
+  width: 100%;
+}
+.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .play-button {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  min-width: 100px;
+  min-height: 100px;
+  display: block;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  padding: 3rem 3rem 3rem 4rem;
+  text-align: center;
+}
+.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .play-button svg path {
+  transition: all 0.5s;
+}
+.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .play-button:hover svg path {
+  stroke: var(--kh-color-green) !important;
+}
+.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .kivvi-modal-video-link-text {
+  text-decoration: none;
+  font-size: 1.6rem;
+  margin: auto;
+}
+
 .page-about {
   background: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/green.jpeg");
 }

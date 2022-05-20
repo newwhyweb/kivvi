@@ -20,7 +20,6 @@ if (!get_field("section_1")) :
     <?php else :
     for ($i = 1; $i < 999; $i++) {
         $thisRow = get_field("section_" . $i);
-        echo '<h2>Section ' . $i . '</h2>';
         // kivvi_pre($thisRow);
         if (!$thisRow) {
             break;

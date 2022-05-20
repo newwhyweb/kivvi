@@ -3,9 +3,7 @@ $params = array(
     'key' => 'kivvi_card',
     'title' => 'Card',
     'label' => 'Card',
-    'name' => 'Card',
-    'label_placement' => 'top',
-    'show_admin' => true,
+    'name' => 'kivvi_card',
     'layout' => 'block',
     'fields' => array(
 
@@ -55,16 +53,7 @@ $params = array(
         ),
 
 
-    ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'options_page',
-                'operator' => '==',
-                'value' => 'kivvi-components-hidden',
-            ),
-        ),
-    ),
+    )
 
 );
 

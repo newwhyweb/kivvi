@@ -1,5 +1,7 @@
 <?php
 
+$kivvi_custom_fields = array();
+
 $kivvi_acf_includes = array(
   'lib/acf/kivviACFField.class.php',
   'lib/acf/kivviACFGroup.class.php',
@@ -11,6 +13,7 @@ $kivvi_acf_includes = array(
   'lib/acf/components/components/card.php',
   'lib/acf/components/components/buttonset.php',
   'lib/acf/components/components/accordion.php',
+  'lib/acf/components/components/modalvideo.php',
 
 
 
