@@ -431,7 +431,7 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
 }
-.kivvi-cardset-items .news-item,
+.kivvi-cardset-items .blog-item,
 .kivvi-cardset-items .team-member {
   justify-self: center;
 }
@@ -566,30 +566,33 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   color: var(--kh-color-orange);
 }
 
-.newsroll {
+.kivvi-blogroll {
   text-align: left;
   margin-bottom: 2rem;
 }
-.newsroll h3,
-.newsroll h2 {
+.kivvi-blogroll h2,
+.kivvi-blogroll h3 {
+  text-align: center;
+}
+.kivvi-blogroll h3 {
   font-size: 24px;
 }
-.newsroll p {
+.kivvi-blogroll p {
   font-size: 16px;
   line-height: 1.3;
   margin: 10px 0;
 }
-.newsroll a {
+.kivvi-blogroll a {
   text-decoration: none;
   color: inherit;
 }
-.newsroll img {
+.kivvi-blogroll img {
   height: 300px;
   background: white;
   object-fit: contain;
   object-position: center;
 }
-.newsroll img.fill {
+.kivvi-blogroll img.fill {
   object-fit: cover;
   object-position: top center;
 }

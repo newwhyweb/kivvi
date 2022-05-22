@@ -20,6 +20,7 @@ $kivvi_acf_includes = array(
   'lib/acf/components/components/accordion.php',
   'lib/acf/components/components/modalvideo.php',
   'lib/acf/components/components/timeline.php',
+  'lib/acf/components/components/blogroll.php',
 
 
 

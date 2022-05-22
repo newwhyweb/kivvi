@@ -25,11 +25,14 @@
     color: var(--kh-color-orange);
 }
 
-.newsroll {
+.kivvi-blogroll {
     text-align: left;
     margin-bottom: 2rem;
-    h3,
-    h2 {
+    h2,
+    h3 {
+        text-align: center;
+    }
+    h3 {
         font-size: 24px;
     }
     p {
