@@ -5,6 +5,7 @@ function kivvi_get_component_template($component, $thisComponentData)
     if ($component == "acf_fc_layout") {
         return;
     }
+    $thisComponentData['kivvi_component'] = $component;
     if (locate_template('template-parts/components/' . $component . '.php')) {
         get_template_part('template-parts/components/' . $component, '', $thisComponentData);
     } else {
@@ -15,6 +16,7 @@ function kivvi_get_component_template($component, $thisComponentData)
                 break;
             }
         }
+        $thisComponentData['kivvi_component'] = $clone;
         if ($clone && locate_template('template-parts/components/' . $clone . '.php')) {
             get_template_part('template-parts/components/' . $clone, '', $thisComponentData);
         }
@@ -31,9 +33,26 @@ function kivvi_admin_opening_html($component, $args)
     }
 
     $html = '<div class="' . $classes . '"';
-    if ($args[$component . "_admin"]["kivvi_component_animate"] && $args[$component . "_admin"]["kivvi_component_animation"]) {
+    if ($args[$component . "_admin"]["kivvi_component_animate"]) {
         $html .= ' data-inviewport ';
     }
     $html .= '>';
+    return $html;
+}
+
+// TODO: MOVE TO HEADER CREATION FILE?
+function kivvi_get_header($args)
+{
+    if (!$args["kivvi_component"]) {
+        return;
+    }
+    $component = $args["kivvi_component"];
+    $admin = $args[$component . '_admin'];
+    $html = '';
+    $html .= '<' . $args["kivvi_header_tag"] . '';
+    if ($args[$component . '_admin']['kivvi_component_header_animate'] && $args[$component . '_admin']['kivvi_component_header_animation']) {
+        $html .= ' class="' . $args[$component . '_admin']['kivvi_component_header_animation'] . '" data-inviewport';
+    }
+    $html .= '>' . $args[$component . '_header'] . '</' . $args["kivvi_header_tag"] . '>';
     return $html;
 }

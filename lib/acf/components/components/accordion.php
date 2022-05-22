@@ -15,17 +15,15 @@ $params = array(
             'type' => 'text',
         ),
         array(
-            'key' => 'kivvi_header_tag',
+            'key' => 'kivvi_accordion_header_tag',
             'title' => 'Header Tag',
-            'name' => 'kivvi_header_tag',
+            'name' => 'kivvi_accordion_header_tag',
             'label' => 'Header Tag',
-            'type' => 'select',
-            'choices' => array(
-                'h2' => 'H2',
-                'h3' => 'H3',
-                'h4' => 'H4',
-                'h5' => 'H5',
-            )
+            'type' => 'clone',
+            'display' => 'seamless',
+            'clone' => array(
+                0 => 'kivvi_header_tag',
+            ),
         ),
         array(
             'key' => 'kivvi_header_description',

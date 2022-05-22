@@ -77,6 +77,58 @@ $params = array(
             'placeholder' => '',
         ),
         array(
+            'key' => 'kivvi_component_header_animate',
+            'label' => 'Animate Header',
+            'name' => 'kivvi_component_header_animate',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'default_value' => 0,
+            'ui' => 1,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
+        ),
+        array(
+            'key' => 'kivvi_component_header_animation',
+            'label' => 'Header Animation Type',
+            'name' => 'kivvi_component_header_animation',
+            'type' => 'select',
+
+            'required' => 0,
+            'conditional_logic' => array(
+                array(
+                    array(
+                        'field' => 'kivvi_component_header_animate',
+                        'operator' => '==',
+                        'value' => '1',
+                    ),
+                ),
+            ),
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'choices' => array(
+                'slideuptext' => 'Slide Up Text',
+
+            ),
+            'default_value' => false,
+            'allow_null' => 1,
+            'multiple' => 0,
+            'ui' => 1,
+            'ajax' => 0,
+            'return_format' => 'value',
+            'placeholder' => '',
+        ),
+        array(
             'key' => 'kivvi_component_image_animate',
             'label' => 'Animate Image',
             'name' => 'kivvi_component_image_animate',

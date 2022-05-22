@@ -7,6 +7,14 @@ $params = array(
     'layout' => 'block',
     'fields' => array(
 
+
+        array(
+            'key' => 'kivvi_card_link',
+            'label' => 'Card Link',
+            'name' => 'kivvi_card_link',
+            'type' => 'link',
+        ),
+
         array(
             'key' => 'kivvi_card_image',
             'title' => 'Image',
@@ -35,8 +43,28 @@ $params = array(
             'key' => 'kivvi_card_description',
             'label' => 'Description',
             'name' => 'kivvi_card_description',
-            'type' => 'textarea',
+            'type' => 'wysiwyg',
 
+        ),
+
+        array(
+            'key' => 'kivvi_card_button',
+            'label' => 'Show Button?',
+            'name' => 'kivvi_card_button',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'default_value' => 0,
+            'ui' => 1,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
         ),
 
         array(
@@ -49,6 +77,15 @@ $params = array(
             ),
             'display' => 'group',
             'prefix_name' => 1,
+            'conditional_logic' => array(
+                array(
+                    array(
+                        'field' => 'kivvi_card_button',
+                        'operator' => '==',
+                        'value' => '1',
+                    ),
+                ),
+            ),
 
         ),
 

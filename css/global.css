@@ -16,13 +16,21 @@ body {
 }
 
 .kivvi_section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-size: cover;
   text-align: center;
   padding: 1rem 0;
   margin: 2rem auto;
+}
+@media screen and (min-width: 1280px) and (max-width: 1320px) {
+  .kivvi_section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.kivvi_section.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .kivvi_section_content {
@@ -416,11 +424,46 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   --kivvi-card--font-size: 28px;
 }
 
+.kivvi-cardset-items {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+.kivvi-cardset-items .news-item,
+.kivvi-cardset-items .team-member {
+  justify-self: center;
+}
+.kivvi-cardset-items > * {
+  flex: 1;
+  max-width: 300px;
+}
+@media screen and (max-width: 1000px) {
+  .kivvi-cardset-items {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 500px) {
+  .kivvi-cardset-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kivvi-cardset-items {
+  margin-top: 2rem;
+}
+
+.kivvi-cardset-items a {
+  text-decoration: none;
+}
+
 .kivvi-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  justify-self: center;
   max-width: var(--kivvi-card--max-width);
   word-break: break-all;
 }
@@ -517,46 +560,6 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   display: flex;
   justify-content: center;
   gap: 1rem;
-}
-
-.team-cards,
-.newsroll {
-  display: grid;
-  flex-wrap: wrap;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-}
-.team-cards .news-item,
-.team-cards .team-member,
-.newsroll .news-item,
-.newsroll .team-member {
-  justify-self: center;
-}
-.team-cards > *,
-.newsroll > * {
-  flex: 1;
-  max-width: 300px;
-}
-@media screen and (max-width: 1000px) {
-  .team-cards,
-.newsroll {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (max-width: 500px) {
-  .team-cards,
-.newsroll {
-    grid-template-columns: 1fr;
-  }
-}
-
-.team-cards {
-  margin-top: 2rem;
-}
-
-.team-cards a {
-  text-decoration: none;
 }
 
 .team-title {

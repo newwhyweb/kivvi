@@ -8,15 +8,18 @@ $kivvi_acf_includes = array(
   'lib/acf/kivviACFUtils.class.php',
   'lib/acf/theme_options.php',
 
+  'lib/acf/components/standalones.php',
 
   'lib/acf/components/elements/headertag.php',
   'lib/acf/components/components/admin.php',
   'lib/acf/components/elements/button.php',
+  'lib/acf/components/components/headertext.php',
   'lib/acf/components/components/card.php',
+  'lib/acf/components/components/cardset.php',
   'lib/acf/components/components/buttonset.php',
   'lib/acf/components/components/accordion.php',
   'lib/acf/components/components/modalvideo.php',
-  'lib/acf/components/components/headertext.php',
+  'lib/acf/components/components/timeline.php',
 
 
 

@@ -21,34 +21,6 @@
     justify-content: center;
     gap: 1rem;
 }
-.team-cards,
-.newsroll {
-    display: grid;
-    flex-wrap: wrap;
-    gap: 2rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    .news-item,
-    .team-member {
-        justify-self: center;
-    }
-    > * {
-        flex: 1;
-        max-width: 300px;
-    }
-    @media screen and (max-width: 1000px) {
-        grid-template-columns: 1fr 1fr;
-    }
-    @media screen and (max-width: 500px) {
-        grid-template-columns: 1fr;
-    }
-}
-.team-cards {
-    margin-top: 2rem;
-}
-.team-cards a {
-    text-decoration: none;
-}
 .team-title {
     color: var(--kh-color-orange);
 }

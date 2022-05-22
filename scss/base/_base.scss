@@ -9,13 +9,19 @@ body {
     margin: 0;
 }
 .kivvi_section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-size: cover;
     text-align: center;
     padding: 1rem 0;
     margin: 2rem auto;
+    @media screen and (min-width: 1280px) and (max-width: 1320px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    &.flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .kivvi_section_content {
     position: relative;
