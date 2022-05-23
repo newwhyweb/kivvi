@@ -28,6 +28,7 @@ $kivvi_custom_fields["kivvi_cardset"] = array(
             'instructions' => '',
             'required' => 0,
             'conditional_logic' => 0,
+            'button_label' => 'Add Card',
             'wrapper' => array(
                 'width' => '',
                 'class' => '',

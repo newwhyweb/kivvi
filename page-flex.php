@@ -20,14 +20,31 @@ endif;
 if ($sections = get_field('kivvi_flex_sections', $pageID)) :
     // kivvi_pre($sections);
     foreach ($sections as $section) :
+
+        $sectionStyles = '';
+        if ($section['kivvi_section_full_width']) {
+            if ($section['kivvi_section_background']) {
+                $sectionStyles .= 'background-image: url(' . $section['kivvi_section_background']['url'] . ');';
+            }
+            echo '<div class="section-group full-width" style="' . $sectionStyles . '">';
+        }
+
+        $sectionClasses = '';
+        if ($section["kivvi_section_classes"]) {
+            $sectionClasses .= ' ' . $section["kivvi_section_classes"];
+        }
+
+
+
     ?>
-        <section class="kivvi_section">
+        <section class="kivvi_section<?php echo $sectionClasses; ?>">
             <div class="kivvi_section_content">
                 <?php
                 $thisRow = $section["kivvi_flex_components"];
                 if (!$thisRow) {
                     break;
                 }
+
                 foreach ($thisRow as $key => $row) {
                     foreach ($row as $component => $thisComponentData) {
                         kivvi_get_component_template($component, $thisComponentData);
@@ -39,6 +56,10 @@ if ($sections = get_field('kivvi_flex_sections', $pageID)) :
             </div>
         </section>
 <?php
+        if ($section['kivvi_section_full_width']) {
+            echo '</div>'; // GROUP
+        }
+
     endforeach;
 
 endif;

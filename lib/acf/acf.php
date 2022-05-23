@@ -21,6 +21,10 @@ $kivvi_acf_includes = array(
   'lib/acf/components/components/modalvideo.php',
   'lib/acf/components/components/timeline.php',
   'lib/acf/components/components/blogroll.php',
+  'lib/acf/components/components/hero.php',
+  'lib/acf/components/components/twoup.php',
+  'lib/acf/components/components/testimonial.php',
+  'lib/acf/components/components/cta.php',
 
 
 
