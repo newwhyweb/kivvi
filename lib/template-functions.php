@@ -71,11 +71,13 @@ function kivvi_get_header($args)
 function kivvi_get_image($args)
 {
     $dataarray = array('data-sizes' => 'auto');
+    $size = isset($args["size"]) ? $args["size"] : 'large';
     if ($args["animateCheck"] && $args["animation"]) {
         $dataarray["class"] = $args["animation"];
     }
     if ($args["animateCheck"]) {
         $dataarray["data-inviewport"] = 'inviewport';
     }
-    return wp_get_attachment_image($args["imageID"], 'full', false, $dataarray);
+
+    return wp_get_attachment_image($args["imageID"], $size, false, $dataarray);
 }
