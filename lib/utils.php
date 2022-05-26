@@ -9,6 +9,7 @@ function kivvi_pre($content)
 
 function kivvi_get_template_part($component, $args = false)
 {
+
     ob_start();
     // Get template file output
     get_template_part($component, '', $args);

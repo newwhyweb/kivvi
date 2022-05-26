@@ -48,9 +48,9 @@ $params = array(
         ),
 
         array(
-            'key' => 'kivvi_card_button',
+            'key' => 'kivvi_card_show_button',
             'label' => 'Show Button?',
-            'name' => 'kivvi_card_button',
+            'name' => 'kivvi_card_show_button',
             'type' => 'true_false',
             'instructions' => '',
             'required' => 0,
@@ -80,7 +80,7 @@ $params = array(
             'conditional_logic' => array(
                 array(
                     array(
-                        'field' => 'kivvi_card_button',
+                        'field' => 'kivvi_card_show_button',
                         'operator' => '==',
                         'value' => '1',
                     ),

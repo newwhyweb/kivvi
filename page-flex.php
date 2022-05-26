@@ -34,10 +34,15 @@ if ($sections = get_field('kivvi_flex_sections', $pageID)) :
             $sectionClasses .= ' ' . $section["kivvi_section_classes"];
         }
 
+        $sectionID = '';
+        if ($section["kivvi_section_id"]) {
+            $sectionID .= ' id="' . trim($section["kivvi_section_id"]) . '"';
+        }
+
 
 
     ?>
-        <section class="kivvi_section<?php echo $sectionClasses; ?>">
+        <section class="kivvi_section<?php echo $sectionClasses; ?>" <?php echo $sectionID; ?>>
             <div class="kivvi_section_content">
                 <?php
                 $thisRow = $section["kivvi_flex_components"];

@@ -5,6 +5,7 @@ function kivvi_get_component_template($component, $thisComponentData)
     if ($component == "acf_fc_layout") {
         return;
     }
+
     $thisComponentData['kivvi_component'] = $component;
     if (locate_template('template-parts/components/' . $component . '.php')) {
         get_template_part('template-parts/components/' . $component, '', $thisComponentData);
@@ -12,6 +13,7 @@ function kivvi_get_component_template($component, $thisComponentData)
         $clone = false;
 
         foreach ($thisComponentData as $key => $data) {
+
             if (substr($key, -17) == '_custom_component') {
 
                 $clone = substr($key, 0, -17);

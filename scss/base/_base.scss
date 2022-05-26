@@ -8,6 +8,10 @@ html {
 body {
     margin: 0;
 }
+
+a {
+    word-break: break-all;
+}
 .kivvi_section {
     background-size: cover;
     text-align: center;
@@ -31,6 +35,11 @@ body {
         width: 90%;
     }
 }
+.kivvi-card img,
+.kivvi-twoup img {
+    width: auto !important;
+    height: auto !important;
+}
 
 .full-width {
     width: 80%;
@@ -38,6 +47,7 @@ body {
     margin-right: 0;
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 8rem;
     @media screen and (min-width: $kivvi-max-content-width) {
         margin-left: calc(-100vw / 2 + $kivvi-max-content-width / 2);
         margin-right: calc(-100vw / 2 + $kivvi-max-content-width / 2);
@@ -49,8 +59,12 @@ body {
         padding-right: 0;
         width: 100%;
     }
+    @media screen and (max-width: 950px) {
+        background: none !important;
+        padding-bottom: 0;
+    }
     padding-top: 0;
-    padding-bottom: 8rem;
+
     background-repeat: no-repeat;
     background-position: top right;
     position: relative;
@@ -85,4 +99,14 @@ body {
 
 .no-margin-top {
     margin-top: 0;
+}
+
+.width-950 {
+    max-width: 950px;
+    @media screen and (min-width: 1000px) {
+        &.white-section .kivvi_section_content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }

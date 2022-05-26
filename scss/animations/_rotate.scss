@@ -1,5 +1,6 @@
 .rotate {
     transition: transform 2s;
+    max-width: 90%;
     &.active {
         transform: rotate(35deg);
     }

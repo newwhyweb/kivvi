@@ -43,6 +43,48 @@ $kivvi_custom_fields["kivvi_testimonial"] = array(
             )
         ),
 
+        array(
+            'key' => 'kivvi_testimonial_show_button',
+            'label' => 'Show Button?',
+            'name' => 'kivvi_testimonial_show_button',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'default_value' => 0,
+            'ui' => 1,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
+        ),
+
+        array(
+            'key' => 'kivvi_testimonial_button',
+            'label' => 'Button',
+            'name' => 'kivvi_testimonial_button',
+            'type' => 'clone',
+            'clone' => array(
+                0 => 'kivvi_button',
+            ),
+            'display' => 'group',
+            'prefix_name' => 1,
+            'conditional_logic' => array(
+                array(
+                    array(
+                        'field' => 'kivvi_testimonial_show_button',
+                        'operator' => '==',
+                        'value' => '1',
+                    ),
+                ),
+            ),
+
+        ),
+
 
     )
 );

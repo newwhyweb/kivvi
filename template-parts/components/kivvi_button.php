@@ -15,5 +15,4 @@ if ($buttonHREF) {
 
     $html .= '<button class="button button--' . $buttonVariant . '">' . $buttonText  . '</button>';
 }
-
 echo $html;

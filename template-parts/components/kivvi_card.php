@@ -27,7 +27,7 @@ if (isset($args["kivvi_card_description"])) {
 }
 
 
-if ($args["kivvi_card_button"] && $args["kivvi_card_button_text"]) {
+if ($args["kivvi_card_show_button"] && $args["kivvi_card_button"]["kivvi_button_text"]) {
     $button = $args["kivvi_card_button"];
     $html .= kivvi_get_template_part('template-parts/components/kivvi_button', $button);
 }
@@ -35,5 +35,6 @@ $html .= '</div>';
 if ($args["kivvi_card_link"]) {
     $html .= '</span></a>';
 }
+
 $html .= '</div>'; // opening tag
 echo $html;

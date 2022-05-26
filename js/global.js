@@ -171,6 +171,16 @@ function setPendingActives() {
     startTyping();
 }
 
+setTimeout(function () {
+    let inviewport = document.querySelectorAll("[data-inviewport]");
+    inviewport.forEach(function (el) {
+        if (!el.classList.contains("active")) {
+            el.classList.add("active");
+            Obs.unobserve(el);
+        }
+    });
+}, 20000);
+
 /* HEADER TEXT */
 
 let isTyping = false;
