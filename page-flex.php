@@ -18,7 +18,6 @@ if (get_field('kivvi_display_wordpress_page_title')) :
 endif;
 
 if ($sections = get_field('kivvi_flex_sections', $pageID)) :
-    // kivvi_pre($sections);
     foreach ($sections as $section) :
 
         $sectionStyles = '';

@@ -5,7 +5,11 @@ function kivvi_get_component_template($component, $thisComponentData)
     if ($component == "acf_fc_layout") {
         return;
     }
-
+    // if ($component == "kivvi_accordion") {
+    // kivvi_pre($component);
+    // kivvi_pre($thisComponentData);
+    // }
+    // 
     $thisComponentData['kivvi_component'] = $component;
     if (locate_template('template-parts/components/' . $component . '.php')) {
         get_template_part('template-parts/components/' . $component, '', $thisComponentData);

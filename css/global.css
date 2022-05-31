@@ -680,17 +680,16 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   --kh-accordion-details-radius: 0;
   --kh-accordion-details-margin: 10px auto;
   --kh-accordion-summary-padding: 10px;
+  --kh-accordion-summary-background: var(--kh-color-green);
+  --kh-accordion-border-color: var(--kh-color-green);
 }
 
-.kivvi-accordion {
-  width: 600px;
-}
 .kivvi-accordion details {
   box-sizing: border-box;
   margin: var(--kh-accordion-details-margin);
 }
 .kivvi-accordion details summary {
-  background: var(--kh-color-green);
+  background: var(--kh-accordion-summary-background);
   color: var(--kh-color-light);
   border-radius: var(--kh-accordion-details-radius);
   padding: var(--kh-accordion-summary-padding);
@@ -700,7 +699,7 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   border-color: black;
 }
 .kivvi-accordion details .kivvi-accordion-content {
-  border: 1px solid var(--kh-color-green);
+  border: 1px solid var(--kh-accordion-border-color);
   padding: 5px;
 }
 
