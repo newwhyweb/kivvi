@@ -1,4 +1,7 @@
 /* ANIMATIONS */
+const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
 
 let queuedActives = [];
 
@@ -50,6 +53,9 @@ setTimeout(function () {
 
 let isTyping = false;
 async function startTyping() {
+    if (prefersReducedMotion) {
+        return;
+    }
     if (!isTyping) {
         if ((typingHeader = document.querySelector("h1.typing"))) {
             let typingSpans = typingHeader.querySelectorAll("span");
@@ -66,9 +72,9 @@ async function startTyping() {
                     activeSpan++;
                 } else {
                     activeSpan = 0;
-                    typingSpans[activeSpan].classList.add("activestop");
-                    clearInterval(headerTimer);
-                    return;
+                    // typingSpans[activeSpan].classList.add("activestop");
+                    // clearInterval(headerTimer);
+                    // return;
                 }
                 typingSpans[activeSpan].classList.add("active");
             }, 4500);
@@ -82,6 +88,9 @@ async function startTyping() {
 // SLIDE UP TEXT
 let slideUps = document.querySelectorAll(".slideuptext");
 slideUps.forEach(function (slideUp) {
+    if (prefersReducedMotion) {
+        return;
+    }
     let slideUpText = slideUp.innerHTML.trim();
     let newText = "";
     for (var i = 0; i < slideUpText.length; i++) {
