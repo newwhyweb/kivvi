@@ -5,3 +5,8 @@
         transform: rotate(35deg);
     }
 }
+@media (prefers-reduced-motion: reduce) {
+    .rotate {
+        transform: rotate(35deg);
+    }
+}

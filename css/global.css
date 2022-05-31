@@ -6,6 +6,10 @@
   --kh-color-light: white;
 }
 
+* {
+  word-break: break-word;
+}
+
 html {
   background: var(--kh-global-background);
   color: var(--kh-global-font-color);
@@ -13,10 +17,6 @@ html {
 
 body {
   margin: 0;
-}
-
-a {
-  word-break: break-all;
 }
 
 .kivvi_section {
@@ -235,6 +235,11 @@ a {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .slideuptext .inner {
+    transform: translateY(0);
+  }
+}
 .slideupWord {
   white-space: nowrap;
 }
@@ -279,6 +284,16 @@ a {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .slideup {
+    transform: translateY(0);
+    transition: none;
+  }
+
+  .active .slideup {
+    transition: none;
+  }
+}
 :root {
   --loaderColorStart: rgba(35, 229, 219, 0.2);
   --loaderColorMid: rgba(35, 229, 219, 0.5);
@@ -397,6 +412,11 @@ a {
   transform: rotate(35deg);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .rotate {
+    transform: rotate(35deg);
+  }
+}
 .fadein {
   opacity: 0;
   transition: opacity 4s, transform 1s;
@@ -408,6 +428,119 @@ a {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .fadein {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.typing {
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  position: relative;
+}
+.typing span {
+  line-height: 1.5;
+  display: inline-block;
+  transition: opacity 0.3s;
+}
+.typing span:not(.active):not(.activestop):not(.start) {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+}
+
+.typing span.active {
+  opacity: 1;
+  animation: scrollinout 4s forwards;
+  line-height: 1.5;
+}
+
+.typing span.activestop {
+  opacity: 1;
+  animation: scrollin 2s forwards;
+  line-height: 1.5;
+}
+
+.typing span.starting {
+  opacity: 1;
+  animation: scrollout 3s forwards;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing span {
+    animation: none;
+  }
+  .typing span.active {
+    animation: none;
+  }
+  .typing span.activestop {
+    animation: none;
+  }
+  .typing span.starting {
+    animation: none;
+  }
+}
+@keyframes scrollin {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+@keyframes scrollinout {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+  60% {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+  }
+}
+@keyframes scrollout {
+  0% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 ul.socials {
   list-style-type: none;
   padding: 0;
