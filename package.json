@@ -27,6 +27,9 @@
     "gulp-sass-glob": "^1.1.0"
   },
   "devDependencies": {
+    "@percy/cli": "^1.2.1",
+    "@percy/cypress": "^3.1.1",
+    "cypress": "^9.7.0",
     "gulp-concat": "^2.6.1"
   }
 }
