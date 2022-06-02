@@ -16,9 +16,9 @@ $params = array(
         ),
         array(
             'key' => 'kivvi_accordion_header_tag',
-            'title' => 'Header Tag',
+            'title' => 'Header Hierarchy Level',
             'name' => 'kivvi_accordion_header_tag',
-            'label' => 'Header Tag',
+            'label' => 'Header Hierarchy Level',
             'type' => 'clone',
             'display' => 'seamless',
             'clone' => array(

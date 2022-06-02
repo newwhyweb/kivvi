@@ -1,9 +1,9 @@
 <?php
 $kivvi_custom_fields["kivvi_header_tag"] = array(
     'key' => 'kivvi_header_tag',
-    'title' => 'Header Tag',
+    'title' => 'Header Hierarchy Level',
     'name' => 'kivvi_header_tag',
-    'label' => 'Header Tag',
+    'label' => 'Header Hierarchy Level',
     'type' => 'select',
     'choices' => array(
         'h2' => 'H2',

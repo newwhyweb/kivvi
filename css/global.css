@@ -151,6 +151,11 @@ body {
   margin: auto;
 }
 
+.hanging-indent {
+  padding-left: 22px;
+  text-indent: -22px;
+}
+
 .kivvi_sidebar {
   text-align: left;
 }

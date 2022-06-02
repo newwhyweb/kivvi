@@ -3,7 +3,22 @@ $kivvi_custom_fields["kivvi_twoup"] = array(
     'key' => 'kivvi_twoup',
     'title' => 'Two Up',
     'fields' => array(
-
+        array(
+            'key' => 'kivvi_twoup_instructions',
+            'label' => '',
+            'name' => '',
+            'type' => 'message',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '<b>Note: there are subtle distinctions between the Twoup and Cardset components. Twoup is used for content broken into two columns, with one column being an image, and the other being text. Cardset is used for a group of cards - such as staff bios, etcetera. Cardsets default to three cards across on larger screens.</b>',
+            'new_lines' => 'wpautop',
+            'esc_html' => 0,
+        ),
         array(
             'key' => 'kivvi_twoup_image_side',
             'label' => 'Image Side',
