@@ -1,3 +1,5 @@
 On initial creation:
 
--   composer install
+TODO: BETTER DOCS WITH GULP & CYPRESS/PERCY
+
+https://docs.percy.io/docs/cypress
