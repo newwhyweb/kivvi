@@ -22,10 +22,17 @@ gulp.task("js", function () {
         .pipe(gulp.dest("js"));
 });
 
+gulp.task("js-admin", function () {
+    return gulp
+        .src("js/admin/*.js")
+        .pipe(concat("admin.js"))
+        .pipe(gulp.dest("js"));
+});
+
 gulp.task("watch", function () {
     gulp.watch(
-        ["scss/**/*.scss", "js/partials/*.js"],
-        gulp.series("sass", "js")
+        ["scss/**/*.scss", "js/partials/*.js", "js/admin/*.js"],
+        gulp.series("sass", "js", "js-admin")
     );
 });
 

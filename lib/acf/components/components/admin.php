@@ -4,7 +4,25 @@ $params = array(
     'key' => 'kivvi_admin',
     'title' => 'Admin Fields',
     'fields' => array(
-
+        array(
+            'key' => 'kivvi_admin_name',
+            'label' => 'Admin Name',
+            'name' => 'kivvi_admin_name',
+            'type' => 'text',
+            'instructions' => 'Will show up in back end only',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+        ),
         array(
             'key' => 'kivvi_component_classes',
             'label' => 'Component Classes',

@@ -16,3 +16,11 @@
     /* background: green; */
     font-size: 2rem;
 }
+
+[data-key=kivvi_admin_name] {
+    display: none;
+}
+
+.layout [data-key=kivvi_admin_name] {
+    display: block;
+}
