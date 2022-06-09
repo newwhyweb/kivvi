@@ -9,7 +9,7 @@
 get_header(); ?>
 
 <?php
-echo 'kjkljekwrj';
+
 if (!get_field("section_1")) :
 ?>
     <section class="kivvi_section">
