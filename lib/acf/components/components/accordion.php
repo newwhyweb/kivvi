@@ -54,6 +54,7 @@ $params = array(
             'name' => 'kivvi_accordion_items',
             'type' => 'repeater',
             'instructions' => '',
+
             'required' => 0,
             'conditional_logic' => 0,
             'wrapper' => array(
@@ -65,7 +66,7 @@ $params = array(
             'min' => 0,
             'max' => 0,
             'layout' => 'block',
-            'button_label' => '',
+            'button_label' => 'Add Item',
             'sub_fields' => array(
                 array(
                     'key' => 'kivvi_accordion_item_title',

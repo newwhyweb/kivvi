@@ -1,0 +1,17 @@
+:is(h1, h2, h3, h4, h5) {
+    text-align: center;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+}
+h1 {
+    font-size: clamp(1.5rem, -0.875rem + 9.333vw, 5rem);
+}
+h2 {
+    font-size: clamp(1.35rem, -0.875rem + 8.6666vw, 44px);
+}
+h3 {
+    font-size: clamp(1.2rem, -0.875rem + 8.333vw, 28px);
+}
+h4 {
+    font-size: clamp(1rem, -0.875rem + 8vw, 20px);
+}

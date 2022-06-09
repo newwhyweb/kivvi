@@ -1,11 +1,11 @@
 :root {
-    --kh-button-background: var(--kh-color-green);
-    --kh-button-color: white;
+    --kh-button-background: transparent;
+    --kh-button-color: black;
     --kh-button-padding: 0.5rem 1rem;
     --kh-button-radius: 10px;
-    --kh-button-border: 1px solid var(--kh-color-green);
-    --kh-button-hover-color: var(--kh-color-green);
-    --kh-button-hover-background: white;
+    --kh-button-border: 1px solid black;
+    --kh-button-hover-color: white;
+    --kh-button-hover-background: black;
     --kh-button-transition: 0.5s all ease-in-out;
     --kh-button-alternate-color: var(--kh-color-green);
     --kh-button-alternate-background: transparent;

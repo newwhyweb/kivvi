@@ -13,7 +13,7 @@ $postargs = array("posts_per_page" => $posts);
 query_posts($postargs);
 $numposts = 0;
 if (have_posts()) :
-    $html .= '<div class="newsroll" data-inviewport>';
+    $html .= '<div class="blogroll">';
     while (have_posts()) : the_post();
 
         $args['numposts'] = $numposts;

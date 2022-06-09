@@ -135,6 +135,28 @@ body {
   word-wrap: normal !important;
 }
 
+:is(h1, h2, h3, h4, h5) {
+  text-align: center;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(1.5rem, -0.875rem + 9.333vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(1.35rem, -0.875rem + 8.6666vw, 44px);
+}
+
+h3 {
+  font-size: clamp(1.2rem, -0.875rem + 8.333vw, 28px);
+}
+
+h4 {
+  font-size: clamp(1rem, -0.875rem + 8vw, 20px);
+}
+
 .columns-two {
   display: flex;
 }
@@ -572,13 +594,13 @@ ul.socials li {
 }
 
 :root {
-  --kh-button-background: var(--kh-color-green);
-  --kh-button-color: white;
+  --kh-button-background: transparent;
+  --kh-button-color: black;
   --kh-button-padding: 0.5rem 1rem;
   --kh-button-radius: 10px;
-  --kh-button-border: 1px solid var(--kh-color-green);
-  --kh-button-hover-color: var(--kh-color-green);
-  --kh-button-hover-background: white;
+  --kh-button-border: 1px solid black;
+  --kh-button-hover-color: white;
+  --kh-button-hover-background: black;
   --kh-button-transition: 0.5s all ease-in-out;
   --kh-button-alternate-color: var(--kh-color-green);
   --kh-button-alternate-background: transparent;
@@ -627,6 +649,10 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
 .button.button--alternate a:hover a {
   color: var(--kh-button-alternate-hover-color);
   background-color: var(--kh-button-alternate-color);
+}
+
+.kivvi-blogroll .kivvi-header-text {
+  text-align: center;
 }
 
 .kh-buttons {

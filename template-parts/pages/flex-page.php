@@ -6,7 +6,7 @@ if (get_field('kivvi_display_wordpress_page_title')) :
 ?>
     <section class="section section-title">
         <div class="section-content">
-            <h1 class="slideuptext" data-inviewport><?php the_title(); ?></h1>
+            <h1><?php the_title(); ?></h1>
         </div>
     </section>
     <?php
