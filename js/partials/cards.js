@@ -16,7 +16,6 @@ if ((cardsets = document.querySelectorAll(".kivvi-cardset"))) {
             });
             cardsetItems.forEach((item) => {
                 let img = item.querySelector(".imgwrapper img");
-                console.log(img);
                 img.style.maxHeight = minimgheight + "px";
             });
         });

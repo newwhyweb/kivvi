@@ -28,11 +28,33 @@
                     }
                 }
             }
-            .kivvi-modal-video-link-text {
+            .kivvi-modal-video-link-text,
+            .kivvi-modal-video-link {
                 text-decoration: none;
                 font-size: 1.6rem;
                 margin: auto;
+                color: black;
             }
+        }
+    }
+}
+.kivvi-modal-video-embed {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+    &.active {
+        display: flex;
+        transition: opacity 1s;
+        &.show {
+            opacity: 1;
         }
     }
 }

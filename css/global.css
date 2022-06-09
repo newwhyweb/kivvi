@@ -664,6 +664,15 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   max-width: 600px;
 }
 
+.kivvi-hero h1,
+.kivvi-hero h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.kivvi-hero .kivvi-hero-leadin {
+  margin-top: 1rem;
+}
+
 .kh-buttons {
   display: flex;
   gap: 1rem;
@@ -797,10 +806,32 @@ details > summary::-webkit-details-marker {
 .kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .play-button:hover svg path {
   stroke: var(--kh-color-green) !important;
 }
-.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .kivvi-modal-video-link-text {
+.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .kivvi-modal-video-link-text,
+.kivvi-modal-video .kivvi-modal-video-inner .kivvi-modal-video-overlay .kivvi-modal-video-link {
   text-decoration: none;
   font-size: 1.6rem;
   margin: auto;
+  color: black;
+}
+
+.kivvi-modal-video-embed {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.kivvi-modal-video-embed.active {
+  display: flex;
+  transition: opacity 1s;
+}
+.kivvi-modal-video-embed.active.show {
+  opacity: 1;
 }
 
 .kivvi-twoup {

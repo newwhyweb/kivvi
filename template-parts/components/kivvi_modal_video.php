@@ -9,6 +9,7 @@ $image = $args['kivvi_modal_video_image'];
 $imageID = $image['ID'];
 $html .= wp_get_attachment_image($imageID, 'full', false, array('class' => 'lazyload', 'data-sizes' => 'auto'));
 $html .= '<div class="kivvi-modal-video-overlay">';
+
 $html .= '<a href="#" class="play-button kivvi-modal-video-link">';
 $html .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
   
@@ -21,5 +22,7 @@ if ($args['kivvi_modal_video_text']) {
 $html .= '</div>';
 $html .= '</div>';
 $html .= '</div>';
+
 $html .= '</div>'; // opening tag
+$html .= '<div class="kivvi-modal-video-embed">' . $args["kivvi_modal_video_embed_url"] . '</div>';
 echo $html;
