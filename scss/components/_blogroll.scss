@@ -2,4 +2,15 @@
     .kivvi-header-text {
         text-align: center;
     }
+    .blogroll {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        .blog-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+    }
 }

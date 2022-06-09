@@ -54,7 +54,7 @@ $kivvi_custom_fields["kivvi_cardset"] = array(
             'min' => 0,
             'max' => 0,
             'layout' => 'block',
-            'button_label' => '',
+
             'sub_fields' => array(
                 array(
                     'key' => 'kivvi_cardset_item',
