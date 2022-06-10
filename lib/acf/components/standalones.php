@@ -11,5 +11,5 @@ $kivvi_custom_fields["kivvi_standalones"] = array(
 
 
 
-$standalones = new kivviACFGroup($kivvi_custom_fields["kivvi_standalones"]);
-$standalones->registerFieldGroup();
+// $standalones = new kivviACFGroup($kivvi_custom_fields["kivvi_standalones"]);
+// $standalones->registerFieldGroup();

@@ -1,5 +1,5 @@
 <?php
-$params = array(
+$kivvi_custom_fields["kivvi_buttonset"] = array(
     'key' => 'kivvi_buttonset',
     'title' => 'Button Set',
     'label' => 'Button Set',
@@ -76,5 +76,5 @@ $params = array(
 
 );
 
-$buttonset = new kivviACFGroup($params);
-$buttonset->registerFieldGroup();
+// $buttonset = new kivviACFGroup($params);
+// $buttonset->registerFieldGroup();

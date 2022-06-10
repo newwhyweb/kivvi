@@ -89,5 +89,5 @@ $kivvi_custom_fields["kivvi_testimonial"] = array(
     )
 );
 
-$testimonial = new kivviACFGroup($kivvi_custom_fields["kivvi_testimonial"]);
-$testimonial->registerFieldGroup();
+// $testimonial = new kivviACFGroup($kivvi_custom_fields["kivvi_testimonial"]);
+// $testimonial->registerFieldGroup();

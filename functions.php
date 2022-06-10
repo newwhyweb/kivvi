@@ -5,6 +5,9 @@
  *
  * @package kivvi
  */
+if (!defined('KIVVI_PARENT_THEME_DIR')) {
+  define('KIVVI_PARENT_THEME_DIR', plugin_dir_path(__FILE__));
+}
 
 $kivvi_includes = array(
   'lib/setup.php',
@@ -30,7 +33,9 @@ $kivvi_includes = array(
 );
 
 foreach ($kivvi_includes as $file) {
-  if (!$filepath = locate_template($file)) {
+  $filepath = KIVVI_PARENT_THEME_DIR . '/' . $file;
+
+  if (!file_exists($filepath)) {
     trigger_error(sprintf(__('Error locating %s for inclusion', 'kivvi'), $file), E_USER_ERROR);
   }
 

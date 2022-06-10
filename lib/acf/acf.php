@@ -42,3 +42,20 @@ foreach ($kivvi_acf_includes as $file) {
 
 
 unset($file, $filepath);
+
+function kivvi_register_custom_fields()
+{
+  global $kivvi_custom_fields, $kivvi_custom_standalone_fields;
+
+  foreach ($kivvi_custom_fields as $field) {
+
+    $field = new kivviACFGroup($field);
+    $field->registerFieldGroup();
+  }
+  foreach ($kivvi_custom_standalone_fields as $field) {
+    acf_add_local_field(
+      $field
+    );
+  }
+}
+add_action('acf/init', 'kivvi_register_custom_fields', 50);

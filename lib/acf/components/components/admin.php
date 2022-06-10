@@ -1,6 +1,6 @@
 <?php
 
-$params = array(
+$kivvi_custom_fields["kivvi_admin"] = array(
     'key' => 'kivvi_admin',
     'title' => 'Admin Fields',
     'fields' => array(
@@ -205,5 +205,5 @@ $params = array(
 
 );
 
-$admin = new kivviACFGroup($params);
-$admin->registerFieldGroup();
+// $admin = new kivviACFGroup($params);
+// $admin->registerFieldGroup();

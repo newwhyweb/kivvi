@@ -70,5 +70,5 @@ $kivvi_custom_fields["kivvi_cardset"] = array(
     )
 );
 
-$cardset = new kivviACFGroup($kivvi_custom_fields["kivvi_cardset"]);
-$cardset->registerFieldGroup();
+// $cardset = new kivviACFGroup($kivvi_custom_fields["kivvi_cardset"]);
+// $cardset->registerFieldGroup();

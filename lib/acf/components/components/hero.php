@@ -45,5 +45,5 @@ $kivvi_custom_fields["kivvi_hero"] = array(
 
 );
 
-$hero = new kivviACFGroup($kivvi_custom_fields["kivvi_hero"]);
-$hero->registerFieldGroup();
+// $hero = new kivviACFGroup($kivvi_custom_fields["kivvi_hero"]);
+// $hero->registerFieldGroup();

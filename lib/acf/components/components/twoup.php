@@ -61,5 +61,5 @@ $kivvi_custom_fields["kivvi_twoup"] = array(
 
 );
 
-$twoup = new kivviACFGroup($kivvi_custom_fields["kivvi_twoup"]);
-$twoup->registerFieldGroup();
+// $twoup = new kivviACFGroup($kivvi_custom_fields["kivvi_twoup"]);
+// $twoup->registerFieldGroup();

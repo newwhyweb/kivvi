@@ -42,5 +42,5 @@ $kivvi_custom_fields["kivvi_timeline"] = array(
 
 );
 
-$timeline = new kivviACFGroup($kivvi_custom_fields["kivvi_timeline"]);
-$timeline->registerFieldGroup();
+// $timeline = new kivviACFGroup($kivvi_custom_fields["kivvi_timeline"]);
+// $timeline->registerFieldGroup();

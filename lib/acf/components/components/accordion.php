@@ -1,6 +1,6 @@
 <?php
 
-$params = array(
+$kivvi_custom_fields["kivvi_accordion"] = array(
     'key' => 'kivvi_accordion',
     'title' => 'Accordion',
     'label' => 'Accordion',
@@ -114,5 +114,5 @@ $params = array(
 
 );
 
-$accordion = new kivviACFGroup($params);
-$accordion->registerFieldGroup();
+// $twoup = new kivviACFGroup($kivvi_custom_fields["kivvi_accordion"]);
+// $accordion->registerFieldGroup();

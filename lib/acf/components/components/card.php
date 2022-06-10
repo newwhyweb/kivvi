@@ -1,5 +1,5 @@
 <?php
-$params = array(
+$kivvi_custom_fields["kivvi_card"] = array(
     'key' => 'kivvi_card',
     'title' => 'Card',
     'label' => 'Card',
@@ -94,5 +94,5 @@ $params = array(
 
 );
 
-$card = new kivviACFGroup($params);
-$card->registerFieldGroup();
+// $card = new kivviACFGroup($params);
+// $card->registerFieldGroup();

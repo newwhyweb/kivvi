@@ -28,5 +28,5 @@ $kivvi_custom_fields["kivvi_cta"] = array(
     )
 );
 
-$cta = new kivviACFGroup($kivvi_custom_fields["kivvi_cta"]);
-$cta->registerFieldGroup();
+// $cta = new kivviACFGroup($kivvi_custom_fields["kivvi_cta"]);
+// $cta->registerFieldGroup();

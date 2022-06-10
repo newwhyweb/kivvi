@@ -45,5 +45,5 @@ $kivvi_custom_fields["kivvi_modal_video"] = array(
 
 );
 
-$modalVideo = new kivviACFGroup($kivvi_custom_fields["kivvi_modal_video"]);
-$modalVideo->registerFieldGroup();
+// $modalVideo = new kivviACFGroup($kivvi_custom_fields["kivvi_modal_video"]);
+// $modalVideo->registerFieldGroup();

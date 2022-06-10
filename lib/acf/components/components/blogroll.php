@@ -26,5 +26,5 @@ $kivvi_custom_fields["kivvi_blogroll"] = array(
 );
 
 
-$timeline = new kivviACFGroup($kivvi_custom_fields["kivvi_blogroll"]);
-$timeline->registerFieldGroup();
+// $timeline = new kivviACFGroup($kivvi_custom_fields["kivvi_blogroll"]);
+// $timeline->registerFieldGroup();

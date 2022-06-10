@@ -39,5 +39,5 @@ $kivvi_custom_fields["kivvi_header_text"] = array(
     )
 );
 
-$headerText = new kivviACFGroup($kivvi_custom_fields["kivvi_header_text"]);
-$headerText->registerFieldGroup();
+// $headerText = new kivviACFGroup($kivvi_custom_fields["kivvi_header_text"]);
+// $headerText->registerFieldGroup();

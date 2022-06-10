@@ -1,5 +1,5 @@
 <?php
-$kivvi_custom_fields["kivvi_header_tag"] = array(
+$kivvi_custom_standalone_fields["kivvi_header_tag"] = array(
     'key' => 'kivvi_header_tag',
     'title' => 'Header Hierarchy Level',
     'name' => 'kivvi_header_tag',
@@ -14,6 +14,6 @@ $kivvi_custom_fields["kivvi_header_tag"] = array(
     'parent' => 'kivvi_standalone_fields'
 );
 
-acf_add_local_field(
-    $kivvi_custom_fields["kivvi_header_tag"]
-);
+// acf_add_local_field(
+//     $kivvi_custom_fields["kivvi_header_tag"]
+// );
