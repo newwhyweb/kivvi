@@ -3,36 +3,35 @@ $kivvi_custom_fields["kivvi_hero"] = array(
     'key' => 'kivvi_hero',
     'title' => 'Hero',
     'fields' => array(
-
-        array(
+        'kivvi_hero_logo' => array(
             'key' => 'kivvi_hero_logo',
             'title' => 'Logo',
             'name' => 'kivvi_hero_logo',
             'label' => 'Logo',
             'type' => 'image',
         ),
-        array(
+        'kivvi_hero_page_title' => array(
             'key' => 'kivvi_hero_page_title',
             'title' => 'Title',
             'name' => 'kivvi_hero_page_title',
             'label' => 'Title',
             'type' => 'text',
         ),
-        array(
+        'kivvi_hero_leadin' => array(
             'key' => 'kivvi_hero_leadin',
             'title' => 'Leadin',
             'name' => 'kivvi_hero_leadin',
             'label' => 'Leadin',
             'type' => 'text',
         ),
-        array(
+        'kivvi_hero_description' => array(
             'key' => 'kivvi_hero_description',
             'title' => 'Compelling Description',
             'name' => 'kivvi_hero_description',
             'label' => 'Compelling Description',
             'type' => 'text',
         ),
-        array(
+        'kivvi_hero_body' => array(
             'key' => 'kivvi_hero_body',
             'title' => 'Body',
             'name' => 'kivvi_hero_body',

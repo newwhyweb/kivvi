@@ -4,7 +4,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
     'key' => 'kivvi_admin',
     'title' => 'Admin Fields',
     'fields' => array(
-        array(
+        'kivvi_admin_name' => array(
             'key' => 'kivvi_admin_name',
             'label' => 'Admin Name',
             'name' => 'kivvi_admin_name',
@@ -23,7 +23,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'append' => '',
             'maxlength' => '',
         ),
-        array(
+        'kivvi_component_classes' => array(
             'key' => 'kivvi_component_classes',
             'label' => 'Component Classes',
             'name' => 'kivvi_component_classes',
@@ -42,7 +42,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'append' => '',
             'maxlength' => '',
         ),
-        array(
+        'kivvi_component_animate' => array(
             'key' => 'kivvi_component_animate',
             'label' => 'Animate Component',
             'name' => 'kivvi_component_animate',
@@ -61,7 +61,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'ui_on_text' => '',
             'ui_off_text' => '',
         ),
-        array(
+        'kivvi_component_animation' => array(
             'key' => 'kivvi_component_animation',
             'label' => 'Component Animation',
             'name' => 'kivvi_component_animation',
@@ -94,7 +94,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'return_format' => 'value',
             'placeholder' => '',
         ),
-        array(
+        'kivvi_component_header_animate' => array(
             'key' => 'kivvi_component_header_animate',
             'label' => 'Animate Header',
             'name' => 'kivvi_component_header_animate',
@@ -113,7 +113,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'ui_on_text' => '',
             'ui_off_text' => '',
         ),
-        array(
+        'kivvi_component_header_animation' => array(
             'key' => 'kivvi_component_header_animation',
             'label' => 'Header Animation Type',
             'name' => 'kivvi_component_header_animation',
@@ -146,7 +146,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'return_format' => 'value',
             'placeholder' => '',
         ),
-        array(
+        'kivvi_component_image_animate' => array(
             'key' => 'kivvi_component_image_animate',
             'label' => 'Animate Image',
             'name' => 'kivvi_component_image_animate',
@@ -165,7 +165,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'ui_on_text' => '',
             'ui_off_text' => '',
         ),
-        array(
+        'kivvi_component_image_animation' => array(
             'key' => 'kivvi_component_image_animation',
             'label' => 'Image Animation Type',
             'name' => 'kivvi_component_image_animation',

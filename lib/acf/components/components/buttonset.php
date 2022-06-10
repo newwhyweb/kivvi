@@ -6,7 +6,7 @@ $kivvi_custom_fields["kivvi_buttonset"] = array(
     'name' => 'Button Set',
     'layout' => 'block',
     'fields' => array(
-        array(
+        'kivvi_buttonset_variant' => array(
             'key' => 'kivvi_buttonset_variant',
             'title' => 'Variant',
             'name' => 'variant',
@@ -21,7 +21,7 @@ $kivvi_custom_fields["kivvi_buttonset"] = array(
         ),
 
 
-        array(
+        'kivvi_button_one' => array(
             'key' => 'kivvi_button_one',
             'label' => 'Button One',
             'name' => 'ButtonOne',
@@ -32,7 +32,7 @@ $kivvi_custom_fields["kivvi_buttonset"] = array(
             'display' => 'group',
             'prefix_name' => 1,
         ),
-        array(
+        'kivvi_button_two' => array(
             'key' => 'kivvi_button_two',
             'label' => 'Button Two',
             'name' => 'ButtonTwo',
@@ -43,7 +43,7 @@ $kivvi_custom_fields["kivvi_buttonset"] = array(
             'display' => 'group',
             'prefix_name' => 1,
         ),
-        array(
+        'kivvi_button_three' => array(
             'key' => 'kivvi_button_three',
             'label' => 'Button Three',
             'name' => 'ButtonThree',

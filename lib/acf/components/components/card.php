@@ -6,16 +6,13 @@ $kivvi_custom_fields["kivvi_card"] = array(
     'name' => 'kivvi_card',
     'layout' => 'block',
     'fields' => array(
-
-
-        array(
+        'kivvi_card_link' => array(
             'key' => 'kivvi_card_link',
             'label' => 'Card Link',
             'name' => 'kivvi_card_link',
             'type' => 'link',
         ),
-
-        array(
+        'kivvi_card_image' => array(
             'key' => 'kivvi_card_image',
             'title' => 'Image',
             'name' => 'kivvi_card_image',
@@ -23,31 +20,28 @@ $kivvi_custom_fields["kivvi_card"] = array(
             'type' => 'image',
 
         ),
-
-
-        array(
+        'kivvi_card_title' => array(
             'key' => 'kivvi_card_title',
             'label' => 'Title',
             'name' => 'kivvi_card_title',
             'type' => 'text',
 
         ),
-        array(
+        'kivvi_card_subtitle' => array(
             'key' => 'kivvi_card_subtitle',
             'label' => 'Subtitle',
             'name' => 'kivvi_card_subtitle',
             'type' => 'text',
 
         ),
-        array(
+        'kivvi_card_description' => array(
             'key' => 'kivvi_card_description',
             'label' => 'Description',
             'name' => 'kivvi_card_description',
             'type' => 'wysiwyg',
 
         ),
-
-        array(
+        'kivvi_card_show_button' => array(
             'key' => 'kivvi_card_show_button',
             'label' => 'Show Button?',
             'name' => 'kivvi_card_show_button',
@@ -66,8 +60,7 @@ $kivvi_custom_fields["kivvi_card"] = array(
             'ui_on_text' => '',
             'ui_off_text' => '',
         ),
-
-        array(
+        'kivvi_card_button' => array(
             'key' => 'kivvi_card_button',
             'label' => 'Button',
             'name' => 'kivvi_card_button',
@@ -88,10 +81,7 @@ $kivvi_custom_fields["kivvi_card"] = array(
             ),
 
         ),
-
-
     )
-
 );
 
 // $card = new kivviACFGroup($params);

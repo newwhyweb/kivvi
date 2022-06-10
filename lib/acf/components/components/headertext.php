@@ -6,8 +6,7 @@ $kivvi_custom_fields["kivvi_header_text"] = array(
     'name' => 'kivvi_header_text',
     'layout' => 'block',
     'fields' => array(
-
-        array(
+        'kivvi_headertext_header_tag' => array(
             'key' => 'kivvi_headertext_header_tag',
             'label' => 'Header Tag',
             'name' => 'kivvi_headertext_header_tag',
@@ -18,8 +17,7 @@ $kivvi_custom_fields["kivvi_header_text"] = array(
             'display' => 'seamless',
             'prefix_name' => 1,
         ),
-
-        array(
+        'kivvi_header_text_header' => array(
             'key' => 'kivvi_header_text_header',
             'title' => 'Header Text',
             'name' => 'kivvi_header_text_header',
@@ -27,9 +25,7 @@ $kivvi_custom_fields["kivvi_header_text"] = array(
             'type' => 'text',
 
         ),
-
-
-        array(
+        'kivvi_header_text_body' => array(
             'key' => 'kivvi_header_text_body',
             'label' => 'Body',
             'name' => 'kivvi_header_text_body',

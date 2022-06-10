@@ -3,7 +3,7 @@ $kivvi_custom_fields["kivvi_timeline"] = array(
     'key' => 'kivvi_timeline',
     'title' => 'Timeline',
     'fields' => array(
-        array(
+        'kivvi_timeline_header_text' => array(
             'key' => 'kivvi_timeline_header_text',
             'title' => 'Header & Text',
             'name' => 'kivvi_timeline_header_text',
@@ -14,7 +14,7 @@ $kivvi_custom_fields["kivvi_timeline"] = array(
                 0 => 'kivvi_header_text'
             )
         ),
-        array(
+        'kivvi_timeline_items' => array(
             'key' => 'kivvi_timeline_items',
             'label' => 'Timeline Itemes',
             'name' => 'kivvi_timeline_items',

@@ -7,14 +7,14 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
     'name' => 'Accordion',
     'layout' => 'block',
     'fields' => array(
-        array(
+        'kivvi_accordion_header' => array(
             'key' => 'kivvi_accordion_header',
             'title' => 'Header',
             'name' => 'kivvi_accordion_header',
             'label' => 'Header',
             'type' => 'text',
         ),
-        array(
+        'kivvi_accordion_header_tag' => array(
             'key' => 'kivvi_accordion_header_tag',
             'title' => 'Header Hierarchy Level',
             'name' => 'kivvi_accordion_header_tag',
@@ -25,14 +25,14 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
                 0 => 'kivvi_header_tag',
             ),
         ),
-        array(
+        'kivvi_header_description' => array(
             'key' => 'kivvi_header_description',
             'label' => 'Intro Description',
             'name' => 'kivvi_header_description',
             'type' => 'wysiwyg',
 
         ),
-        array(
+        'kivvi_accordion_open' => array(
             'key' => 'kivvi_accordion_open',
             'title' => 'Open Options',
             'name' => 'kivvi_accordion_open',
@@ -45,10 +45,7 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
                 'last' => 'Last Open',
             )
         ),
-
-
-
-        array(
+        'kivvi_accordion_items' => array(
             'key' => 'kivvi_accordion_items',
             'label' => 'Accordion Items',
             'name' => 'kivvi_accordion_items',
@@ -68,7 +65,7 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
             'layout' => 'block',
             'button_label' => 'Add Item',
             'sub_fields' => array(
-                array(
+                'kivvi_accordion_item_title' => array(
                     'key' => 'kivvi_accordion_item_title',
                     'label' => 'Item Title',
                     'name' => 'kivvi_accordion_item_title',
@@ -87,7 +84,7 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
                     'append' => '',
                     'maxlength' => '',
                 ),
-                array(
+                'kivvi_accordion_item_content' => array(
                     'key' => 'kivvi_accordion_item_content',
                     'label' => 'Item Content',
                     'name' => 'kivvi_accordion_item_content',

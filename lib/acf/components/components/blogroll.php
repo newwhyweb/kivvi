@@ -4,7 +4,7 @@ $kivvi_custom_fields["kivvi_blogroll"] = array(
     'name' => 'kivvi_blogroll',
     'title' => 'Blogroll',
     'fields' => array(
-        array(
+        'kivvi_blogroll_header_text' => array(
             'key' => 'kivvi_blogroll_header_text',
             'title' => 'Header & Intro',
             'name' => 'kivvi_blogroll_header_text',
@@ -15,7 +15,7 @@ $kivvi_custom_fields["kivvi_blogroll"] = array(
                 0 => 'kivvi_header_text'
             )
         ),
-        array(
+        'kivvi_blogroll_number' => array(
             'label' => 'Number of posts to show',
             'name' => 'kivvi_blogroll_number',
             'type' => 'number',

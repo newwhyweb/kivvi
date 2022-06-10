@@ -3,9 +3,7 @@ $kivvi_custom_fields["kivvi_testimonial"] = array(
     'key' => 'kivvi_testimonial',
     'title' => 'Testimonial',
     'fields' => array(
-
-
-        array(
+        'kivvi_testimonial_image_side' => array(
             'key' => 'kivvi_testimonial_image_side',
             'label' => 'Image Side',
             'name' => 'kivvi_testimonial_image_side',
@@ -18,20 +16,21 @@ $kivvi_custom_fields["kivvi_testimonial"] = array(
             'return_format' => 'value',
 
         ),
-        array(
+        'kivvi_testimonial_image' => array(
             'key' => 'kivvi_testimonial_image',
             'title' => 'Image',
             'name' => 'kivvi_testimonial_image',
             'label' => 'Image',
             'type' => 'image',
-        ), array(
+        ),
+        'kivvi_testimonial_attribution' => array(
             'key' => 'kivvi_testimonial_attribution',
             'title' => 'Attribution',
             'name' => 'kivvi_testimonial_attribution',
             'label' => 'Attribution',
             'type' => 'text',
         ),
-        array(
+        'kivvi_testimonial_header_text' => array(
             'key' => 'kivvi_testimonial_header_text',
             'title' => 'Header & Text',
             'name' => 'kivvi_testimonial_header_text',
@@ -42,8 +41,7 @@ $kivvi_custom_fields["kivvi_testimonial"] = array(
                 0 => 'kivvi_header_text'
             )
         ),
-
-        array(
+        'kivvi_testimonial_show_button' => array(
             'key' => 'kivvi_testimonial_show_button',
             'label' => 'Show Button?',
             'name' => 'kivvi_testimonial_show_button',
@@ -62,8 +60,7 @@ $kivvi_custom_fields["kivvi_testimonial"] = array(
             'ui_on_text' => '',
             'ui_off_text' => '',
         ),
-
-        array(
+        'kivvi_testimonial_button' => array(
             'key' => 'kivvi_testimonial_button',
             'label' => 'Button',
             'name' => 'kivvi_testimonial_button',

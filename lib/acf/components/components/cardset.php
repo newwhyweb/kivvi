@@ -7,7 +7,7 @@ $kivvi_custom_fields["kivvi_cardset"] = array(
     'name' => 'kivvi_cardset',
     'layout' => 'block',
     'fields' => array(
-        array(
+        'kivvi_cardset_instructions' => array(
             'key' => 'kivvi_cardset_instructions',
             'label' => '',
             'name' => '',
@@ -24,7 +24,7 @@ $kivvi_custom_fields["kivvi_cardset"] = array(
             'esc_html' => 0,
         ),
 
-        array(
+        'kivvi_cardset_header_text' => array(
             'key' => 'kivvi_cardset_header_text',
             'title' => 'Header & Text',
             'name' => 'kivvi_cardset_header_text',
@@ -35,8 +35,7 @@ $kivvi_custom_fields["kivvi_cardset"] = array(
                 0 => 'kivvi_header_text'
             )
         ),
-
-        array(
+        'kivvi_cardset_items' => array(
             'key' => 'kivvi_cardset_items',
             'label' => 'Cardset Items',
             'name' => 'kivvi_cardset_items',

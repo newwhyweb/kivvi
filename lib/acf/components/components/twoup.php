@@ -3,7 +3,7 @@ $kivvi_custom_fields["kivvi_twoup"] = array(
     'key' => 'kivvi_twoup',
     'title' => 'Two Up',
     'fields' => array(
-        array(
+        'kivvi_twoup_instructions' => array(
             'key' => 'kivvi_twoup_instructions',
             'label' => '',
             'name' => '',
@@ -19,7 +19,7 @@ $kivvi_custom_fields["kivvi_twoup"] = array(
             'new_lines' => 'wpautop',
             'esc_html' => 0,
         ),
-        array(
+        'kivvi_twoup_image_side' => array(
             'key' => 'kivvi_twoup_image_side',
             'label' => 'Image Side',
             'name' => 'kivvi_twoup_image_side',
@@ -32,21 +32,21 @@ $kivvi_custom_fields["kivvi_twoup"] = array(
             'return_format' => 'value',
 
         ),
-        array(
+        'kivvi_twoup_image' => array(
             'key' => 'kivvi_twoup_image',
             'title' => 'Image',
             'name' => 'kivvi_twoup_image',
             'label' => 'Imge',
             'type' => 'image',
         ),
-        array(
+        'kivvi_twoup_leadin' => array(
             'key' => 'kivvi_twoup_leadin',
             'title' => 'Leadin',
             'name' => 'kivvi_twoup_leadin',
             'label' => 'Leadin',
             'type' => 'text',
         ),
-        array(
+        'kivvi_twoup_header_text' => array(
             'key' => 'kivvi_twoup_header_text',
             'title' => 'Header & Text',
             'name' => 'kivvi_twoup_header_text',

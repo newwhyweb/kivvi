@@ -6,20 +6,20 @@ $kivvi_custom_fields["kivvi_button"] = array(
     'name' => 'Button',
     'show_admin' => false,
     'fields' => array(
-        array(
+        'kivvi_button_text' => array(
             'key' => 'kivvi_button_text',
             'label' => 'Button Text',
             'name' => 'kivvi_button_text',
             'type' => 'text',
 
         ),
-        array(
+        'kivvi_button_url' => array(
             'key' => 'kivvi_button_url',
             'label' => 'Button Link',
             'name' => 'kivvi_button_url',
             'type' => 'link',
         ),
-        array(
+        'kivvi_button_variant' => array(
             'key' => 'kivvi_button_variant',
             'label' => 'Button Variant',
             'name' => 'kivvi_button_variant',

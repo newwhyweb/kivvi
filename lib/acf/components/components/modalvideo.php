@@ -6,8 +6,7 @@ $kivvi_custom_fields["kivvi_modal_video"] = array(
     'name' => 'kivvi_modal_video',
     'layout' => 'block',
     'fields' => array(
-
-        array(
+        'kivvi_modal_video_image' => array(
             'key' => 'kivvi_modal_video_image',
             'title' => 'Still Image',
             'name' => 'kivvi_modal_video_image',
@@ -15,9 +14,7 @@ $kivvi_custom_fields["kivvi_modal_video"] = array(
             'type' => 'image',
 
         ),
-
-
-        array(
+        'kivvi_modal_video_text' =>  array(
             'key' => 'kivvi_modal_video_text',
             'label' => 'Overlay Text',
             'name' => 'kivvi_modal_video_text',
@@ -25,7 +22,7 @@ $kivvi_custom_fields["kivvi_modal_video"] = array(
             'default' => 'Watch video'
 
         ),
-        array(
+        'kivvi_modal_video_embed_url' => array(
             'key' => 'kivvi_modal_video_embed_url',
             'label' => 'Video URL (not full embed code)',
             'name' => 'kivvi_modal_video_embed_url',
