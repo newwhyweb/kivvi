@@ -143,6 +143,11 @@ class kivviACFGroup
                 'clone' => array(
                     0 => 'kivvi_admin',
                 ),
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => 'kivvi-admin-wrapper',
+                    'id' => '',
+                ),
                 'display' => 'group',
                 'prefix_name' => 1,
 

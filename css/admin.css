@@ -17,10 +17,19 @@
     font-size: 2rem;
 }
 
+
+/* ADMIN NAMES */
 [data-key=kivvi_admin_name] {
     display: none;
 }
 
-.layout [data-key=kivvi_admin_name] {
+.layout > .acf-fields > .acf-field > .acf-input > .acf-fields > .acf-field > .acf-input > .acf-fields > .acf-field[data-key=kivvi_admin_name] {
     display: block;
+} 
+
+.kivvi-admin-title {
+    padding-left: 2rem; 
+    font-size: 1.5rem;
+    line-height: 1.5;
 }
+

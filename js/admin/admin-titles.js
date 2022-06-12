@@ -99,7 +99,7 @@ function setLabelValue(label) {
     handle.innerHTML =
         handleOrder.outerHTML +
         queryType.outerHTML +
-        "<span style='padding-left: 40px; font-size: 2rem'>" +
+        "<span class='kivvi-admin-title'> - " +
         v +
         "</span>";
 }
