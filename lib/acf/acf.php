@@ -59,3 +59,271 @@ function kivvi_register_custom_fields()
   }
 }
 add_action('acf/init', 'kivvi_register_custom_fields', 50);
+
+
+
+$kivvi_flex_page_ignore_groups = array(
+  'kivvi_admin',
+  'kivvi_theme_options',
+  'kivvi_standalone_fields',
+);
+$kivvi_flex_page_active = true;
+$kivvi_flex_page_override = false;
+add_action("acf/init", 'kivvi_flex_page_field_groups', 51);
+function kivvi_flex_page_field_groups()
+{
+  global $kivvi_flex_page_ignore_groups, $kivvi_flex_page_active, $kivvi_flex_page_override;
+  // IF THE THEME IS OVERRIDING THE FLEX PAGE, OR NOT USING IT, DO NOT DO THIS FUNCTION
+
+  if ($kivvi_flex_page_override || !$kivvi_flex_page_active) {
+    return;
+  }
+
+  $field_groups = acf_get_field_groups();
+
+  $layouts = array();
+  foreach ($field_groups as $field_group) {
+    // if (!in_array($field_group["key"], $kivvi_flex_page_ignore_groups) &&  $field_group['location'][0][0]['value'] == 'kivvi-components-hidden') {
+    if (!in_array($field_group["key"], $kivvi_flex_page_ignore_groups)) {
+      $layouts['layout_' . $field_group['key']] = array(
+        'key' => 'layout_' . $field_group['key'],
+        'name' => 'layout_' . $field_group['key'],
+        'label' => $field_group['title'],
+        'sub_fields' => array(
+          array(
+            'key' => 'flex_' . $field_group['key'],
+            'label' => $field_group['title'],
+            'name' => 'flex_' . $field_group['key'],
+            'type' => 'clone',
+            'display' => 'group',
+            'clone' => array(
+              0 => $field_group['key'],
+            ),
+          )
+        )
+      );
+    }
+  }
+  if (function_exists('acf_add_local_field_group')) :
+
+    acf_add_local_field_group(array(
+      'key' => 'kivvi_wireframes_flex',
+      'title' => 'Wireframe Flex Fields',
+
+      'fields' => array(
+        array(
+          'key' => 'kivvi_display_wordpress_page_title',
+          'label' => 'Display WordPress Page Title?',
+          'name' => 'kivvi_display_wordpress_page_title',
+          'type' => 'true_false',
+          'instructions' => 'Set this to false if you are incorporating the page title into a component',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'message' => '',
+          'default_value' => 1,
+          'ui' => 1,
+          'ui_on_text' => '',
+          'ui_off_text' => '',
+        ),
+        array(
+          'key' => 'kivvi_flex_sections',
+          'label' => 'Sections',
+          'name' => 'kivvi_flex_sections',
+          'type' => 'repeater',
+          'instructions' => '',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'collapsed' => '',
+          'min' => 0,
+          'max' => 0,
+          'layout' => 'block',
+          'button_label' => 'Add New Section',
+          'sub_fields' => array(
+            array(
+              'key' => 'kivvi_components_parent',
+              'label' => 'Components',
+              'name' => 'kivvi_components_parent',
+              'type' => 'tab',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'placement' => 'top',
+              'endpoint' => 0,
+            ),
+            array(
+              'key' => 'kivvi_flex_components',
+              'label' => 'Components',
+              'name' => 'kivvi_flex_components',
+              'type' => 'flexible_content',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'layouts' => $layouts,
+              'button_label' => 'Add Component To This Section',
+              'min' => '',
+              'max' => '',
+            ),
+
+            array(
+              'key' => 'kivvi_section_settings',
+              'label' => 'Section Settings',
+              'name' => '',
+              'type' => 'tab',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'placement' => 'top',
+              'endpoint' => 0,
+            ),
+            array(
+              'key' => 'kivvi_section_admin_name',
+              'label' => 'Section Admin Name',
+              'name' => 'kivvi_section_admin_name',
+              'type' => 'text',
+              'instructions' => 'Administrative name for this section - will only show up in the admin',
+
+            ),
+            array(
+              'key' => 'kivvi_section_full_width',
+              'label' => 'Force Full Width',
+              'name' => 'kivvi_section_full_width',
+              'type' => 'true_false',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'message' => '',
+              'default_value' => 0,
+              'ui' => 1,
+              'ui_on_text' => '',
+              'ui_off_text' => '',
+            ),
+            array(
+              'key' => 'kivvi_section_background',
+              'label' => 'Background',
+              'name' => 'kivvi_section_background',
+              'type' => 'image',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'return_format' => 'array',
+              'preview_size' => 'medium',
+              'library' => 'all',
+              'min_width' => 0,
+              'min_height' => 0,
+              'min_size' => 0,
+              'max_width' => 0,
+              'max_height' => 0,
+              'max_size' => 0,
+              'mime_types' => '',
+            ),
+            array(
+              'key' => 'kivvi_section_classes',
+              'label' => 'Section Classes',
+              'name' => 'kivvi_section_classes',
+              'type' => 'text',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+              'placeholder' => '',
+              'prepend' => '',
+              'append' => '',
+              'maxlength' => '',
+            ),
+            array(
+              'key' => 'kivvi_section_id',
+              'label' => 'Section ID',
+              'name' => 'kivvi_section_id',
+              'type' => 'text',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+              'placeholder' => '',
+              'prepend' => '',
+              'append' => '',
+              'maxlength' => '',
+            ),
+          ),
+        ),
+      ),
+
+      'location' => array(
+        array(
+          array(
+            'param' => 'page_template',
+            'operator' => '==',
+            'value' => 'page-flex.php',
+          ),
+        ),
+      ),
+      'menu_order' => 0,
+      'position' => 'normal',
+      'style' => 'default',
+      'label_placement' => 'top',
+      'instruction_placement' => 'label',
+      'hide_on_screen' => '',
+      'active' => true,
+      'description' => '',
+      'show_in_rest' => 0,
+    ));
+
+  endif;
+}
+
+
+
+add_filter('theme_page_templates', 'kivvi_remove_page_templates', 51);
+function kivvi_remove_page_templates($page_templates)
+{
+  global $kivvi_flex_page_active;
+  if (!$kivvi_flex_page_active) {
+    unset($page_templates['page-flex.php']);
+  }
+  return $page_templates;
+}

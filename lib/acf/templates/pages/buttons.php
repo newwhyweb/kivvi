@@ -83,8 +83,8 @@ $params['fields'][$row]['sub_fields'] = array(
 
 // kivvi_pre($params);
 // exit;
-$buttonsTemplate = new kivviACFGroup($params);
-$buttonsTemplate->registerFieldGroup();
+// $buttonsTemplate = new kivviACFGroup($params);
+// $buttonsTemplate->registerFieldGroup();
 
 // if (function_exists('acf_add_local_field_group')) {
 //     acf_add_local_field_group(array(
