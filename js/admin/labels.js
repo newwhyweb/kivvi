@@ -4,7 +4,6 @@ let acfLabels = document.querySelectorAll(".acf-label");
 
 // IF THE SIBLING .acf-input has .acf-fields, don't do
 let acfInputs = document.querySelectorAll(":not(.clones) .acf-input");
-console.log(acfInputs.length);
 
 acfInputs.forEach(function (inp) {
     // GENERALLY, IF THEY DON'T HAVE SUB FIELDS, THEY SHOULD DISPLAY THE LABEL

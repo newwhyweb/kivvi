@@ -27,6 +27,13 @@
     display: block;
 } 
 
+.kivvi-section-admin-title {
+    font-size: 2rem;
+    line-height: 1.5;
+    
+    padding-left: 1rem;
+}
+
 .kivvi-admin-title {
     padding-left: 2rem; 
     font-size: 1.5rem;

@@ -62,7 +62,7 @@ function setObserver() {
 
 function addExistingLabelListeners() {
     let labels = document.querySelectorAll(
-        "[data-name='kivvi_admin_name'] input[type='text']"
+        "[data-name='kivvi_admin_name'] input[type='text'], [data-name='kivvi_section_admin_name'] input[type='text']"
     );
 
     labels.forEach((label) => {
@@ -77,38 +77,69 @@ function addLabelListener(label) {
     });
 }
 function setLabelValue(label) {
+    let labelType = "component";
+    if (label.closest('[data-name="kivvi_section_admin_name"]')) {
+        labelType = "section";
+    }
     let v = label.value;
-    let container = label.closest(".layout");
+    let container, handle;
+    switch (labelType) {
+        case "component":
+            container = label.closest(".layout");
+            break;
+        case "section":
+            container = label.closest("td.acf-fields");
+            break;
+    }
+
     if (!container) {
         return;
     }
-    let handle = container.querySelector(".acf-fc-layout-handle");
-    if (!handle) {
-        return;
-    }
-    let handleOrder = handle.querySelector(".acf-fc-layout-order");
+    switch (labelType) {
+        case "component":
+            handle = container.querySelector(".acf-fc-layout-handle");
 
-    let queryType = handle.querySelector(".kivvi_content_type");
+            if (!handle) {
+                return;
+            }
+            let handleOrder = handle.querySelector(".acf-fc-layout-order");
 
-    if (!queryType) {
-        let contentType = handle.innerHTML.replace(handleOrder.outerHTML, "");
-        queryType = document.createElement("span");
-        queryType.classList.add("kivvi_content_type");
-        queryType.innerHTML = contentType;
+            let queryType = handle.querySelector(".kivvi_content_type");
+
+            if (!queryType) {
+                let contentType = handle.innerHTML.replace(
+                    handleOrder.outerHTML,
+                    ""
+                );
+                queryType = document.createElement("span");
+                queryType.classList.add("kivvi_content_type");
+                queryType.innerHTML = contentType;
+            }
+            handle.innerHTML =
+                handleOrder.outerHTML +
+                queryType.outerHTML +
+                "<span class='kivvi-admin-title'>" +
+                v +
+                "</span>";
+            break;
+        case "section":
+            handle = container.querySelector(".kivvi-section-admin-title");
+            if (!handle) {
+                handle = document.createElement("div");
+                handle.classList.add("kivvi-section-admin-title");
+                container.insertBefore(handle, container.firstChild);
+            }
+            handle.innerHTML = v;
+
+            break;
     }
-    handle.innerHTML =
-        handleOrder.outerHTML +
-        queryType.outerHTML +
-        "<span class='kivvi-admin-title'> - " +
-        v +
-        "</span>";
 }
 
 function handleMutation(mutation) {
     let newitem = mutation.addedNodes[0];
     if (isNodeItem(newitem)) {
         let label = newitem.querySelector(
-            "[data-name=kivvi_admin_name'] input[type='text']"
+            "[data-name=kivvi_admin_name'] input[type='text'], [data-name=kivvi_section_admin_name'] input[type='text']"
         );
         if (
             label &&
