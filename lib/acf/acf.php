@@ -25,6 +25,7 @@ $kivvi_acf_includes = array(
   'lib/acf/components/components/twoup.php',
   'lib/acf/components/components/testimonial.php',
   'lib/acf/components/components/cta.php',
+  'lib/acf/components/components/tabs.php',
 
 
 
@@ -47,7 +48,13 @@ function kivvi_register_custom_fields()
 {
   global $kivvi_custom_fields, $kivvi_custom_standalone_fields;
 
-  foreach ($kivvi_custom_fields as $field) {
+  foreach ($kivvi_custom_fields as $key => $field) {
+
+    // REGISTER TABS LATER TO USE GROUPS AS DEFINED LATER IN THE PROCESS
+    // IT'S REGISTERED BELOW
+    if ($key == "kivvi_tabs") {
+      continue;
+    }
 
     $field = new kivviACFGroup($field);
     $field->registerFieldGroup();
@@ -67,12 +74,15 @@ $kivvi_flex_page_ignore_groups = array(
   'kivvi_theme_options',
   'kivvi_standalone_fields',
 );
+
+
+$kivvi_layouts_in_use = array();
 $kivvi_flex_page_active = true;
 $kivvi_flex_page_override = false;
 add_action("acf/init", 'kivvi_flex_page_field_groups', 51);
 function kivvi_flex_page_field_groups()
 {
-  global $kivvi_flex_page_ignore_groups, $kivvi_flex_page_active, $kivvi_flex_page_override;
+  global $kivvi_flex_page_ignore_groups, $kivvi_flex_page_active, $kivvi_flex_page_override, $kivvi_layouts_in_use;
   // IF THE THEME IS OVERRIDING THE FLEX PAGE, OR NOT USING IT, DO NOT DO THIS FUNCTION
 
   if ($kivvi_flex_page_override || !$kivvi_flex_page_active) {
@@ -104,6 +114,50 @@ function kivvi_flex_page_field_groups()
       );
     }
   }
+  $kivvi_layouts_in_use = $layouts;
+}
+
+
+
+add_action("acf/init", 'kivvi_add_tab_layouts', 52);
+function kivvi_add_tab_layouts()
+{
+
+  global $kivvi_custom_fields, $kivvi_layouts_in_use;
+  if ($kivvi_custom_fields["kivvi_tabs"]) {
+    $layoutFields = $kivvi_layouts_in_use;
+    // DON'T ALLOW FOR TAB NESTING -> POTENTIAL FOR INFINITE LOOP
+    unset($layoutFields["layout_kivvi_tabs"]);
+
+    $kivvi_custom_fields["kivvi_tabs"]["fields"]["kivvi_tabs_items"]["sub_fields"]["kivvi_tabs_item_content"]["layouts"] = $layoutFields;
+    $kivvi_layouts_in_use["layout_kivvi_tabs"] = array(
+      'key' => 'layout_kivvi_tabs',
+      'name' => 'layout_kivvi_tabs',
+      'label' => 'Tabs',
+      'sub_fields' => array(
+        array(
+          'key' => 'flex_kivvi_tabs',
+          'label' => 'Tabs',
+          'name' => 'flex_kivvi_tabs',
+          'type' => 'clone',
+          'display' => 'group',
+          'clone' => array(
+            0 => 'kivvi_tabs',
+          ),
+        )
+      )
+    );
+
+
+    $field = new kivviACFGroup($kivvi_custom_fields["kivvi_tabs"]);
+    $field->registerFieldGroup();
+  }
+}
+
+add_action("acf/init", 'kivvi_register_flex_page_group', 53);
+function kivvi_register_flex_page_group()
+{
+  global $kivvi_layouts_in_use;
   if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group(array(
@@ -178,7 +232,7 @@ function kivvi_flex_page_field_groups()
                 'class' => '',
                 'id' => '',
               ),
-              'layouts' => $layouts,
+              'layouts' => $kivvi_layouts_in_use,
               'button_label' => 'Add Component To This Section',
               'min' => '',
               'max' => '',
@@ -228,8 +282,22 @@ function kivvi_flex_page_field_groups()
               'ui_off_text' => '',
             ),
             array(
-              'key' => 'kivvi_section_background',
+              'key' => 'kivvi_section_background_type',
               'label' => 'Background',
+              'name' => 'kivvi_section_background_type',
+              'type' => 'radio',
+              'choices' => array(
+                'image' => 'Image',
+                'color' => 'Color',
+              ),
+              'layout' => 'horizontal',
+              'return_format' => 'value',
+              'default_value' => 'image',
+
+            ),
+            array(
+              'key' => 'kivvi_section_background',
+              'label' => 'Background Image',
               'name' => 'kivvi_section_background',
               'type' => 'image',
               'instructions' => '',
@@ -250,6 +318,30 @@ function kivvi_flex_page_field_groups()
               'max_height' => 0,
               'max_size' => 0,
               'mime_types' => '',
+              'conditional_logic' => array(
+                array(
+                  array(
+                    'field' => 'kivvi_section_background_type',
+                    'operator' => '==',
+                    'value' => 'image',
+                  ),
+                ),
+              ),
+            ),
+            array(
+              'key' => 'kivvi_section_background_color',
+              'label' => 'Background Color',
+              'name' => 'kivvi_section_background_color',
+              'type' => 'color_picker',
+              'conditional_logic' => array(
+                array(
+                  array(
+                    'field' => 'kivvi_section_background_type',
+                    'operator' => '==',
+                    'value' => 'color',
+                  ),
+                ),
+              ),
             ),
             array(
               'key' => 'kivvi_section_classes',

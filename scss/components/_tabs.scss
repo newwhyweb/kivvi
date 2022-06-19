@@ -1,0 +1,48 @@
+:root {
+    --kh-tab-title-color: black;
+    --kh-tab-title-text-decoration: none;
+    --kh-tab-active-title-background: grey;
+    --kh-tab-active-title-color: white;
+    --kh-tab-links-bottom-border: black;
+    --kh-tab-links-bottom-border-height: 1px;
+    --kh-tabs-padding-left: 2rem;
+    --kh-tabs-padding-top: 1rem;
+}
+.kivvi-tabs {
+    > ul {
+        width: 100%;
+        gap: 2rem;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        padding-block: 1rem;
+        padding-inline-start: var(--kh-tabs-padding-left);
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: calc(-1 * var(--kh-tab-links-bottom-border-height));
+            bottom: 0;
+            left: var(--kh-tabs-padding-left);
+            height: var(--kh-tab-links-bottom-border-height);
+            width: calc(100% - var(--kh-tabs-padding-left));
+            background: var(--kh-tab-links-bottom-border);
+        }
+    }
+}
+.kivvi-tab-title {
+    list-style: none;
+}
+.kivvi-tab-title-link {
+    color: var(--kh-tab-title-color);
+    text-decoration: var(--kh-tab-title-text-decoration);
+    padding: 1rem;
+    transition: all 0.3s;
+    &[aria-selected] {
+        background: var(--kh-tab-active-title-background);
+        color: var(--kh-tab-active-title-color);
+    }
+}
+.kivvi-tabs-section {
+    padding-inline-start: var(--kh-tabs-padding-left);
+    padding-block-start: var(--kh-tabs-padding-top);
+}

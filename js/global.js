@@ -286,16 +286,69 @@ modalVideos.forEach((modalVideo) => {
         if (!parent) {
             return;
         }
-        let sib = parent.nextElementSibling;
+        launchVideo(parent);
+    });
+});
 
-        if (sib.classList.contains("kivvi-modal-video-embed")) {
-            sib.classList.add("active");
-            setTimeout(() => {
-                sib.classList.add("show");
-            }, 100);
+function launchVideo(parent) {
+    let sib = parent.nextElementSibling;
+
+    if (sib.classList.contains("kivvi-modal-video-embed")) {
+        sib.classList.add("active");
+        setTimeout(() => {
+            sib.classList.add("show");
+        }, 100);
+        // CLOSE WHEN CLICKING OUTSIDE VIDEO
+        sib.addEventListener("click", (e) => {
+            closeModalVideo();
+        });
+    }
+}
+
+// LAUNCH FROM BUTTON
+let videoButtons = document.querySelectorAll(".kivvi-video-button-wrapper");
+videoButtons.forEach((videoButton) => {
+    videoButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        let button = videoButton.querySelector(".button");
+        let videoID = videoButton.dataset.video;
+        let videoContainer = document.querySelector(
+            '.kivvi-twoup-video-container[data-video="' + videoID + '"]'
+        );
+        if (videoContainer) {
+            let parent = videoContainer.querySelector(".kivvi-modal-video");
+            launchVideo(parent);
         }
     });
 });
+
+// CLOSE WHEN CLICKING LINK
+let modalVideosClose = document.querySelectorAll(
+    ".kivvi-modal-video-embed .close-video"
+);
+modalVideosClose.forEach((modalVideoClose) => {
+    modalVideoClose.addEventListener("click", (e) => {
+        closeModalVideo();
+    });
+});
+
+// CLOSE ON ESC
+document.addEventListener("keydown", function (e) {
+    if (e.key == "Escape") {
+        closeModalVideo();
+    }
+});
+function closeModalVideo() {
+    let modalVideos = document.querySelectorAll(
+        ".kivvi-modal-video-embed.show"
+    );
+    modalVideos.forEach((modalVideo) => {
+        modalVideo.classList.remove("show");
+        setTimeout(() => {
+            modalVideo.classList.remove("active");
+        }, 1000);
+    });
+}
 
 /* Mobile nav */
 let navLink = document.querySelector("#mobile-toggle");
@@ -307,3 +360,96 @@ navLink.addEventListener("click", function (e) {
     mainNav.classList.toggle("active");
     navIcon.classList.toggle("open");
 });
+
+function initTabs() {
+    // Get relevant elements and collections
+    const tabbedList = document.querySelectorAll(".kivvi-tabs");
+
+    if (!tabbedList || !tabbedList.length) {
+        return;
+    }
+
+    tabbedList.forEach((tabbed) => {
+        const tablist = tabbed.querySelector("ul");
+        const tabs = tablist.querySelectorAll("a");
+        const panels = tabbed.querySelectorAll('[id^="section"]');
+
+        // The tab switching function
+        const switchTab = (oldTab, newTab) => {
+            newTab.focus();
+            // Make the active tab focusable by the user (Tab key)
+            newTab.removeAttribute("tabindex");
+            // Set the selected state
+            newTab.setAttribute("aria-selected", "true");
+            oldTab.removeAttribute("aria-selected");
+            oldTab.setAttribute("tabindex", "-1");
+            // Get the indices of the new and old tabs to find the correct
+            // tab panels to show and hide
+            let index = Array.prototype.indexOf.call(tabs, newTab);
+            let oldIndex = Array.prototype.indexOf.call(tabs, oldTab);
+            panels[oldIndex].hidden = true;
+            panels[index].hidden = false;
+        };
+
+        // Add the tablist role to the first <ul> in the .tabbed container
+        tablist.setAttribute("role", "tablist");
+
+        // Add semantics are remove user focusability for each tab
+        Array.prototype.forEach.call(tabs, (tab, i) => {
+            tab.setAttribute("role", "tab");
+            tab.setAttribute("id", "tab" + (i + 1));
+            tab.setAttribute("tabindex", "-1");
+            tab.parentNode.setAttribute("role", "presentation");
+
+            // Handle clicking of tabs for mouse users
+            tab.addEventListener("click", (e) => {
+                e.preventDefault();
+                let currentTab = tablist.querySelector("[aria-selected]");
+                if (e.currentTarget !== currentTab) {
+                    switchTab(currentTab, e.currentTarget);
+                }
+            });
+
+            // Handle keydown events for keyboard users
+            tab.addEventListener("keydown", (e) => {
+                // Get the index of the current tab in the tabs node list
+                let index = Array.prototype.indexOf.call(tabs, e.currentTarget);
+                // Work out which key the user is pressing and
+                // Calculate the new tab's index where appropriate
+                let dir =
+                    e.which === 37
+                        ? index - 1
+                        : e.which === 39
+                        ? index + 1
+                        : e.which === 40
+                        ? "down"
+                        : null;
+                if (dir !== null) {
+                    e.preventDefault();
+                    // If the down key is pressed, move focus to the open panel,
+                    // otherwise switch to the adjacent tab
+                    dir === "down"
+                        ? panels[i].focus()
+                        : tabs[dir]
+                        ? switchTab(e.currentTarget, tabs[dir])
+                        : void 0;
+                }
+            });
+        });
+
+        // Add tab panel semantics and hide them all
+        Array.prototype.forEach.call(panels, (panel, i) => {
+            panel.setAttribute("role", "tabpanel");
+            panel.setAttribute("tabindex", "-1");
+            let id = panel.getAttribute("id");
+            panel.setAttribute("aria-labelledby", tabs[i].id);
+            panel.hidden = true;
+        });
+
+        // Initially activate the first tab and reveal the first tab panel
+        tabs[0].removeAttribute("tabindex");
+        tabs[0].setAttribute("aria-selected", "true");
+        panels[0].hidden = false;
+    });
+}
+initTabs();

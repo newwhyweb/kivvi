@@ -1,6 +1,6 @@
 <?php
 
-function kivvi_get_component_template($component, $thisComponentData)
+function kivvi_get_component_template($component, $thisComponentData, $print = true)
 {
     if ($component == "acf_fc_layout") {
         return;
@@ -12,7 +12,11 @@ function kivvi_get_component_template($component, $thisComponentData)
     // 
     $thisComponentData['kivvi_component'] = $component;
     if (locate_template('template-parts/components/' . $component . '.php')) {
-        get_template_part('template-parts/components/' . $component, '', $thisComponentData);
+        if ($print) {
+            get_template_part('template-parts/components/' . $component, '', $thisComponentData);
+        } else {
+            return kivvi_get_template_part('template-parts/components/' . $component, $thisComponentData);
+        }
     } else {
         $clone = false;
 
@@ -31,7 +35,11 @@ function kivvi_get_component_template($component, $thisComponentData)
 
         $thisComponentData['kivvi_component'] = $clone;
         if ($clone && locate_template('template-parts/components/' . $clone . '.php')) {
-            get_template_part('template-parts/components/' . $clone, '', $thisComponentData);
+            if ($print) {
+                get_template_part('template-parts/components/' . $clone, '', $thisComponentData);
+            } else {
+                return kivvi_get_template_part('template-parts/components/' . $clone,  $thisComponentData);
+            }
         }
     }
 }

@@ -1,3 +1,11 @@
+:root {
+    --kh-twoup-modal-video-play-button-width: 50px;
+    --kh-modal-video-play-button-stroke: black;
+    --kh-modal-video-play-button-fill: none;
+    --kh-modal-video-play-button-linecap: round;
+    --kh-modal-video-play-button-linejoin: round;
+}
+
 .kivvi-modal-video {
     .kivvi-modal-video-inner {
         position: relative;
@@ -49,12 +57,33 @@
     align-items: center;
     justify-content: center;
     display: none;
-
+    .close-video {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
     &.active {
         display: flex;
         transition: opacity 1s;
         &.show {
             opacity: 1;
         }
+    }
+}
+
+.kivvi-twoup .kivvi-modal-video {
+    .kivvi-modal-video-inner {
+        .kivvi-modal-video-overlay {
+            width: var(--kh-twoup-modal-video-play-button-width);
+            left: calc(50% - var(--kh-twoup-modal-video-play-button-width));
+            .play-button {
+                min-width: var(--kh-twoup-modal-video-play-button-width);
+                min-height: var(--kh-twoup-modal-video-play-button-width);
+                padding: 2rem 2rem 2rem 3rem;
+            }
+        }
+    }
+    img {
+        width: 100%;
     }
 }

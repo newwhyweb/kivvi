@@ -25,8 +25,11 @@ if ($sections = get_field('kivvi_flex_sections', $pageID)) :
         $componentStyles = implode(" ", $componentStylesArray);
         $sectionStyles = '';
         if ($section['kivvi_section_full_width']) {
-            if ($section['kivvi_section_background']) {
+            if ($section['kivvi_section_background'] && $section["kivvi_section_background_type"] == "image") {
                 $sectionStyles .= 'background-image: url(' . $section['kivvi_section_background']['url'] . ');';
+            }
+            if ($section["kivvi_section_background_color"] && $section["kivvi_section_background_type"] == "color") {
+                $sectionStyles .= 'background-color: ' . $section["kivvi_section_background_color"] . ';';
             }
             echo '<div class="section-group full-width ' . $componentStyles . '" style="' . $sectionStyles . '">';
         }
