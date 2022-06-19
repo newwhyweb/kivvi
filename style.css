@@ -6,24 +6,3 @@ Description: Know How Parent Theme, version 6
 Version: 1.0
 Tested upto: 5.9
 */
-
-
-/* TODO: INCORPORATE EVERYTHING BELOW INTO FRACTAL OR ANOTHER STYLESHEET */
-
-
-.visuallyhidden {
-    clip: rect(0 0 0 0); 
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap; 
-    width: 1px;
-}
-
-/* HEADER */
-#masthead {
-    display: flex;
-    justify-content: space-between;
-}
-

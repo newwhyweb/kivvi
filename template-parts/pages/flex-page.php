@@ -14,16 +14,24 @@ endif;
 
 if ($sections = get_field('kivvi_flex_sections', $pageID)) :
     foreach ($sections as $section) :
+        $components = $section['kivvi_flex_components'];
 
+        $componentStylesArray = array();
+        foreach ($components as $component) {
+            if ($component["acf_fc_layout"]) {
+                $componentStylesArray[] = $component["acf_fc_layout"];
+            }
+        }
+        $componentStyles = implode(" ", $componentStylesArray);
         $sectionStyles = '';
         if ($section['kivvi_section_full_width']) {
             if ($section['kivvi_section_background']) {
                 $sectionStyles .= 'background-image: url(' . $section['kivvi_section_background']['url'] . ');';
             }
-            echo '<div class="section-group full-width" style="' . $sectionStyles . '">';
+            echo '<div class="section-group full-width ' . $componentStyles . '" style="' . $sectionStyles . '">';
         }
 
-        $sectionClasses = '';
+        $sectionClasses = ' ' . $componentStyles;
         if ($section["kivvi_section_classes"]) {
             $sectionClasses .= ' ' . $section["kivvi_section_classes"];
         }

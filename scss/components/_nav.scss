@@ -1,3 +1,12 @@
+:root {
+    --nav-breakpoint: 1000px;
+    --nav-icon-background: #ffffff;
+    --nav-icon-background-hover: #777777;
+    --nav-drawer-link-color: white;
+    --nav-drawer-background: black;
+    --nav-drawer-underline-color: white;
+}
+
 #masthead {
     display: flex;
     justify-content: space-between;
@@ -22,5 +31,173 @@
 .site-title {
     a {
         text-decoration: none;
+    }
+}
+
+#mobile-toggle {
+    z-index: 10000;
+}
+
+#nav-icon {
+    width: 40px;
+    display: none;
+    z-index: 10000;
+    height: 40px;
+    position: relative;
+    margin: 50px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#nav-icon span {
+    display: block;
+    position: absolute;
+    height: 7px;
+    width: 100%;
+    background: var(--nav-icon-background);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+
+    border-radius: 7px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: all 0.4s ease-in-out;
+}
+
+a #nav-icon:hover span,
+a #nav-icon.open span {
+    background-color: var(--nav-icon-background-hover);
+}
+
+#nav-icon.open:hover span {
+    filter: brightness(1.5);
+}
+
+#nav-icon span:nth-child(1) {
+    top: 0px;
+}
+
+#nav-icon span:nth-child(2) {
+    top: 14px;
+}
+
+#nav-icon span:nth-child(3) {
+    top: 28px;
+}
+
+#nav-icon.open span:nth-child(1) {
+    top: 18px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+#nav-icon.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+#nav-icon.open span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+@media screen and (max-width: 1000px) {
+    #site-navigation {
+        transform: translateX(150%);
+        transition: transform 0.5s ease-in-out;
+        background: var(--nav-drawer-background);
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        color: var(--nav-drawer-link-color);
+
+        z-index: 9999;
+
+        &.active {
+            transform: translateX(0);
+        }
+        // transform: translateY(100%);
+    }
+    #nav-icon {
+        display: block;
+    }
+
+    #masthead {
+        nav {
+            overflow: auto;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+            width: 100%;
+            > div {
+                width: 100%;
+            }
+            ul.menu {
+                padding: 0;
+                flex-direction: column;
+                min-height: 800px;
+                width: 90%;
+                max-width: 400px;
+                text-align: left;
+                margin: auto;
+                a {
+                    color: var(--kh-color-teal);
+                    position: relative;
+                    display: block;
+                    padding-bottom: 0.5rem;
+                    &:after {
+                        content: "";
+                        bottom: 0;
+                        left: 0;
+                        position: absolute;
+                        height: 2px;
+                        background: var(--nav-drawer-underline-color);
+
+                        width: calc(90vw - 80px);
+                        max-width: 400px;
+                    }
+                }
+                .sub-menu a:after {
+                    width: calc(90vw - 120px);
+                }
+                > li:last-of-type a {
+                    border-bottom: none;
+                }
+            }
+            li {
+                width: 100%;
+            }
+            a {
+                color: var(--kh-color-dark-teal);
+            }
+            .sub-menu {
+                padding-top: 1rem;
+                margin-top: 0.5rem;
+                li {
+                    position: relative;
+                }
+            }
+        }
     }
 }

@@ -38,6 +38,17 @@ $kivvi_custom_fields["kivvi_hero"] = array(
             'label' => 'Body',
             'type' => 'wysiwyg',
         ),
+        'kivvi_hero_button' => array(
+            'key' => 'kivvi_hero_button',
+            'label' => 'Button',
+            'name' => 'kivvi_hero_button',
+            'type' => 'clone',
+            'clone' => array(
+                0 => 'kivvi_button',
+            ),
+            'display' => 'group',
+            'prefix_name' => 1,
+        ),
 
     )
 
