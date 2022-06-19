@@ -133,6 +133,16 @@ body {
   word-wrap: normal !important;
 }
 
+.visuallyhidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 :is(h1, h2, h3, h4, h5) {
   text-align: center;
   letter-spacing: 1.5px;
@@ -841,6 +851,31 @@ details > summary::-webkit-details-marker {
   width: unset;
   margin-left: unset;
   margin-right: unset;
+}
+
+#masthead {
+  display: flex;
+  justify-content: space-between;
+}
+#masthead nav {
+  text-transform: uppercase;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+#masthead nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#masthead nav a {
+  text-decoration: none;
+}
+
+.site-title a {
+  text-decoration: none;
 }
 
 .page-about {
