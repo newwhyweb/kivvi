@@ -1,3 +1,7 @@
+function kivvi_sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 class Accordion {
     // The default constructor for each accordion
     constructor(el) {
@@ -213,7 +217,7 @@ async function startTyping() {
                 }
                 typingSpans[activeSpan].classList.add("active");
             }, 4500);
-            await kh_sleep(1000);
+            await kivvi_sleep(1000);
             typingSpans[0].classList.add("starting");
             isTyping = true;
         }
@@ -361,7 +365,7 @@ navLink.addEventListener("click", function (e) {
     navIcon.classList.toggle("open");
 });
 
-function initTabs() {
+async function initTabs() {
     // Get relevant elements and collections
     const tabbedList = document.querySelectorAll(".kivvi-tabs");
 
@@ -369,14 +373,27 @@ function initTabs() {
         return;
     }
 
-    tabbedList.forEach((tabbed) => {
+    tabbedList.forEach(async (tabbed) => {
         const tablist = tabbed.querySelector("ul");
         const tabs = tablist.querySelectorAll("a");
         const panels = tabbed.querySelectorAll('[id^="section"]');
 
         // The tab switching function
-        const switchTab = (oldTab, newTab) => {
+        const switchTab = async (oldTab, newTab) => {
+            let oldSection = document.getElementById(
+                oldTab.getAttribute("href").substring(1)
+            );
+            let newSection = document.getElementById(
+                newTab.getAttribute("href").substring(1)
+            );
+            oldSection.classList.add("inactive");
+            // await kivvi_sleep(500);
+            setTimeout(function () {
+                newSection.classList.remove("inactive");
+            }, 100);
+
             newTab.focus();
+
             // Make the active tab focusable by the user (Tab key)
             newTab.removeAttribute("tabindex");
             // Set the selected state

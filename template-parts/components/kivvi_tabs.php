@@ -12,7 +12,11 @@ foreach ($args["kivvi_tabs_items"] as $key => $item) {
 }
 $html .= '</ul>';
 foreach ($args["kivvi_tabs_items"] as $key => $item) {
-    $html .= '<section class="kivvi-tabs-section" id="section_' . $randomComponentID . '_' . $key . '">';
+    $html .= '<section class="kivvi-tabs-section';
+    if ($key != 0) {
+        $html .= ' inactive';
+    }
+    $html .= '" id="section_' . $randomComponentID . '_' . $key . '">';
     foreach ($item["kivvi_tabs_item_content"] as $itemkey => $content) {
 
         foreach ($content as $component => $thisComponentData) {

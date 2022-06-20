@@ -53,12 +53,6 @@ body {
 }
 
 .full-width {
-  width: 80%;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 8rem;
   padding-top: 0;
   background-repeat: no-repeat;
   background-position: top right;
@@ -80,7 +74,7 @@ body {
 }
 @media screen and (max-width: 950px) {
   .full-width {
-    background: none !important;
+    background-image: none !important;
     padding-bottom: 0;
   }
 }
@@ -837,6 +831,7 @@ details > summary::-webkit-details-marker {
   align-items: center;
   justify-content: center;
   display: none;
+  z-index: 1000;
 }
 .kivvi-modal-video-embed .close-video {
   position: absolute;
@@ -882,15 +877,16 @@ details > summary::-webkit-details-marker {
   --kh-tab-links-bottom-border-height: 1px;
   --kh-tabs-padding-left: 2rem;
   --kh-tabs-padding-top: 1rem;
+  --kh-tabs-title-gap: 1rem;
 }
 
 .kivvi-tabs > ul {
   width: 100%;
-  gap: 2rem;
+  gap: var(--kh-tabs-title-gap);
   display: flex;
   position: relative;
   justify-content: space-between;
-  padding-block: 1rem;
+  flex-wrap: wrap;
   padding-inline-start: var(--kh-tabs-padding-left);
 }
 .kivvi-tabs > ul:after {
@@ -903,6 +899,17 @@ details > summary::-webkit-details-marker {
   width: calc(100% - var(--kh-tabs-padding-left));
   background: var(--kh-tab-links-bottom-border);
 }
+@media screen and (max-width: 768px) {
+  .kivvi-tabs > ul:after {
+    left: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .kivvi-tabs > ul {
+    padding-inline-start: 0;
+  }
+}
 
 .kivvi-tab-title {
   list-style: none;
@@ -911,8 +918,10 @@ details > summary::-webkit-details-marker {
 .kivvi-tab-title-link {
   color: var(--kh-tab-title-color);
   text-decoration: var(--kh-tab-title-text-decoration);
-  padding: 1rem;
+  display: inline-flex;
   transition: all 0.3s;
+  padding: 1rem;
+  word-wrap: break-word;
 }
 .kivvi-tab-title-link[aria-selected] {
   background: var(--kh-tab-active-title-background);
@@ -922,6 +931,17 @@ details > summary::-webkit-details-marker {
 .kivvi-tabs-section {
   padding-inline-start: var(--kh-tabs-padding-left);
   padding-block-start: var(--kh-tabs-padding-top);
+  opacity: 1;
+  transition: all 0.5s;
+}
+.kivvi-tabs-section.inactive {
+  opacity: 0;
+  transition: all 0.5s;
+}
+@media screen and (max-width: 768px) {
+  .kivvi-tabs-section {
+    padding-inline-start: 0;
+  }
 }
 
 :root {

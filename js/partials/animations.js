@@ -78,7 +78,7 @@ async function startTyping() {
                 }
                 typingSpans[activeSpan].classList.add("active");
             }, 4500);
-            await kh_sleep(1000);
+            await kivvi_sleep(1000);
             typingSpans[0].classList.add("starting");
             isTyping = true;
         }
