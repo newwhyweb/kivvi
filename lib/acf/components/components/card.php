@@ -41,6 +41,7 @@ $kivvi_custom_fields["kivvi_card"] = array(
             'type' => 'wysiwyg',
 
         ),
+
         'kivvi_card_show_button' => array(
             'key' => 'kivvi_card_show_button',
             'label' => 'Show Button?',

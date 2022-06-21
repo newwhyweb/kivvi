@@ -21,6 +21,7 @@ button,
     border: var(--kh-button-border);
     transition: var(--kh-button-transition);
     text-decoration: none;
+    display: inline-block;
     a {
         color: var(--kh-button-color);
         text-decoration: none;

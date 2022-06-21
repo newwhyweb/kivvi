@@ -24,17 +24,7 @@ if ($sections = get_field('kivvi_flex_sections', $pageID)) :
         }
         $componentStyles = implode(" ", $componentStylesArray);
         $sectionStyles = '';
-        if ($section['kivvi_section_full_width']) {
-            if ($section['kivvi_section_background'] && $section["kivvi_section_background_type"] == "image") {
-                $sectionStyles .= 'background-image: url(' . $section['kivvi_section_background']['url'] . ');';
-            }
-            if ($section["kivvi_section_background_color"] && $section["kivvi_section_background_type"] == "color") {
-                $sectionStyles .= 'background-color: ' . $section["kivvi_section_background_color"] . ';';
-            }
-            echo '<div class="section-group full-width ' . $componentStyles . '" style="' . $sectionStyles . '">';
-        }
-
-        $sectionClasses = ' ' . $componentStyles;
+        $sectionClasses = " " . $componentStyles;
         if ($section["kivvi_section_classes"]) {
             $sectionClasses .= ' ' . $section["kivvi_section_classes"];
         }
@@ -43,11 +33,29 @@ if ($sections = get_field('kivvi_flex_sections', $pageID)) :
         if ($section["kivvi_section_id"]) {
             $sectionID .= ' id="' . trim($section["kivvi_section_id"]) . '"';
         }
+        if ($section['kivvi_section_full_width']) {
+            if ($section["kivvi_section_background_keep_image_mobile"]) {
+                $sectionClasses .= ' kivvi-section-background-keep-image-mobile';
+            }
+            if ($section['kivvi_section_background'] && $section["kivvi_section_background_type"] == "image") {
+                $sectionStyles .= 'background-image: url(' . $section['kivvi_section_background']['url'] . ');';
+            }
+            if ($section["kivvi_section_background_color"] && $section["kivvi_section_background_type"] == "color") {
+                $sectionStyles .= 'background-color: ' . $section["kivvi_section_background_color"] . ';';
+            }
+            echo '<div class="section-group full-width' . $sectionClasses . '" style="' . $sectionStyles . '" ' . $sectionID . '>';
+        }
+
+
 
 
 
     ?>
-        <section class="kivvi_section<?php echo $sectionClasses; ?>" <?php echo $sectionID; ?>>
+        <section class="kivvi_section<?php if (!$section['kivvi_section_full_width']) {
+                                            echo $sectionClasses;
+                                        } ?>" <?php if (!$section['kivvi_section_full_width']) {
+                                                    echo $sectionID;
+                                                } ?>>
             <div class="kivvi_section_content">
                 <?php
                 $thisRow = $section["kivvi_flex_components"];

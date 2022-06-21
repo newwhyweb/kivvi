@@ -46,7 +46,10 @@ body {
         width: 100%;
     }
     @media screen and (max-width: 950px) {
-        background-image: none !important;
+        &:not(.kivvi-section-background-keep-image-mobile) {
+            background-image: none !important;
+        }
+
         padding-bottom: 0;
     }
     padding-top: 0;

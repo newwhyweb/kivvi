@@ -7,6 +7,17 @@ $kivvi_custom_fields["kivvi_tabs"] = array(
     'name' => 'kivvi_tabs',
     'layout' => 'block',
     'fields' => array(
+        'kivvi_tabs_header_text' => array(
+            'key' => 'kivvi_tabs_header_text',
+            'title' => 'Header & Text',
+            'name' => 'kivvi_tabs_header_text',
+            'label' => 'Header & Text',
+            'type' => 'clone',
+            'display' => 'group',
+            'clone' => array(
+                0 => 'kivvi_header_text'
+            )
+        ),
         'kivvi_tabs_items' => array(
             'key' => 'kivvi_tabs_items',
             'name' => 'kivvi_tabs_items',

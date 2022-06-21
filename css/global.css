@@ -74,8 +74,10 @@ body {
 }
 @media screen and (max-width: 950px) {
   .full-width {
-    background-image: none !important;
     padding-bottom: 0;
+  }
+  .full-width:not(.kivvi-section-background-keep-image-mobile) {
+    background-image: none !important;
   }
 }
 
@@ -612,6 +614,7 @@ button,
   border: var(--kh-button-border);
   transition: var(--kh-button-transition);
   text-decoration: none;
+  display: inline-block;
 }
 button a,
 .button a {
@@ -909,6 +912,9 @@ details > summary::-webkit-details-marker {
   .kivvi-tabs > ul {
     padding-inline-start: 0;
   }
+}
+.kivvi-tabs .kivvi-header-text {
+  margin-block-end: 2rem;
 }
 
 .kivvi-tab-title {

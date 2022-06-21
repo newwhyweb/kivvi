@@ -3,6 +3,10 @@
 $html = '';
 $html .= kivvi_admin_opening_html('kivvi_tabs', $args);
 $randomComponentID = 'tabs_' . rand(1, 100);
+$headerInfo = $args["kivvi_tabs_header_text"];
+$headerInfo["kivvi_component"] = "kivvi_header_text";
+$html .= kivvi_get_template_part('template-parts/components/kivvi_header_text', $headerInfo);
+
 $html .= '<ul>';
 foreach ($args["kivvi_tabs_items"] as $key => $item) {
     $html .= '<li class="kivvi-tab-title">';

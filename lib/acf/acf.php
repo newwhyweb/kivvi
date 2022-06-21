@@ -73,6 +73,8 @@ $kivvi_flex_page_ignore_groups = array(
   'kivvi_admin',
   'kivvi_theme_options',
   'kivvi_standalone_fields',
+  'kivvi_card',
+  'kivvi_product_card',
 );
 
 
@@ -161,8 +163,8 @@ function kivvi_register_flex_page_group()
   if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group(array(
-      'key' => 'kivvi_wireframes_flex',
-      'title' => 'Wireframe Flex Fields',
+      'key' => 'kivvi_pagebuilder_flex',
+      'title' => 'Page Builder Fields',
 
       'fields' => array(
         array(
@@ -318,6 +320,32 @@ function kivvi_register_flex_page_group()
               'max_height' => 0,
               'max_size' => 0,
               'mime_types' => '',
+              'conditional_logic' => array(
+                array(
+                  array(
+                    'field' => 'kivvi_section_background_type',
+                    'operator' => '==',
+                    'value' => 'image',
+                  ),
+                ),
+              ),
+            ),
+            array(
+              'key' => 'kivvi_section_background_keep_image_mobile',
+              'label' => 'Keep Image on Mobile?',
+              'name' => 'kivvi_section_background_keep_image_mobile',
+              'type' => 'true_false',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'message' => '',
+              'default_value' => 0,
+              'ui' => 1,
               'conditional_logic' => array(
                 array(
                   array(
