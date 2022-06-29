@@ -1,7 +1,7 @@
 var observerset = false;
 jQuery(function () {
     addExistingLabelListeners();
-    setObserver();
+    setMainObserver();
 });
 
 // INTERCEPT AJAX, DON'T LET ACF RESET THE LAYOUT TITLE
@@ -32,13 +32,12 @@ jQuery(document).ajaxComplete(function (event, request, settings) {
             action == "acf/ajax/check_screen" &&
             template == "templates/page-flex.php"
         ) {
-            console.log("setting observer");
-            setObserver();
+            setMainObserver();
         }
     }
 });
 
-function setObserver() {
+function setMainObserver() {
     // GET THE CONTAINER AND LISTEN FOR CHANGES
     // let acfparent = document.querySelector(".acf-field-flexible-content");
     let acfparent = document.querySelector(".acf-field-kivvi-flex-sections");
@@ -61,6 +60,23 @@ function setObserver() {
             });
             observerset = true;
         }
+    }
+}
+
+function setComponentObserver(newitem) {
+    let acfwrapper = newitem.querySelector(
+        ":scope > .acf-fields > .acf-field-kivvi-flex-components > .acf-input > .acf-flexible-content > .values"
+    );
+    if (acfwrapper) {
+        let componentObserver = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                let newitem = handleMutation(mutation);
+            });
+        });
+        componentObserver.observe(acfwrapper, {
+            childList: true,
+            attributes: true,
+        });
     }
 }
 
@@ -147,28 +163,24 @@ function handleMutation(mutation) {
         let label = newitem.querySelector(
             "[data-name='kivvi_section_admin_name'] input[type='text']"
         );
-        console.log(label);
+
         if (label && isNodeItem(newitem)) {
             addLabelListener(label);
+            setComponentObserver(newitem);
+            return;
         }
 
-        // let labels = newitem.querySelectorAll(
-        //     "[data-name='kivvi_admin_name'] input[type='text'], [data-name='kivvi_section_admin_name'] input[type='text']"
-        // );
-
-        // if (labels) {
-        //     labels.forEach((label) => {
-        //         console.log(label);
-        //         if (
-        //             label &&
-        //             isNodeItem(newitem) &&
-        //             newitem.classList.contains("layout")
-        //         ) {
-        //             addLabelListener(label);
-        //             label.classList.add("found");
-        //         }
-        //     });
-        // }
+        // COMPONENTS
+        label = newitem.querySelector(
+            "[data-name='kivvi_admin_name'] input[type='text']"
+        );
+        if (
+            label &&
+            isNodeItem(newitem) &&
+            newitem.classList.contains("layout")
+        ) {
+            addLabelListener(label);
+        }
     }
 }
 
