@@ -1,3 +1,25 @@
+let icons = document.querySelectorAll(".acf-icon");
+icons.forEach(function (icon) {
+    let parent = icon.closest(".acf-field-repeater").dataset.name;
+    if (parent) {
+        let newTitle = "row";
+        switch (parent) {
+            case "kivvi_flex_sections":
+                newTitle = "Section";
+                break;
+            case "kivvi_accordion_items":
+            case "kivvi_cardset_items":
+            case "kivvi_tabs_items":
+            case "kivvi_timeline_items":
+                newTitle = "Item";
+                break;
+            default:
+                break;
+        }
+        icon.title = icon.title.replace(/row/, newTitle);
+    }
+});
+
 var observerset = false;
 jQuery(function () {
     addExistingLabelListeners();
@@ -102,6 +124,7 @@ function setLabelValue(label) {
         labelType = "section";
     }
     let v = label.value;
+
     let container, handle;
     switch (labelType) {
         case "component":
@@ -143,6 +166,27 @@ function setLabelValue(label) {
                 "</span>";
             break;
         case "section":
+            if (v == "") {
+                let currSection = "";
+
+                if (
+                    container.closest("tr").dataset.id &&
+                    !isNaN(
+                        container.closest("tr").dataset.id.replace("row-", "") *
+                            1
+                    )
+                ) {
+                    currSection =
+                        container.closest("tr").dataset.id.replace("row-", "") *
+                            1 +
+                        1;
+                }
+
+                v =
+                    "Section " +
+                    currSection +
+                    "<span class='editor-help dashicons dashicons-editor-help' title='To add a custom title, use the Section Admin Name field in Section Settings below' ></span>";
+            }
             handle = container.querySelector(".kivvi-section-admin-title");
             if (!handle) {
                 handle = document.createElement("div");

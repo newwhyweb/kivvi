@@ -1,5 +1,14 @@
 
- 
+ :root {
+    --kh-table-border-color: #ccd0d4;
+    --kh-table-border-bottom: #ccd0d4;
+    --kh-table-section-header-background-color: #2c3e50;
+    --kh-table-border-bottom-color: #e6ebf1;
+    --kh-table-section-header-color: white;
+    --kh-handle-background: #2c3e50;
+    --kh-handle-color: white;
+    --kh-table-border-bottom-height: 3rem;
+}
 .acf-field-clone   .acf-label:not(.kivvi-acf-header-display), [data-name=kivvi_flex_components] > .acf-label {
     display: none;
 }
@@ -13,7 +22,6 @@
 
 /* TARGET SECTIONS */
 [data-name=kivvi_flex_sections] > .acf-input > .acf-repeater > table > tbody > tr > td.acf-row-handle.order {
-    /* background: green; */
     font-size: 2rem;
 }
 
@@ -30,7 +38,8 @@
 .kivvi-section-admin-title {
     font-size: 2rem;
     line-height: 1.5;
-    
+    background-color: var(--kh-table-section-header-background-color);
+    color: var(--kh-table-section-header-color);
     padding-left: 1rem;
 }
 
@@ -38,4 +47,46 @@
     padding-left: 2rem; 
     font-size: 1.5rem;
     line-height: 1.5;
+}
+
+/* SPACING */
+
+
+.acf-field-kivvi-flex-sections > .acf-input > .acf-repeater > table {
+    border-collapse: collapse;
+}
+.acf-field-kivvi-flex-sections > .acf-input > .acf-repeater > table > tbody > tr > td {
+    position: relative;
+    border: unset;
+    
+    
+}
+.acf-field-kivvi-flex-sections > .acf-input > .acf-repeater > table > tbody > tr > td > .acf-field:last-of-type {
+    padding-bottom: calc(var(--kh-table-border-bottom-height) + 2rem);
+}
+.acf-field-kivvi-flex-sections:not(.last-of-type) > .acf-input > .acf-repeater > table > tbody > tr > td:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--kh-table-border-bottom-height);
+    background: linear-gradient(to bottom, var(--kh-table-section-header-background-color) 32px, white 32px, white 90%);
+    /* background: var(--kh-table-border-bottom);  */
+}
+
+.editor-help {
+    margin-top: 10px;
+}
+
+
+.acf-repeater .acf-row-handle:is(.order, .remove) {
+    background: var(--kh-handle-background) !important;
+    color: var(--kh-handle-color) !important;
+}
+
+/* BUTTONS */
+.acf-button.button-primary {
+    background: var(--kh-handle-background);
+    border-color: var(--kh-handle-background);
 }
