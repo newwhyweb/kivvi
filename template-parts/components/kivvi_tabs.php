@@ -24,7 +24,11 @@ foreach ($args["kivvi_tabs_items"] as $key => $item) {
     foreach ($item["kivvi_tabs_item_content"] as $itemkey => $content) {
 
         foreach ($content as $component => $thisComponentData) {
+
             $layoutClass = str_replace('flex', 'layout', $component);
+            if ($layoutClass == "acf_fc_layout") {
+                continue;
+            }
             $html .= '<div class="kivvi-tabs-section ' . $layoutClass . '">';
             $html .= kivvi_get_component_template($component, $thisComponentData, false);
             $html .= '</div>';

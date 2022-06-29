@@ -8,3 +8,15 @@ navLink.addEventListener("click", function (e) {
     mainNav.classList.toggle("active");
     navIcon.classList.toggle("open");
 });
+
+let navLinks = document.querySelectorAll("#site-navigation a");
+navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+        let mainNav = document.getElementById("site-navigation");
+        let navIcon = document.querySelector("#nav-icon");
+        if (mainNav.classList.contains("active")) {
+            navIcon.classList.remove("open");
+            mainNav.classList.toggle("active");
+        }
+    });
+});

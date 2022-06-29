@@ -28,6 +28,9 @@ $kivvi_acf_includes = array(
   'lib/acf/components/components/tabs.php',
 
 
+  'lib/acf/components/components/twocolumn-flex.php',
+
+
 
   'lib/acf/templates/pages/buttons.php',
 

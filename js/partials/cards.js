@@ -7,6 +7,7 @@ if ((cardsets = document.querySelectorAll(".kivvi-cardset"))) {
                 let img = item.querySelector(".imgwrapper img");
 
                 if (
+                    img &&
                     img.getBoundingClientRect().height > 0 &&
                     (!minimgheight ||
                         img.getBoundingClientRect().height < minimgheight)
@@ -16,7 +17,9 @@ if ((cardsets = document.querySelectorAll(".kivvi-cardset"))) {
             });
             cardsetItems.forEach((item) => {
                 let img = item.querySelector(".imgwrapper img");
-                img.style.maxHeight = minimgheight + "px";
+                if (img) {
+                    img.style.maxHeight = minimgheight + "px";
+                }
             });
         });
     });

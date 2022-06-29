@@ -266,6 +266,7 @@ if ((cardsets = document.querySelectorAll(".kivvi-cardset"))) {
                 let img = item.querySelector(".imgwrapper img");
 
                 if (
+                    img &&
                     img.getBoundingClientRect().height > 0 &&
                     (!minimgheight ||
                         img.getBoundingClientRect().height < minimgheight)
@@ -275,7 +276,9 @@ if ((cardsets = document.querySelectorAll(".kivvi-cardset"))) {
             });
             cardsetItems.forEach((item) => {
                 let img = item.querySelector(".imgwrapper img");
-                img.style.maxHeight = minimgheight + "px";
+                if (img) {
+                    img.style.maxHeight = minimgheight + "px";
+                }
             });
         });
     });
@@ -363,6 +366,18 @@ navLink.addEventListener("click", function (e) {
     let mainNav = document.getElementById("site-navigation");
     mainNav.classList.toggle("active");
     navIcon.classList.toggle("open");
+});
+
+let navLinks = document.querySelectorAll("#site-navigation a");
+navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+        let mainNav = document.getElementById("site-navigation");
+        let navIcon = document.querySelector("#nav-icon");
+        if (mainNav.classList.contains("active")) {
+            navIcon.classList.remove("open");
+            mainNav.classList.toggle("active");
+        }
+    });
 });
 
 async function initTabs() {

@@ -1,0 +1,16 @@
+.columns_1_3 .kivvi-columns.equal-width {
+    > div {
+        flex: 3;
+        &:first-of-type {
+            flex: 1;
+        }
+    }
+}
+.columns_1_2 .kivvi-columns.equal-width {
+    > div {
+        flex: 2;
+        &:first-of-type {
+            flex: 1;
+        }
+    }
+}

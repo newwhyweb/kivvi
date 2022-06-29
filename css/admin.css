@@ -1,6 +1,6 @@
 
  
-.acf-field-clone  .acf-label:not(.kivvi-acf-header-display), [data-name=kivvi_flex_components] > .acf-label {
+.acf-field-clone   .acf-label:not(.kivvi-acf-header-display), [data-name=kivvi_flex_components] > .acf-label {
     display: none;
 }
 
@@ -39,4 +39,3 @@
     font-size: 1.5rem;
     line-height: 1.5;
 }
-

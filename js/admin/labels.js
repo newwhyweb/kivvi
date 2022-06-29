@@ -27,4 +27,16 @@ acfInputs.forEach(function (inp) {
         inp.previousElementSibling.classList.add("kivvi-acf-header-display");
         inp.previousElementSibling.classList.add("kivvi-repeater");
     }
+
+    // ADD HEADERS FOR TWO COLUMN COLUMNS
+    if (
+        inp
+            .closest(".acf-field")
+            .classList.contains("acf-field-kivvi-two-column-column-1") ||
+        inp
+            .closest(".acf-field")
+            .classList.contains("acf-field-kivvi-two-column-column-2")
+    ) {
+        inp.previousElementSibling.classList.add("kivvi-acf-header-display");
+    }
 });

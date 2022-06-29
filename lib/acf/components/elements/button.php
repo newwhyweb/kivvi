@@ -13,12 +13,50 @@ $kivvi_custom_fields["kivvi_button"] = array(
             'type' => 'text',
 
         ),
+        'kivvi_button_link_type' => array(
+            'key' => 'kivvi_button_link_type',
+            'title' => 'Link Type',
+            'name' => 'kivvi_button_link_type',
+            'label' => 'Link Type',
+            'type' => 'select',
+            'choices' => array(
+                'url' => 'Url',
+                'file' => 'File',
+
+            ),
+            'default_value' => 'url',
+        ),
         'kivvi_button_url' => array(
             'key' => 'kivvi_button_url',
             'label' => 'Button Link',
             'name' => 'kivvi_button_url',
             'type' => 'link',
+            'conditional_logic' => array(
+                array(
+                    array(
+                        'field' => 'kivvi_button_link_type',
+                        'operator' => '==',
+                        'value' => 'url',
+                    ),
+                ),
+            ),
         ),
+        'kivvi_button_file' => array(
+            'key' => 'kivvi_button_file',
+            'label' => 'Button File',
+            'name' => 'kivvi_button_file',
+            'type' => 'file',
+            'conditional_logic' => array(
+                array(
+                    array(
+                        'field' => 'kivvi_button_link_type',
+                        'operator' => '==',
+                        'value' => 'file',
+                    ),
+                ),
+            ),
+        ),
+
         'kivvi_button_variant' => array(
             'key' => 'kivvi_button_variant',
             'label' => 'Button Variant',

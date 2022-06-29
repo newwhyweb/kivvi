@@ -144,6 +144,17 @@ if (function_exists('acf_add_local_field_group')) {
                 'ui_off_text' => '',
             ),
             array(
+                'key' => 'kivvi_socials_icon_set',
+                'label' => 'Icon Set',
+                'name' => 'kivvi_socials_icon_set',
+                'instructions' => 'If you are using files for your icon set, save them in the theme, in a socials subfoler, lowercase (e.g., [theme]/socials/linkedin.png',
+                'type' => 'radio',
+                'choices' => array(
+                    'dashicons' => 'Dashicons',
+                    'files' => 'Files',
+                )
+            ),
+            array(
                 'key' => 'kivvi_twitter_url',
                 'label' => 'Twitter',
                 'name' => 'twitter',

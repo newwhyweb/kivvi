@@ -18,7 +18,6 @@
 </div><!-- #content -->
 
 <?php get_template_part('template-parts/footer/footer-widgets'); ?>
-
 </div><!-- #page -->
 <?php wp_footer(); ?>
 <script>

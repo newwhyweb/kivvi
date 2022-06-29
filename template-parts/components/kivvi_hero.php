@@ -25,7 +25,7 @@ $html .= '<h2>' . $args["kivvi_hero_description"] . '</h2>';
 if (isset($args["kivvi_hero_body"])) {
     $html .= '<div>' . $args["kivvi_hero_body"] . '</h2>';
 }
-if (isset($args["kivvi_hero_button"])) {
+if (isset($args["kivvi_hero_button"]) && isset($args["kivvi_hero_button_text"])) {
     $html .= kivvi_get_template_part('template-parts/components/kivvi_button', $args["kivvi_hero_button"]);
 }
 
