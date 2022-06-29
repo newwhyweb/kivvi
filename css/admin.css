@@ -90,3 +90,10 @@
     background: var(--kh-handle-background);
     border-color: var(--kh-handle-background);
 }
+
+.acf-icon.small {
+    width: 30px;
+    height: 30px;
+    line-height: 21px;
+    font-size: 21px;
+}
