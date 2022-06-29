@@ -32,6 +32,7 @@ jQuery(document).ajaxComplete(function (event, request, settings) {
             action == "acf/ajax/check_screen" &&
             template == "templates/page-flex.php"
         ) {
+            console.log("setting observer");
             setObserver();
         }
     }
@@ -39,12 +40,15 @@ jQuery(document).ajaxComplete(function (event, request, settings) {
 
 function setObserver() {
     // GET THE CONTAINER AND LISTEN FOR CHANGES
-    let acfparent = document.querySelector(".acf-field-flexible-content");
-
+    // let acfparent = document.querySelector(".acf-field-flexible-content");
+    let acfparent = document.querySelector(".acf-field-kivvi-flex-sections");
+    //acf-field-kivvi-flex-sections
     if (acfparent && !observerset) {
-        let acfwrapper = acfparent.querySelector(
-            ".acf-flexible-content .values"
-        );
+        // let acfwrapper = acfparent.querySelector(
+        //     ".acf-flexible-content .values"
+        // );
+        let acfwrapper = acfparent.querySelector(".acf-table tbody");
+
         if (acfwrapper) {
             var observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
@@ -137,17 +141,34 @@ function setLabelValue(label) {
 
 function handleMutation(mutation) {
     let newitem = mutation.addedNodes[0];
+
     if (isNodeItem(newitem)) {
+        // SECTIONS
         let label = newitem.querySelector(
-            "[data-name=kivvi_admin_name'] input[type='text'], [data-name=kivvi_section_admin_name'] input[type='text']"
+            "[data-name='kivvi_section_admin_name'] input[type='text']"
         );
-        if (
-            label &&
-            isNodeItem(newitem) &&
-            newitem.classList.contains("layout")
-        ) {
+        console.log(label);
+        if (label && isNodeItem(newitem)) {
             addLabelListener(label);
         }
+
+        // let labels = newitem.querySelectorAll(
+        //     "[data-name='kivvi_admin_name'] input[type='text'], [data-name='kivvi_section_admin_name'] input[type='text']"
+        // );
+
+        // if (labels) {
+        //     labels.forEach((label) => {
+        //         console.log(label);
+        //         if (
+        //             label &&
+        //             isNodeItem(newitem) &&
+        //             newitem.classList.contains("layout")
+        //         ) {
+        //             addLabelListener(label);
+        //             label.classList.add("found");
+        //         }
+        //     });
+        // }
     }
 }
 
