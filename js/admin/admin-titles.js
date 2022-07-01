@@ -4,6 +4,29 @@ jQuery(function () {
     setMainObserver();
 });
 
+let repeaterButtons = document.querySelectorAll("a[data-event=add-row]");
+
+repeaterButtons.forEach((button) => {
+    if (button.innerHTML == "Add New Section") {
+        button.addEventListener("click", () => {
+            setAllSectionLabels();
+        });
+    }
+    if (button.innerHTML == "Add Item") {
+        console.log(button);
+    }
+});
+
+let sectionIcons = document.querySelectorAll(
+    ".acf-icon[title='Add Section'], .acf-icon[title='Duplicate Section'], .acf-icon[title='Remove Section']"
+);
+
+sectionIcons.forEach((icon) => {
+    icon.addEventListener("click", () => {
+        setAllSectionLabels();
+    });
+});
+
 // INTERCEPT AJAX, DON'T LET ACF RESET THE LAYOUT TITLE
 // USES SEND FROM THIS https://jonlabelle.com/snippets/view/javascript/listen-for-ajax-calls
 
@@ -96,6 +119,7 @@ function addLabelListener(label) {
         setLabelValue(label);
     });
 }
+
 function setLabelValue(label) {
     let labelType = "component";
     if (label.closest('[data-name="kivvi_section_admin_name"]')) {
@@ -116,6 +140,7 @@ function setLabelValue(label) {
     if (!container) {
         return;
     }
+
     switch (labelType) {
         case "component":
             handle = container.querySelector(".acf-fc-layout-handle");
@@ -144,20 +169,15 @@ function setLabelValue(label) {
                 "</span>";
             break;
         case "section":
-            if (v == "") {
+            if (
+                v == "" &&
+                container.closest("tr").dataset.id != "acfcloneindex"
+            ) {
                 let currSection = "";
-
-                if (
-                    container.closest("tr").dataset.id &&
-                    !isNaN(
-                        container.closest("tr").dataset.id.replace("row-", "") *
-                            1
-                    )
-                ) {
-                    currSection =
-                        container.closest("tr").dataset.id.replace("row-", "") *
-                            1 +
-                        1;
+                let parentTR = container.closest("tr");
+                let span = parentTR.querySelector(".acf-row-handle span");
+                if (span) {
+                    currSection = span.innerHTML;
                 }
 
                 v =
@@ -211,4 +231,16 @@ function isNodeItem(item) {
         return true;
     }
     return false;
+}
+
+function setAllSectionLabels() {
+    setTimeout(function () {
+        let labels = document.querySelectorAll(".kivvi-section-admin-name");
+        let activeLabel;
+        labels.forEach((label) => {
+            if (label.id.indexOf("acfcloneindex") == -1) {
+                setLabelValue(label);
+            }
+        });
+    }, 0);
 }

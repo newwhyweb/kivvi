@@ -264,6 +264,7 @@ function kivvi_register_flex_page_group()
               'label' => 'Section Admin Name',
               'name' => 'kivvi_section_admin_name',
               'type' => 'text',
+              'class' => 'kivvi-section-admin-name',
               'instructions' => 'Administrative name for this section - will only show up in the admin',
 
             ),

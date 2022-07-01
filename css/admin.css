@@ -9,6 +9,11 @@
     --kh-handle-color: white;
     --kh-table-border-bottom-height: 3rem;
 }
+.acf-field-repeater:not(.acf-field-kivvi-flex-sections) {
+    --kh-table-section-header-background-color: #2271b1;
+    --kh-handle-background: #2271b1;
+}
+
 .acf-field-clone   .acf-label:not(.kivvi-acf-header-display), [data-name=kivvi_flex_components] > .acf-label {
     display: none;
 }
@@ -52,20 +57,22 @@
 /* SPACING */
 
 
-.acf-field-kivvi-flex-sections > .acf-input > .acf-repeater > table {
+:is(.acf-field-kivvi-flex-sections, .acf-field-repeater) > .acf-input > .acf-repeater > table {
     border-collapse: collapse;
 }
-.acf-field-kivvi-flex-sections > .acf-input > .acf-repeater > table > tbody > tr > td {
+:is(.acf-field-kivvi-flex-sections, .acf-field-repeater) > .acf-input > .acf-repeater > table > tbody > tr > td {
     position: relative;
     border: unset;
     
     
 }
-.acf-field-kivvi-flex-sections > .acf-input > .acf-repeater > table > tbody > tr > td > .acf-field:last-of-type {
+
+
+.acf-field-repeater > .acf-input > .acf-repeater > table > tbody > tr > td > .acf-field:last-of-type {
     padding-bottom: calc(var(--kh-table-border-bottom-height) + 2rem);
 }
-.acf-field-kivvi-flex-sections:not(.last-of-type) > .acf-input > .acf-repeater > table > tbody > tr > td:after {
-    content: "";
+.acf-field-repeater:not(.last-of-type) > .acf-input > .acf-repeater > table > tbody > tr > td:after {
+    content: " ";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -75,10 +82,25 @@
     /* background: var(--kh-table-border-bottom);  */
 }
 
+.acf-field-repeater:not(.acf-field-kivvi-flex-sections) > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type  {
+    padding-top: calc((var(--kh-table-border-bottom-height) / 2) + 2rem);
+    position: relative;
+}
+.acf-field-repeater:not(.acf-field-kivvi-flex-sections) > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--kh-table-border-bottom-height) / 2);
+    background: var(--kh-table-section-header-background-color);
+}
+
+
 .editor-help {
     margin-top: 10px;
 }
-
 
 .acf-repeater .acf-row-handle:is(.order, .remove) {
     background: var(--kh-handle-background) !important;
