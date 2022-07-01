@@ -2,6 +2,7 @@ var observerset = false;
 jQuery(function () {
     addExistingLabelListeners();
     setMainObserver();
+    setAllCollapsed();
 });
 
 let repeaterButtons = document.querySelectorAll("a[data-event=add-row]");
@@ -59,6 +60,13 @@ jQuery(document).ajaxComplete(function (event, request, settings) {
         }
     }
 });
+
+function setAllCollapsed() {
+    let layouts = document.querySelectorAll(".acf-postbox .values .layout");
+    layouts.forEach((item) => {
+        item.classList.add("-collapsed");
+    });
+}
 
 function setMainObserver() {
     // GET THE CONTAINER AND LISTEN FOR CHANGES
