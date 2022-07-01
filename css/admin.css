@@ -8,6 +8,9 @@
     --kh-handle-background: #2c3e50;
     --kh-handle-color: white;
     --kh-table-border-bottom-height: 3rem;
+    --kh-loader-background-color: #2c3e50;
+    --kh-loader-dot-color: #2271b1;
+    --kh-loader-dot-color-faint: rgba(44, 62, 80, .2);
 }
 .acf-field-repeater:not(.acf-field-kivvi-flex-sections) {
     --kh-table-section-header-background-color: #2271b1;
@@ -119,3 +122,35 @@
     line-height: 21px;
     font-size: 21px;
 }
+
+#acf-kivvi_pagebuilder_flex > *:not(#kivvi-flex-loader) {
+    display: none;
+}
+
+#kivvi-flex-loader {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--kh-loader-background-color);
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+#kivvi-flex-loader.closed {
+    opacity: 0;
+    min-height: 0;
+
+}
+.loader {
+    width: 15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: d5 1s infinite linear alternate;
+  }
+  @keyframes d5 {
+      0%  {box-shadow: 20px 0 var(--kh-loader-dot-color), -20px 0 var(--kh-loader-dot-color-faint);background: var(--kh-loader-dot-color) }
+      33% {box-shadow: 20px 0 var(--kh-loader-dot-color), -20px 0 var(--kh-loader-dot-color-faint);background: var(--kh-loader-dot-color-faint)}
+      66% {box-shadow: 20px 0 var(--kh-loader-dot-color-faint),-20px 0 var(--kh-loader-dot-color); background: var(--kh-loader-dot-color-faint)}
+      100%{box-shadow: 20px 0 var(--kh-loader-dot-color-faint),-20px 0 var(--kh-loader-dot-color); background: var(--kh-loader-dot-color) }
+  }
