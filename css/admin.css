@@ -177,3 +177,31 @@
       66% {box-shadow: 20px 0 var(--kh-loader-dot-color-faint),-20px 0 var(--kh-loader-dot-color); background: var(--kh-loader-dot-color-faint)}
       100%{box-shadow: 20px 0 var(--kh-loader-dot-color-faint),-20px 0 var(--kh-loader-dot-color); background: var(--kh-loader-dot-color) }
   }
+
+
+
+
+  /* WIREFRAMES */
+  /* TODO: MOVE INTO PLUGIN */
+
+  .acf-field-repeater.acf-field-kivvi-wireframe-sections {
+    --kh-table-section-header-background-color: #2c3e50;
+    --kh-handle-background: #2c3e50;
+  }
+  .acf-field-kivvi-wireframe-components {
+    padding-block: 4rem !important;
+  }
+
+  .acf-field-repeater.acf-field-kivvi-wireframe-components .acf-repeater .acf-row-handle:is(.order, .remove) {
+    background: none !important;
+    color: black !important;
+  }
+  .acf-field-repeater.acf-field-kivvi-wireframe-components > .acf-input > .acf-repeater > table > tbody > tr > td:after {
+    content: unset;
+  }
+  .acf-field-repeater.acf-field-kivvi-wireframe-components > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type::before {
+    content: unset;
+  }
+  .acf-field-repeater.acf-field-kivvi-wireframe-components > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type {
+    padding-top: 0;
+  }
