@@ -1,20 +1,17 @@
 var observerset = false;
-alert("hi");
 let flexPageBuilder = document.getElementById("acf-kivvi_pagebuilder_flex");
-if (flexPageBuilder) {
-    let loader = document.createElement("div");
-    loader.id = "kivvi-flex-loader";
-    loader.innerHTML = "<div class='loader'></div>";
-    flexPageBuilder.append(loader);
-}
+// if (flexPageBuilder) {
+//     let loader = document.createElement("div");
+//     loader.id = "kivvi-flex-loader";
+//     loader.innerHTML = "<div class='loader'></div>";
+//     flexPageBuilder.append(loader);
+// }
 
 addExistingLabelListeners();
 setMainObserver();
 setAllCollapsed();
 
 jQuery(async function () {
-    let loader = document.getElementById("kivvi-flex-loader");
-    loader.classList.add("closed");
     setTimeout(() => {
         let flexPageChildren = flexPageBuilder.querySelectorAll(":scope > *");
         flexPageChildren.forEach((item) => {
@@ -85,7 +82,6 @@ function setAllCollapsed() {
     layouts.forEach((item) => {
         item.classList.add("-collapsed");
     });
-    console.log("all collapsed");
 }
 
 function setMainObserver() {
@@ -112,7 +108,6 @@ function setMainObserver() {
             observerset = true;
         }
     }
-    console.log("observed");
 }
 
 function setComponentObserver(newitem) {
@@ -141,7 +136,6 @@ function addExistingLabelListeners() {
         setLabelValue(label);
         addLabelListener(label);
     });
-    console.log("labels added");
 }
 
 function addLabelListener(label) {
