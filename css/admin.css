@@ -152,7 +152,13 @@
     border: none;
     opacity: 1;
     transition: all 1s ease-in-out;
-
+    top: 0px; 
+    bottom: 0px;
+    position: fixed; 
+    left: 0px; 
+    right: 0px; 
+    background-color: var(--kh-loader-dot-color-faint); 
+    z-index: 9999;
 }
 #kivvi-flex-loader.closed {
     opacity: 0;

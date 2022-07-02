@@ -62,7 +62,7 @@ function dashboard_preloader()
 
       });
     </script>
-    <div style="top: 0px; bottom: 0px; position: fixed; left: 0px; right: 0px; background-color: rgb(255, 255, 255); z-index: 9999;" id="kivvi-flex-loader">
+    <div id="kivvi-flex-loader">
 
       <div class='loader'></div>
 
