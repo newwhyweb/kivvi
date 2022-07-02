@@ -18,8 +18,11 @@ jQuery(async function () {
     setTimeout(() => {
         let flexPageChildren = flexPageBuilder.querySelectorAll(":scope > *");
         flexPageChildren.forEach((item) => {
-            item.style.display = "block";
+            item.classList.add("loaded");
         });
+        document
+            .getElementById("acf-kivvi_pagebuilder_flex")
+            .classList.add("loaded");
         loader.remove();
     }, 1000);
 });
