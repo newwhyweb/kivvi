@@ -21,7 +21,7 @@ icons.forEach(function (icon) {
 });
 
 var observerset = false;
-
+alert("hi");
 let flexPageBuilder = document.getElementById("acf-kivvi_pagebuilder_flex");
 if (flexPageBuilder) {
     let loader = document.createElement("div");
@@ -46,7 +46,7 @@ jQuery(async function () {
             .getElementById("acf-kivvi_pagebuilder_flex")
             .classList.add("loaded");
         loader.remove();
-    }, 1000);
+    }, 500);
 });
 
 let repeaterButtons = document.querySelectorAll("a[data-event=add-row]");
