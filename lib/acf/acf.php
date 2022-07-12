@@ -451,3 +451,21 @@ function kivvi_remove_page_templates($page_templates)
   }
   return $page_templates;
 }
+
+function kivvi_acf_write_json()
+{
+  global $kivvi_custom_fields;
+  $field_groups = $kivvi_custom_fields;
+  foreach ($field_groups as $group) {
+
+    // If the field group has fields, load them into the 'fields' key. 
+    if (acf_have_local_fields($group['key'])) {
+      $group['fields'] = acf_get_local_fields($group['key']);
+
+      if ($group["type"] != "group") {
+        acf_write_json_field_group($group);
+      }
+    }
+  }
+}
+add_action('acf/init', 'kivvi_acf_write_json', 80);
