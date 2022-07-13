@@ -3,9 +3,10 @@
 class kivviFlexSection
 {
     public $section = false;
-    public function __construct($section = false)
+    public function __construct($section = false, $type = 'flex')
     {
         $this->section = $section;
+        $this->type = $type;
     }
 
     public function getHeader()
@@ -15,7 +16,7 @@ class kivviFlexSection
         }
         $html = '';
         $section = $this->section;
-        $components = $section['kivvi_flex_components'];
+        $components = $section['kivvi_' . $this->type . '_components'];
 
 
         $componentStylesArray = array();

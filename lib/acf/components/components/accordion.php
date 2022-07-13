@@ -13,6 +13,7 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
             'name' => 'kivvi_accordion_header',
             'label' => 'Header',
             'type' => 'text',
+            'kivvi_wireframe_default' => 'Accordion Header'
         ),
         'kivvi_accordion_header_tag' => array(
             'key' => 'kivvi_accordion_header_tag',
