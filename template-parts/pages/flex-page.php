@@ -9,74 +9,25 @@ if (get_field('kivvi_display_wordpress_page_title')) :
             <h1><?php the_title(); ?></h1>
         </div>
     </section>
-    <?php
+<?php
 endif;
 
 if ($sections = get_field('kivvi_flex_sections', $pageID)) :
     foreach ($sections as $section) :
-        $components = $section['kivvi_flex_components'];
 
-        $componentStylesArray = array();
-        foreach ($components as $component) {
-            if ($component["acf_fc_layout"]) {
-                $componentStylesArray[] = $component["acf_fc_layout"];
+        $sectionClass = new kivviFlexSection($section);
+        echo $sectionClass->getHeader();
+
+        $thisRow = $section["kivvi_flex_components"];
+        if (!$thisRow) {
+            break;
+        }
+        foreach ($thisRow as $key => $row) {
+            foreach ($row as $component => $thisComponentData) {
+                kivvi_get_component_template($component, $thisComponentData);
             }
         }
-        $componentStyles = implode(" ", $componentStylesArray);
-        $sectionStyles = '';
-        $sectionClasses = " " . $componentStyles;
-        if ($section["kivvi_section_classes"]) {
-            $sectionClasses .= ' ' . $section["kivvi_section_classes"];
-        }
-
-        $sectionID = '';
-        if ($section["kivvi_section_id"]) {
-            $sectionID .= ' id="' . trim($section["kivvi_section_id"]) . '"';
-        }
-        if ($section['kivvi_section_full_width']) {
-            if ($section["kivvi_section_background_keep_image_mobile"]) {
-                $sectionClasses .= ' kivvi-section-background-keep-image-mobile';
-            }
-            if ($section['kivvi_section_background'] && $section["kivvi_section_background_type"] == "image") {
-                $sectionStyles .= 'background-image: url(' . $section['kivvi_section_background']['url'] . ');';
-            }
-            if ($section["kivvi_section_background_color"] && $section["kivvi_section_background_type"] == "color") {
-                $sectionStyles .= 'background-color: ' . $section["kivvi_section_background_color"] . ';';
-            }
-            echo '<div class="section-group full-width' . $sectionClasses . '" style="' . $sectionStyles . '" ' . $sectionID . '>';
-        }
-
-
-
-
-
-    ?>
-        <section class="kivvi_section<?php if (!$section['kivvi_section_full_width']) {
-                                            echo $sectionClasses;
-                                        } ?>" <?php if (!$section['kivvi_section_full_width']) {
-                                                    echo $sectionID;
-                                                } ?>>
-            <div class="kivvi_section_content">
-                <?php
-                $thisRow = $section["kivvi_flex_components"];
-                if (!$thisRow) {
-                    break;
-                }
-
-                foreach ($thisRow as $key => $row) {
-                    foreach ($row as $component => $thisComponentData) {
-                        kivvi_get_component_template($component, $thisComponentData);
-                    }
-                }
-
-                ?>
-
-            </div>
-        </section>
-<?php
-        if ($section['kivvi_section_full_width']) {
-            echo '</div>'; // GROUP
-        }
+        echo $sectionClass->getFooter();
 
     endforeach;
 

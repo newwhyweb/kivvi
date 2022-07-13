@@ -14,6 +14,7 @@ $kivvi_includes = array(
   'lib/utils.php',
   'lib/acf/acf.php',
   'lib/admin.php',
+  'lib/flex/kivviFlexSection.class.php',
   // 'lib/config.php',
   'lib/scripts.php',
   'lib/media.php',
