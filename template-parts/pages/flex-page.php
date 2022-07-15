@@ -25,6 +25,7 @@ if ($sections = get_field('kivvi_flex_sections', $pageID)) :
 
         foreach ($thisRow as $key => $row) {
             foreach ($row as $component => $thisComponentData) {
+                kivvi_pre($thisComponentData);
                 kivvi_get_component_template($component, $thisComponentData);
             }
         }

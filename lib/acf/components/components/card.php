@@ -50,6 +50,7 @@ $kivvi_custom_fields["kivvi_card"] = array(
             'instructions' => '',
             'required' => 0,
             'conditional_logic' => 0,
+            'kivvi_wireframe_default' => 1,
             'wrapper' => array(
                 'width' => '',
                 'class' => '',

@@ -12,15 +12,18 @@ setMainObserver();
 setAllCollapsed();
 
 jQuery(async function () {
+    if (!flexPageBuilder) {
+        return;
+    }
     setTimeout(() => {
         let flexPageChildren = flexPageBuilder.querySelectorAll(":scope > *");
+
         flexPageChildren.forEach((item) => {
             item.classList.add("loaded");
         });
         document
             .getElementById("acf-kivvi_pagebuilder_flex")
             .classList.add("loaded");
-        loader.remove();
     }, 500);
 });
 
@@ -68,11 +71,14 @@ jQuery(document).ajaxComplete(function (event, request, settings) {
         let url = new URL("http://example.com/?" + settings.data);
         let action = url.searchParams.get("action");
         let template = url.searchParams.get("page_template");
+
         if (
             action == "acf/ajax/check_screen" &&
-            template == "templates/page-flex.php"
+            (template == "templates/page-flex.php" ||
+                template == "page-flex.php")
         ) {
             setMainObserver();
+            addExistingLabelListeners();
         }
     }
 });
@@ -229,9 +235,10 @@ function handleMutation(mutation) {
         let label = newitem.querySelector(
             "[data-name='kivvi_section_admin_name'] input[type='text']"
         );
-
+        console.log(newitem);
         if (label && isNodeItem(newitem)) {
             addLabelListener(label);
+            setLabelValue(label);
             setComponentObserver(newitem);
             return;
         }

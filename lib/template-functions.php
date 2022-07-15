@@ -5,11 +5,9 @@ function kivvi_get_component_template($component, $thisComponentData, $print = t
     if ($component == "acf_fc_layout") {
         return;
     }
-    // if ($component == "kivvi_accordion") {
     // kivvi_pre($component);
     // kivvi_pre($thisComponentData);
-    // }
-    // 
+
     $thisComponentData['kivvi_component'] = $component;
     if (locate_template('template-parts/components/' . $component . '.php')) {
         if ($print) {
@@ -71,6 +69,7 @@ function kivvi_get_header($args)
     if (!$args["kivvi_component"]) {
         return;
     }
+    // kivvi_pre($args);
     $component = $args["kivvi_component"];
     $admin = $args[$component . '_admin'];
     $html = '';

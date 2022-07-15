@@ -468,4 +468,4 @@ function kivvi_acf_write_json()
     }
   }
 }
-add_action('acf/init', 'kivvi_acf_write_json', 80);
+// add_action('acf/init', 'kivvi_acf_write_json', 80);

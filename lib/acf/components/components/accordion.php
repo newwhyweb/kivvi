@@ -25,6 +25,7 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
             'clone' => array(
                 0 => 'kivvi_header_tag',
             ),
+
         ),
         'kivvi_header_description' => array(
             'key' => 'kivvi_header_description',
@@ -44,7 +45,8 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
                 'open' => 'All Open',
                 'first' => 'First Open',
                 'last' => 'Last Open',
-            )
+            ),
+            'kivvi_wireframe_default' => 'first'
         ),
         'kivvi_accordion_items' => array(
             'key' => 'kivvi_accordion_items',
