@@ -1,5 +1,10 @@
 <?php
 extract($args);
+
+$html = '';
+$html .= kivvi_admin_opening_html('kivvi_buttonset', $args);
+$html .= kivvi_get_template_part('template-parts/components/kivvi_header_text', $headerInfo);
+
 $buttons = array();
 
 if ($args["ButtonOne"] && $args["ButtonOne"]["kivvi_button_text"]) {
@@ -28,7 +33,7 @@ foreach ($buttons as $key => $button) {
 $args['buttons'] = $buttonData;
 $buttonsetButtons = $args['buttons'];
 $buttonsetVariant = $args['variant'];
-$html = '';
+
 $html .= '<div class="kh-buttonset kh-buttonset--' . $buttonsetVariant . '">';
 foreach ($buttons as $button) {
     $html .= '<div>';
@@ -37,5 +42,7 @@ foreach ($buttons as $button) {
 }
 
 
+$html .= '</div>';
+$html .= '</div>'; // opening tag
 $html .= '</div>';
 echo $html;

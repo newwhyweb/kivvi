@@ -709,9 +709,10 @@ button.button--alternate a a:hover, button.button--alternate a:hover a,
   margin-top: 1rem;
 }
 
-.kh-buttons {
+.kh-buttonset {
   display: flex;
   gap: 1rem;
+  justify-content: space-around;
 }
 
 :root {

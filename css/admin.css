@@ -12,7 +12,7 @@
     --kh-loader-dot-color: #2271b1;
     --kh-loader-dot-color-faint: rgba(44, 62, 80, .2);
 }
-.acf-field-repeater:not(.acf-field-kivvi-flex-sections) {
+.acf-field-repeater:not(.acf-field-kivvi-flex-sections):not(.acf-field-kivvi-wireframe-sections) {
     --kh-table-section-header-background-color: #2271b1;
     --kh-handle-background: #2271b1;
 }
@@ -60,10 +60,10 @@
 /* SPACING */
 
 
-:is(.acf-field-kivvi-flex-sections, .acf-field-repeater) > .acf-input > .acf-repeater > table {
+:is(.acf-field-kivvi-wireframe-sections, .acf-field-kivvi-flex-sections, .acf-field-repeater) > .acf-input > .acf-repeater > table {
     border-collapse: collapse;
 }
-:is(.acf-field-kivvi-flex-sections, .acf-field-repeater) > .acf-input > .acf-repeater > table > tbody > tr > td {
+:is(.acf-field-kivvi-wireframe-sections, .acf-field-kivvi-flex-sections, .acf-field-repeater) > .acf-input > .acf-repeater > table > tbody > tr > td {
     position: relative;
     border: unset;
     
@@ -88,11 +88,11 @@
     /* background: var(--kh-table-border-bottom);  */
 }
 
-.acf-field-repeater:not(.acf-field-kivvi-flex-sections) > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type  {
+.acf-field-repeater:not(.acf-field-kivvi-flex-sections):not(.acf-field-kivvi-wireframe-sections) > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type  {
     padding-top: calc((var(--kh-table-border-bottom-height) / 2) + 2rem);
     position: relative;
 }
-.acf-field-repeater:not(.acf-field-kivvi-flex-sections) > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type::before
+.acf-field-repeater:not(.acf-field-kivvi-flex-sections):not(.acf-field-kivvi-wireframe-sections) > .acf-input > .acf-repeater > table > tbody > tr > td > div:first-of-type::before
 {
     content: "";
     position: absolute;

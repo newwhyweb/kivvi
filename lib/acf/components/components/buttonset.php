@@ -6,6 +6,17 @@ $kivvi_custom_fields["kivvi_buttonset"] = array(
     'name' => 'Button Set',
     'layout' => 'block',
     'fields' => array(
+        'kivvi_buttonsetset_header_text' => array(
+            'key' => 'kivvi_buttonsetset_header_text',
+            'title' => 'Header & Text',
+            'name' => 'kivvi_buttonsetset_header_text',
+            'label' => 'Header & Text',
+            'type' => 'clone',
+            'display' => 'group',
+            'clone' => array(
+                0 => 'kivvi_header_text'
+            )
+        ),
         'kivvi_buttonset_variant' => array(
             'key' => 'kivvi_buttonset_variant',
             'title' => 'Variant',
@@ -17,7 +28,8 @@ $kivvi_custom_fields["kivvi_buttonset"] = array(
                 "two-alt" => "Two (Alternate)",
                 "three" => "Three",
                 "three-alt" => "Three (Alternate)"
-            )
+            ),
+
         ),
 
 
