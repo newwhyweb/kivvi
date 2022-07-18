@@ -1,5 +1,6 @@
 <?php
 extract($args);
+kivvi_pre($args);
 $buttons = array();
 if ($args["ButtonOne"] && $args["ButtonOne"]["ButtonText"]) {
     $buttons[] = $args["ButtonOne"];

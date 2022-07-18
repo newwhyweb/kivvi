@@ -11,7 +11,7 @@ $kivvi_custom_fields["kivvi_button"] = array(
             'label' => 'Button Text',
             'name' => 'kivvi_button_text',
             'type' => 'text',
-
+            'kivvi_wireframe_default' => 'Do A Thing'
         ),
         'kivvi_button_link_type' => array(
             'key' => 'kivvi_button_link_type',

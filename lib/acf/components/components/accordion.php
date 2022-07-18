@@ -86,6 +86,7 @@ $kivvi_custom_fields["kivvi_accordion"] = array(
                     'prepend' => '',
                     'append' => '',
                     'maxlength' => '',
+                    'kivvi_wireframe_default' => 'Accordion Item'
                 ),
                 'kivvi_accordion_item_content' => array(
                     'key' => 'kivvi_accordion_item_content',

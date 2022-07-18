@@ -22,6 +22,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'prepend' => '',
             'append' => '',
             'maxlength' => '',
+            'kivvi_wireframe_default' => ''
         ),
         'kivvi_component_classes' => array(
             'key' => 'kivvi_component_classes',
@@ -60,6 +61,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'ui' => 1,
             'ui_on_text' => '',
             'ui_off_text' => '',
+            'kivvi_wireframe_default' => true
         ),
         'kivvi_component_animation' => array(
             'key' => 'kivvi_component_animation',
@@ -112,6 +114,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'ui' => 1,
             'ui_on_text' => '',
             'ui_off_text' => '',
+
         ),
         'kivvi_component_header_animation' => array(
             'key' => 'kivvi_component_header_animation',
@@ -198,6 +201,7 @@ $kivvi_custom_fields["kivvi_admin"] = array(
             'ajax' => 0,
             'return_format' => 'value',
             'placeholder' => '',
+            'kivvi_wireframe_default' => 'fadein'
         ),
     ),
     'show_admin' => false,

@@ -21,6 +21,7 @@ $kivvi_custom_fields["kivvi_blogroll"] = array(
             'type' => 'number',
             'min' => 1,
             'default_value' => 3,
+            'kivvi_wireframe_default' => 3
         )
     )
 );
