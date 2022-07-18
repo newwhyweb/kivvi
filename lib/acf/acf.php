@@ -42,10 +42,185 @@ foreach ($kivvi_acf_includes as $file) {
     trigger_error(sprintf(__('Error locating %s for inclusion', 'kivvi'), $file), E_USER_ERROR);
   }
   require_once $filepath;
+  unset($file, $filepath);
 }
 
 
-unset($file, $filepath);
+$kivvi_section_fields = array(
+
+  array(
+    'key' => 'kivvi_section_settings',
+    'label' => 'Section Settings',
+    'name' => '',
+    'type' => 'tab',
+    'instructions' => '',
+    'required' => 0,
+    'conditional_logic' => 0,
+    'wrapper' => array(
+      'width' => '',
+      'class' => '',
+      'id' => '',
+    ),
+    'placement' => 'top',
+    'endpoint' => 0,
+  ),
+
+  array(
+    'key' => 'kivvi_section_admin_name',
+    'label' => 'Section Admin Name',
+    'name' => 'kivvi_section_admin_name',
+    'type' => 'text',
+    'class' => 'kivvi-section-admin-name',
+    'instructions' => 'Administrative name for this section - will only show up in the admin',
+
+  ),
+  array(
+    'key' => 'kivvi_section_full_width',
+    'label' => 'Force Full Width',
+    'name' => 'kivvi_section_full_width',
+    'type' => 'true_false',
+    'instructions' => '',
+    'required' => 0,
+    'conditional_logic' => 0,
+    'wrapper' => array(
+      'width' => '',
+      'class' => '',
+      'id' => '',
+    ),
+    'message' => '',
+    'default_value' => 0,
+    'ui' => 1,
+    'ui_on_text' => '',
+    'ui_off_text' => '',
+  ),
+  array(
+    'key' => 'kivvi_section_background_type',
+    'label' => 'Background',
+    'name' => 'kivvi_section_background_type',
+    'type' => 'radio',
+    'choices' => array(
+      'image' => 'Image',
+      'color' => 'Color',
+    ),
+    'layout' => 'horizontal',
+    'return_format' => 'value',
+    'default_value' => 'image',
+
+  ),
+  array(
+    'key' => 'kivvi_section_background',
+    'label' => 'Background Image',
+    'name' => 'kivvi_section_background',
+    'type' => 'image',
+    'instructions' => '',
+    'required' => 0,
+    'conditional_logic' => 0,
+    'wrapper' => array(
+      'width' => '',
+      'class' => '',
+      'id' => '',
+    ),
+    'return_format' => 'array',
+    'preview_size' => 'medium',
+    'library' => 'all',
+    'min_width' => 0,
+    'min_height' => 0,
+    'min_size' => 0,
+    'max_width' => 0,
+    'max_height' => 0,
+    'max_size' => 0,
+    'mime_types' => '',
+    'conditional_logic' => array(
+      array(
+        array(
+          'field' => 'kivvi_section_background_type',
+          'operator' => '==',
+          'value' => 'image',
+        ),
+      ),
+    ),
+  ),
+  array(
+    'key' => 'kivvi_section_background_keep_image_mobile',
+    'label' => 'Keep Image on Mobile?',
+    'name' => 'kivvi_section_background_keep_image_mobile',
+    'type' => 'true_false',
+    'instructions' => '',
+    'required' => 0,
+    'conditional_logic' => 0,
+    'wrapper' => array(
+      'width' => '',
+      'class' => '',
+      'id' => '',
+    ),
+    'message' => '',
+    'default_value' => 0,
+    'ui' => 1,
+    'conditional_logic' => array(
+      array(
+        array(
+          'field' => 'kivvi_section_background_type',
+          'operator' => '==',
+          'value' => 'image',
+        ),
+      ),
+    ),
+  ),
+  array(
+    'key' => 'kivvi_section_background_color',
+    'label' => 'Background Color',
+    'name' => 'kivvi_section_background_color',
+    'type' => 'color_picker',
+    'conditional_logic' => array(
+      array(
+        array(
+          'field' => 'kivvi_section_background_type',
+          'operator' => '==',
+          'value' => 'color',
+        ),
+      ),
+    ),
+  ),
+  array(
+    'key' => 'kivvi_section_classes',
+    'label' => 'Section Classes',
+    'name' => 'kivvi_section_classes',
+    'type' => 'text',
+    'instructions' => '',
+    'required' => 0,
+    'conditional_logic' => 0,
+    'wrapper' => array(
+      'width' => '',
+      'class' => '',
+      'id' => '',
+    ),
+    'default_value' => '',
+    'placeholder' => '',
+    'prepend' => '',
+    'append' => '',
+    'maxlength' => '',
+  ),
+  array(
+    'key' => 'kivvi_section_id',
+    'label' => 'Section ID',
+    'name' => 'kivvi_section_id',
+    'type' => 'text',
+    'instructions' => '',
+    'required' => 0,
+    'conditional_logic' => 0,
+    'wrapper' => array(
+      'width' => '',
+      'class' => '',
+      'id' => '',
+    ),
+    'default_value' => '',
+    'placeholder' => '',
+    'prepend' => '',
+    'append' => '',
+    'maxlength' => '',
+  ),
+);
+
 
 function kivvi_register_custom_fields()
 {
@@ -162,10 +337,10 @@ function kivvi_add_tab_layouts()
 add_action("acf/init", 'kivvi_register_flex_page_group', 53);
 function kivvi_register_flex_page_group()
 {
-  global $kivvi_layouts_in_use;
+  global $kivvi_layouts_in_use, $kivvi_section_fields;
   if (function_exists('acf_add_local_field_group')) :
 
-    acf_add_local_field_group(array(
+    $group = array(
       'key' => 'kivvi_pagebuilder_flex',
       'title' => 'Page Builder Fields',
 
@@ -243,176 +418,10 @@ function kivvi_register_flex_page_group()
               'max' => '',
             ),
 
-            array(
-              'key' => 'kivvi_section_settings',
-              'label' => 'Section Settings',
-              'name' => '',
-              'type' => 'tab',
-              'instructions' => '',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-              ),
-              'placement' => 'top',
-              'endpoint' => 0,
-            ),
-            array(
-              'key' => 'kivvi_section_admin_name',
-              'label' => 'Section Admin Name',
-              'name' => 'kivvi_section_admin_name',
-              'type' => 'text',
-              'class' => 'kivvi-section-admin-name',
-              'instructions' => 'Administrative name for this section - will only show up in the admin',
 
-            ),
-            array(
-              'key' => 'kivvi_section_full_width',
-              'label' => 'Force Full Width',
-              'name' => 'kivvi_section_full_width',
-              'type' => 'true_false',
-              'instructions' => '',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-              ),
-              'message' => '',
-              'default_value' => 0,
-              'ui' => 1,
-              'ui_on_text' => '',
-              'ui_off_text' => '',
-            ),
-            array(
-              'key' => 'kivvi_section_background_type',
-              'label' => 'Background',
-              'name' => 'kivvi_section_background_type',
-              'type' => 'radio',
-              'choices' => array(
-                'image' => 'Image',
-                'color' => 'Color',
-              ),
-              'layout' => 'horizontal',
-              'return_format' => 'value',
-              'default_value' => 'image',
 
-            ),
-            array(
-              'key' => 'kivvi_section_background',
-              'label' => 'Background Image',
-              'name' => 'kivvi_section_background',
-              'type' => 'image',
-              'instructions' => '',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-              ),
-              'return_format' => 'array',
-              'preview_size' => 'medium',
-              'library' => 'all',
-              'min_width' => 0,
-              'min_height' => 0,
-              'min_size' => 0,
-              'max_width' => 0,
-              'max_height' => 0,
-              'max_size' => 0,
-              'mime_types' => '',
-              'conditional_logic' => array(
-                array(
-                  array(
-                    'field' => 'kivvi_section_background_type',
-                    'operator' => '==',
-                    'value' => 'image',
-                  ),
-                ),
-              ),
-            ),
-            array(
-              'key' => 'kivvi_section_background_keep_image_mobile',
-              'label' => 'Keep Image on Mobile?',
-              'name' => 'kivvi_section_background_keep_image_mobile',
-              'type' => 'true_false',
-              'instructions' => '',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-              ),
-              'message' => '',
-              'default_value' => 0,
-              'ui' => 1,
-              'conditional_logic' => array(
-                array(
-                  array(
-                    'field' => 'kivvi_section_background_type',
-                    'operator' => '==',
-                    'value' => 'image',
-                  ),
-                ),
-              ),
-            ),
-            array(
-              'key' => 'kivvi_section_background_color',
-              'label' => 'Background Color',
-              'name' => 'kivvi_section_background_color',
-              'type' => 'color_picker',
-              'conditional_logic' => array(
-                array(
-                  array(
-                    'field' => 'kivvi_section_background_type',
-                    'operator' => '==',
-                    'value' => 'color',
-                  ),
-                ),
-              ),
-            ),
-            array(
-              'key' => 'kivvi_section_classes',
-              'label' => 'Section Classes',
-              'name' => 'kivvi_section_classes',
-              'type' => 'text',
-              'instructions' => '',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-            array(
-              'key' => 'kivvi_section_id',
-              'label' => 'Section ID',
-              'name' => 'kivvi_section_id',
-              'type' => 'text',
-              'instructions' => '',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
+
+
           ),
         ),
       ),
@@ -435,7 +444,22 @@ function kivvi_register_flex_page_group()
       'active' => true,
       'description' => '',
       'show_in_rest' => 0,
-    ));
+    );
+
+    // FIND kivvi_flex_sections in Fields to get key
+    $keys = array_column($group["fields"], "key");
+    $thiskey = 0;
+    foreach ($keys as $key => $val) {
+      if ($val == "kivvi_flex_sections") {
+        $thiskey = $key;
+      }
+    }
+    foreach ($kivvi_section_fields as $field) {
+      $group["fields"][$thiskey]["sub_fields"][] = $field;
+    }
+
+
+    acf_add_local_field_group($group);
 
   endif;
 }

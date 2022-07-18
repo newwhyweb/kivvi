@@ -45,8 +45,11 @@ function kivvi_get_component_template($component, $thisComponentData, $print = t
 function kivvi_admin_opening_html($component, $args)
 {
     $hyphenated = str_replace("_", "-", $component);
+
     $classes = $hyphenated;
+
     $classes .= ' ' . $args[$component . "_admin"]["kivvi_component_classes"];
+
     if ($args["wrapperclass"]) {
         $classes .= ' ' . $args["wrapperclass"];
     }
