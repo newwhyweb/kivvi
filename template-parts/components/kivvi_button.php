@@ -1,4 +1,5 @@
 <?php
+
 extract($args);
 
 $buttonText = $args['kivvi_button_text'];
