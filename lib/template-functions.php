@@ -72,7 +72,6 @@ function kivvi_get_header($args)
     if (!$args["kivvi_component"]) {
         return;
     }
-    // kivvi_pre($args);
     $component = $args["kivvi_component"];
     $admin = $args[$component . '_admin'];
     $html = '';

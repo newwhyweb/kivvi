@@ -14,3 +14,35 @@
         }
     }
 }
+
+.kivvi-blogroll {
+    text-align: left;
+    margin-bottom: 2rem;
+    h2,
+    h3 {
+        text-align: center;
+    }
+    h3 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 1.3;
+        margin: 10px 0;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    img {
+        height: 300px;
+        background: white;
+        object-fit: contain;
+        object-position: center;
+        &.fill {
+            object-fit: cover;
+            object-position: top center;
+        }
+    }
+}

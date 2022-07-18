@@ -18,7 +18,6 @@ class kivviFlexSection
         $section = $this->section;
         $components = $section['kivvi_' . $this->type . '_components'];
 
-        kivvi_pre($section);
         $componentStylesArray = array();
         foreach ($components as $component) {
             if ($component["acf_fc_layout"]) {

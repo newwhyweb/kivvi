@@ -201,3 +201,9 @@ a #nav-icon.open span {
         }
     }
 }
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

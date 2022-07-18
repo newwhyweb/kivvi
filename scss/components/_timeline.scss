@@ -1,62 +1,3 @@
-.page-about {
-    background: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/green.jpeg");
-    .imgwrapper {
-        display: inline-block;
-        max-height: 300px;
-        overflow: hidden;
-    }
-    img {
-        width: 100%;
-        object-fit: cover;
-        object-position: top center;
-        transition: transform 0.3s;
-        max-height: 300px;
-        &:not(.modalimg):hover {
-            transform: scale(1.1);
-        }
-    }
-}
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-.team-title {
-    color: var(--kh-color-orange);
-}
-
-.kivvi-blogroll {
-    text-align: left;
-    margin-bottom: 2rem;
-    h2,
-    h3 {
-        text-align: center;
-    }
-    h3 {
-        font-size: 24px;
-    }
-    p {
-        font-size: 16px;
-        line-height: 1.3;
-        margin: 10px 0;
-    }
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    img {
-        height: 300px;
-        background: white;
-        object-fit: contain;
-        object-position: center;
-        &.fill {
-            object-fit: cover;
-            object-position: top center;
-        }
-    }
-}
-
 .timeline {
     max-width: 800px;
     margin: auto;
@@ -78,13 +19,15 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    background-image: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/circle.png");
+    background-image: url("/wp-content/themes/kivvi/images/circle.png");
     background-repeat: no-repeat;
     z-index: 100;
     pointer-events: none;
+
+    opacity: 1;
 }
 .timeline li:after {
-    background-image: url("https://ncsamericadev.wpengine.com/wp-content/themes/ncs-theme/images/borderline.png");
+    background-image: url("/wp-content/themes/kivvi/images/borderline.png");
     background-size: 1px calc(100% - 27px);
     background-repeat: no-repeat;
     content: "";
@@ -98,6 +41,9 @@
     transition: all 2s;
     max-height: 0;
     opacity: 0;
+
+    opacity: 1;
+    max-height: 1000px;
 }
 .timeline li:last-of-type:after {
     background: none;
